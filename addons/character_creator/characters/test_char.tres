@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="CharacterContainer" format=3 uid="uid://br5dx8q5xqwir"]
+
+[ext_resource type="SpriteFrames" uid="uid://d3to0hmgj580a" path="res://addons/character_creator/portraits/example_portraits.tres" id="1_c427k"]
+[ext_resource type="Script" uid="uid://ki7ie1vxrhxy" path="res://addons/character_creator/character_container.gd" id="1_l2gto"]
+
+[resource]
+script = ExtResource("1_l2gto")
+portraits = ExtResource("1_c427k")
+display_name = "Hero"
+ref_name = "hero"
+display_color = Color(1, 0.5254902, 1, 1)
+metadata/_custom_type_script = "uid://ki7ie1vxrhxy"

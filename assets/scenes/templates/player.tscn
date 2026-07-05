@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://bdwxh5lad6at2"]
+
+[ext_resource type="Script" uid="uid://cnfxxcrmvhma2" path="res://assets/scenes/templates/player.gd" id="1_pp8k8"]
+[ext_resource type="SpriteFrames" uid="uid://doqblk0s0bajh" path="res://assets/resources/spriteframes/player_sf.tres" id="2_dklma"]
+[ext_resource type="Shape2D" uid="uid://c4jpwuclv1tyr" path="res://assets/resources/character_coll.tres" id="3_7byp2"]
+[ext_resource type="Texture2D" uid="uid://c25mjmle2pvd" path="res://assets/sprites/tiny_shadow.png" id="3_dklma"]
+[ext_resource type="AudioStream" uid="uid://bfm47ltu00r4u" path="res://assets/audio/sfx/res/slash.tres" id="5_7byp2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h8c8n"]
+size = Vector2(8, 8)
+
+[node name="Player" type="CharacterBody2D" unique_id=1861052517 node_paths=PackedStringArray("anim")]
+y_sort_enabled = true
+collision_mask = 137
+motion_mode = 1
+script = ExtResource("1_pp8k8")
+sprintspeed = 1.5
+max_cam_offset = 16.0
+cam_speed = 0.6
+max_interaction_range = 8.0
+move_speed = 75.0
+anim = NodePath("CSprite")
+lastdir = Vector2(0, -1)
+metadata/_edit_group_ = true
+
+[node name="CSprite" type="AnimatedSprite2D" parent="." unique_id=1330160743]
+sprite_frames = ExtResource("2_dklma")
+animation = &"atk_up"
+autoplay = "idle_down"
+offset = Vector2(0, -4)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2104374032]
+shape = ExtResource("3_7byp2")
+
+[node name="CameraPivot" type="Node2D" parent="." unique_id=1297058176]
+
+[node name="InteractionCast" type="ShapeCast2D" parent="." unique_id=680699551]
+shape = SubResource("RectangleShape2D_h8c8n")
+target_position = Vector2(0, 8)
+max_results = 1
+collision_mask = 8
+
+[node name="Shadow" type="Sprite2D" parent="." unique_id=303440709]
+z_index = -1
+texture = ExtResource("3_dklma")
+
+[node name="Slash" type="AudioStreamPlayer2D" parent="." unique_id=1060257230]
+stream = ExtResource("5_7byp2")
+bus = &"SFX"

@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://c8m70ejvv2mx6"]
+
+[ext_resource type="Script" uid="uid://c4vrjmj4r7j4r" path="res://assets/scenes/system/audio_manager.gd" id="1_eleqn"]
+[ext_resource type="AudioStream" uid="uid://dgnbgpl1xuyrw" path="res://assets/audio/sfx/accept.wav" id="2_e0ajw"]
+[ext_resource type="AudioStream" uid="uid://dua7e60slxprt" path="res://assets/audio/sfx/back.wav" id="3_hgx21"]
+[ext_resource type="AudioStream" uid="uid://dtt83gqyjiadb" path="res://assets/audio/sfx/res/select.tres" id="4_e0ajw"]
+
+[node name="AudioManager" type="Node" unique_id=2050948673]
+process_mode = 3
+script = ExtResource("1_eleqn")
+global_ui_accept_sound = ExtResource("2_e0ajw")
+global_ui_cancel_sound = ExtResource("3_hgx21")
+global_ui_select_sound = ExtResource("4_e0ajw")
+
+[node name="MusicLayer1" type="AudioStreamPlayer" parent="." unique_id=725438879]
+bus = &"Music"
+
+[node name="MusicLayer2" type="AudioStreamPlayer" parent="." unique_id=552263599]
+bus = &"Music"
+
+[node name="HudSFX" type="AudioStreamPlayer" parent="." unique_id=1337659335]
+bus = &"SFX"
+
+[node name="AtmoPlayer" type="AudioStreamPlayer" parent="." unique_id=758581207]
+bus = &"Atmo"

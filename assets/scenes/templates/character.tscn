@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://cc6tyas273oia"]
+
+[ext_resource type="Script" uid="uid://k0e85uar668u" path="res://character.gd" id="1_b78b0"]
+[ext_resource type="Texture2D" uid="uid://bjrh2qwpy2s6d" path="res://assets/sprites/char_template.png" id="2_2dmqv"]
+[ext_resource type="Texture2D" uid="uid://dl3tir3wtkxct" path="res://assets/sprites/placeholder/shadow.png" id="3_2dmqv"]
+[ext_resource type="Shape2D" uid="uid://c4jpwuclv1tyr" path="res://assets/resources/character_coll.tres" id="3_8bh6m"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8bh6m"]
+atlas = ExtResource("2_2dmqv")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q5853"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8bh6m")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Character" type="CharacterBody2D" unique_id=109607271 node_paths=PackedStringArray("anim")]
+motion_mode = 1
+script = ExtResource("1_b78b0")
+anim = NodePath("CSprite")
+
+[node name="CSprite" type="AnimatedSprite2D" parent="." unique_id=2076724140]
+sprite_frames = SubResource("SpriteFrames_q5853")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1558998834]
+shape = ExtResource("3_8bh6m")
+
+[node name="Shadow" type="Sprite2D" parent="." unique_id=556732647]
+z_index = -1
+texture = ExtResource("3_2dmqv")
+offset = Vector2(0, 8)

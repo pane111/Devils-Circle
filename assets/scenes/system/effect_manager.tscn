@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://conpnhpvwrt22"]
+
+[ext_resource type="Script" uid="uid://bppe0vm3wpuwl" path="res://assets/scenes/system/effect_manager.gd" id="1_7xqsk"]
+
+[node name="EffectManager" type="Node" unique_id=727133703]
+script = ExtResource("1_7xqsk")
+
+[node name="ScreenEffects" type="CanvasLayer" parent="." unique_id=1715534403]
+
+[node name="WorldEffects" type="Node2D" parent="." unique_id=770996499]

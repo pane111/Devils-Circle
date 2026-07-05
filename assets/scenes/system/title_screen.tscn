@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://csqyyca6875fq"]
+
+[ext_resource type="Script" uid="uid://c3aavisk576al" path="res://assets/scenes/system/title_screen.gd" id="1_bivv5"]
+[ext_resource type="AudioStream" uid="uid://ddnlg6e2moqrp" path="res://assets/audio/music/Theme of black blade.ogg" id="2_d8qri"]
+[ext_resource type="Theme" uid="uid://0u0xtbmu23kn" path="res://assets/resources/standard_theme.tres" id="3_d8qri"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8rs7a"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="TitleScreen" type="Node" unique_id=2143059936]
+script = ExtResource("1_bivv5")
+starter_scene = "uid://hjmmpw48omox"
+title_music = ExtResource("2_d8qri")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1909536281]
+
+[node name="Panel" type="Panel" parent="CanvasLayer" unique_id=1562855596]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_8rs7a")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Panel" unique_id=899985788]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -112.0
+offset_top = -36.0
+offset_right = 112.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Panel/VBoxContainer" unique_id=1594916316]
+layout_mode = 2
+bbcode_enabled = true
+text = "DEVIL'S CIRCLE"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="PlayBtn" type="Button" parent="CanvasLayer/Panel/VBoxContainer" unique_id=91843066]
+custom_maximum_size = Vector2(128, 12)
+layout_mode = 2
+focus_neighbor_top = NodePath("../QuitBtn")
+focus_neighbor_bottom = NodePath("../SettingsBtn")
+theme = ExtResource("3_d8qri")
+text = "Start Game"
+alignment = 0
+
+[node name="SettingsBtn" type="Button" parent="CanvasLayer/Panel/VBoxContainer" unique_id=1176011271]
+custom_maximum_size = Vector2(128, -1)
+layout_mode = 2
+focus_neighbor_top = NodePath("../PlayBtn")
+focus_neighbor_bottom = NodePath("../QuitBtn")
+text = "Settings"
+alignment = 0
+
+[node name="QuitBtn" type="Button" parent="CanvasLayer/Panel/VBoxContainer" unique_id=87936730]
+custom_maximum_size = Vector2(128, -1)
+layout_mode = 2
+focus_neighbor_top = NodePath("../SettingsBtn")
+focus_neighbor_bottom = NodePath("../PlayBtn")
+text = "Quit"
+alignment = 0
+
+[connection signal="pressed" from="CanvasLayer/Panel/VBoxContainer/PlayBtn" to="." method="_on_play_btn_pressed"]
+[connection signal="pressed" from="CanvasLayer/Panel/VBoxContainer/SettingsBtn" to="." method="_on_settings_btn_pressed"]
+[connection signal="pressed" from="CanvasLayer/Panel/VBoxContainer/QuitBtn" to="." method="_on_quit_btn_pressed"]

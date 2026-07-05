@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://babbltks7fiea"]
+
+[ext_resource type="Script" uid="uid://bdkl73nf2dt5h" path="res://assets/scenes/templates/text_effect.gd" id="1_rg3ab"]
+
+[node name="TextEffect" type="Node2D" unique_id=820228031]
+script = ExtResource("1_rg3ab")
+
+[node name="Label" type="RichTextLabel" parent="." unique_id=1632616135]
+offset_left = -54.5
+offset_top = -20.0
+offset_right = 54.5
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "THIS IS A TEXT 12345"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true

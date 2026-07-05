@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dguxotuowv70k"]
+
+[ext_resource type="Script" uid="uid://35gtow4ol6g6" path="res://addons/character_creator/character_database.gd" id="1_wcsi8"]
+
+[node name="CharacterDatabase" type="Node" unique_id=862961036]
+script = ExtResource("1_wcsi8")

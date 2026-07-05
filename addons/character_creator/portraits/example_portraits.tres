@@ -1,0 +1,45 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://d3to0hmgj580a"]
+
+[ext_resource type="Texture2D" uid="uid://qrnm1dwfwq5t" path="res://addons/character_creator/assets/examples/character_portraits.png" id="1_d12d8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ukr2"]
+atlas = ExtResource("1_d12d8")
+region = Rect2(640, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xlh4j"]
+atlas = ExtResource("1_d12d8")
+region = Rect2(704, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bkjwq"]
+atlas = ExtResource("1_d12d8")
+region = Rect2(512, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x2gqa"]
+atlas = ExtResource("1_d12d8")
+region = Rect2(576, 0, 64, 64)
+
+[resource]
+resource_name = "Example"
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ukr2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xlh4j")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bkjwq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x2gqa")
+}],
+"loop": true,
+"name": &"upset",
+"speed": 8.0
+}]

@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://buhox3t8k3dki"]
+
+[ext_resource type="Script" uid="uid://b0qnqla4jl4xp" path="res://assets/scenes/system/game_manager.gd" id="1_6cdqa"]
+[ext_resource type="PackedScene" uid="uid://bdwxh5lad6at2" path="res://assets/scenes/templates/player.tscn" id="2_fwxlo"]
+
+[node name="GameManager" type="Node" unique_id=61149644]
+process_mode = 3
+script = ExtResource("1_6cdqa")
+
+[node name="Player" parent="." unique_id=1861052517 instance=ExtResource("2_fwxlo")]
+
+[node name="MainCam" type="Camera2D" parent="." unique_id=443480863]
+process_mode = 3

@@ -1,0 +1,331 @@
+[gd_scene format=3 uid="uid://frbal7ust43y"]
+
+[ext_resource type="Script" uid="uid://q3juos8gmc5w" path="res://assets/scenes/system/hud_manager.gd" id="1_jo5aa"]
+[ext_resource type="Script" uid="uid://0dwelbdhueoa" path="res://assets/scenes/system/vol_slider.gd" id="2_aputa"]
+[ext_resource type="Script" uid="uid://b7untvdssjt1e" path="res://assets/scenes/system/menu.gd" id="2_c7f67"]
+[ext_resource type="Script" uid="uid://cva6ijfpr4noh" path="res://assets/scenes/system/pause_menu.gd" id="3_xd8oc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jo5aa"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_aputa"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BlackOverlay:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_xd8oc"]
+resource_name = "fade_black_out"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BlackOverlay:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_c7f67"]
+resource_name = "fade_to_black"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BlackOverlay:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_byvy3"]
+_data = {
+&"RESET": SubResource("Animation_aputa"),
+&"fade_black_out": SubResource("Animation_xd8oc"),
+&"fade_to_black": SubResource("Animation_c7f67")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aputa"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eldk4"]
+content_margin_left = 16.0
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l3403"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="HUDManager" type="Node" unique_id=726277265]
+process_mode = 3
+script = ExtResource("1_jo5aa")
+fade_from_black_at_launch = true
+
+[node name="Overlays" type="CanvasLayer" parent="." unique_id=366733486]
+layer = 5
+
+[node name="BlackOverlay" type="Panel" parent="Overlays" unique_id=1468911948]
+self_modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_jo5aa")
+metadata/_edit_use_anchors_ = true
+
+[node name="FadeBlackAnim" type="AnimationPlayer" parent="Overlays" unique_id=1554949782]
+libraries/ = SubResource("AnimationLibrary_byvy3")
+
+[node name="PopupMenus" type="CanvasLayer" parent="." unique_id=1033462957]
+layer = 4
+
+[node name="SettingsMenu" type="Panel" parent="PopupMenus" unique_id=2081625694]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_aputa")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="PopupMenus/SettingsMenu" unique_id=1555542486]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 10.0
+offset_right = 82.0
+offset_bottom = 33.0
+text = "Settings"
+
+[node name="Sliders" type="VBoxContainer" parent="PopupMenus/SettingsMenu" unique_id=1520710668]
+custom_maximum_size = Vector2(390, -1)
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -40.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 16
+
+[node name="Slider" type="MarginContainer" parent="PopupMenus/SettingsMenu/Sliders" unique_id=619990765 node_paths=PackedStringArray("lb", "slider")]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+script = ExtResource("2_aputa")
+lb = NodePath("HBoxContainer/MasterLabel")
+slider = NodePath("HBoxContainer/MasterSlider")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PopupMenus/SettingsMenu/Sliders/Slider" unique_id=352296833]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+alignment = 1
+
+[node name="MasterLabel" type="Label" parent="PopupMenus/SettingsMenu/Sliders/Slider/HBoxContainer" unique_id=937653555]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "Master Volume 100%"
+vertical_alignment = 1
+
+[node name="MasterSlider" type="HSlider" parent="PopupMenus/SettingsMenu/Sliders/Slider/HBoxContainer" unique_id=1848050330]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+focus_neighbor_top = NodePath("../../../../CloseSettings")
+focus_neighbor_bottom = NodePath("../../../Slider2/HBoxContainer/MusicSlider")
+rounded = true
+
+[node name="Slider2" type="MarginContainer" parent="PopupMenus/SettingsMenu/Sliders" unique_id=1171869353 node_paths=PackedStringArray("lb", "slider")]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+script = ExtResource("2_aputa")
+lb = NodePath("HBoxContainer/MusicLabel")
+slider = NodePath("HBoxContainer/MusicSlider")
+default_label = "Music Volume"
+bus = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PopupMenus/SettingsMenu/Sliders/Slider2" unique_id=1420552614]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+alignment = 1
+
+[node name="MusicLabel" type="Label" parent="PopupMenus/SettingsMenu/Sliders/Slider2/HBoxContainer" unique_id=1634660745]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "Music Volume 100%"
+vertical_alignment = 1
+
+[node name="MusicSlider" type="HSlider" parent="PopupMenus/SettingsMenu/Sliders/Slider2/HBoxContainer" unique_id=1133075274]
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+focus_neighbor_top = NodePath("../../../Slider/HBoxContainer/MasterSlider")
+focus_neighbor_bottom = NodePath("../../../Slider3/HBoxContainer/SFXSlider")
+rounded = true
+
+[node name="Slider3" type="MarginContainer" parent="PopupMenus/SettingsMenu/Sliders" unique_id=952998783 node_paths=PackedStringArray("lb", "slider")]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+script = ExtResource("2_aputa")
+lb = NodePath("HBoxContainer/SFXLabel")
+slider = NodePath("HBoxContainer/SFXSlider")
+default_label = "SFX Volume"
+bus = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PopupMenus/SettingsMenu/Sliders/Slider3" unique_id=1708490481]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+alignment = 1
+
+[node name="SFXLabel" type="Label" parent="PopupMenus/SettingsMenu/Sliders/Slider3/HBoxContainer" unique_id=1229420943]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "SFX Volume 100%"
+vertical_alignment = 1
+
+[node name="SFXSlider" type="HSlider" parent="PopupMenus/SettingsMenu/Sliders/Slider3/HBoxContainer" unique_id=230468293]
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+focus_neighbor_top = NodePath("../../../Slider2/HBoxContainer/MusicSlider")
+focus_neighbor_bottom = NodePath("../../../../CloseSettings")
+rounded = true
+
+[node name="CloseSettings" type="Button" parent="PopupMenus/SettingsMenu" unique_id=932754937]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.73
+anchor_top = 0.9125
+anchor_right = 0.99
+anchor_bottom = 0.9791667
+grow_horizontal = 0
+grow_vertical = 0
+text = "Save & Close"
+metadata/_edit_use_anchors_ = true
+
+[node name="PauseMenu" type="Control" parent="PopupMenus" unique_id=141269218]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_xd8oc")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PopupMenus/PauseMenu" unique_id=1103575296]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+alignment = 2
+
+[node name="SystemMenu" type="PanelContainer" parent="PopupMenus/PauseMenu/VBoxContainer" unique_id=1661136205]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_eldk4")
+script = ExtResource("2_c7f67")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PopupMenus/PauseMenu/VBoxContainer/SystemMenu" unique_id=1824140995]
+layout_mode = 2
+
+[node name="SettingsBtn" type="Button" parent="PopupMenus/PauseMenu/VBoxContainer/SystemMenu/VBoxContainer" unique_id=1356552237]
+unique_name_in_owner = true
+layout_mode = 2
+focus_neighbor_top = NodePath("../CloseSysBtn")
+text = "Settings"
+alignment = 0
+
+[node name="TitleBtn" type="Button" parent="PopupMenus/PauseMenu/VBoxContainer/SystemMenu/VBoxContainer" unique_id=891522004]
+layout_mode = 2
+text = "Return to Title"
+alignment = 0
+
+[node name="CloseSysBtn" type="Button" parent="PopupMenus/PauseMenu/VBoxContainer/SystemMenu/VBoxContainer" unique_id=1399220266]
+unique_name_in_owner = true
+layout_mode = 2
+focus_neighbor_top = NodePath("../TitleBtn")
+focus_neighbor_bottom = NodePath("../SettingsBtn")
+focus_next = NodePath("../SettingsBtn")
+focus_previous = NodePath("../TitleBtn")
+text = "Close"
+alignment = 0
+
+[node name="MenuPanel" type="PanelContainer" parent="PopupMenus/PauseMenu/VBoxContainer" unique_id=1065160027]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_l3403")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PopupMenus/PauseMenu/VBoxContainer/MenuPanel" unique_id=749824171]
+layout_mode = 2
+theme_override_constants/separation = 18
+alignment = 1
+
+[node name="InvBtn" type="Button" parent="PopupMenus/PauseMenu/VBoxContainer/MenuPanel/HBoxContainer" unique_id=1388542121]
+unique_name_in_owner = true
+layout_mode = 2
+focus_neighbor_left = NodePath("../CloseBtn")
+text = "Inventory"
+
+[node name="StatusBtn" type="Button" parent="PopupMenus/PauseMenu/VBoxContainer/MenuPanel/HBoxContainer" unique_id=1375334196]
+layout_mode = 2
+text = "Status"
+
+[node name="SkillsBtn" type="Button" parent="PopupMenus/PauseMenu/VBoxContainer/MenuPanel/HBoxContainer" unique_id=1953129188]
+layout_mode = 2
+text = "Skills"
+
+[node name="SystemBtn" type="Button" parent="PopupMenus/PauseMenu/VBoxContainer/MenuPanel/HBoxContainer" unique_id=905720522]
+unique_name_in_owner = true
+layout_mode = 2
+text = "System"
+
+[node name="CloseBtn" type="Button" parent="PopupMenus/PauseMenu/VBoxContainer/MenuPanel/HBoxContainer" unique_id=807361814]
+unique_name_in_owner = true
+layout_mode = 2
+focus_neighbor_right = NodePath("../InvBtn")
+text = "Close"
+
+[node name="MainHUD" type="CanvasLayer" parent="." unique_id=1779766172]
+
+[connection signal="value_changed" from="PopupMenus/SettingsMenu/Sliders/Slider/HBoxContainer/MasterSlider" to="PopupMenus/SettingsMenu/Sliders/Slider" method="_on_slider_value_changed"]
+[connection signal="value_changed" from="PopupMenus/SettingsMenu/Sliders/Slider2/HBoxContainer/MusicSlider" to="PopupMenus/SettingsMenu/Sliders/Slider2" method="_on_slider_value_changed"]
+[connection signal="value_changed" from="PopupMenus/SettingsMenu/Sliders/Slider3/HBoxContainer/SFXSlider" to="PopupMenus/SettingsMenu/Sliders/Slider3" method="_on_slider_value_changed"]
+[connection signal="pressed" from="PopupMenus/SettingsMenu/CloseSettings" to="." method="_on_close_settings_pressed"]
+[connection signal="pressed" from="PopupMenus/PauseMenu/VBoxContainer/SystemMenu/VBoxContainer/CloseSysBtn" to="PopupMenus/PauseMenu" method="_on_close_sys_btn_pressed"]
+[connection signal="pressed" from="PopupMenus/PauseMenu/VBoxContainer/MenuPanel/HBoxContainer/SystemBtn" to="PopupMenus/PauseMenu" method="_on_system_btn_pressed"]
+[connection signal="pressed" from="PopupMenus/PauseMenu/VBoxContainer/MenuPanel/HBoxContainer/CloseBtn" to="PopupMenus/PauseMenu" method="_on_close_btn_pressed"]

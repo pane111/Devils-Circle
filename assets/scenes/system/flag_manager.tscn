@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://7eur0ooeorwt"]
+
+[ext_resource type="Script" uid="uid://cgmeniq5klsgf" path="res://assets/scenes/system/flag_manager.gd" id="1_yy2vb"]
+
+[node name="FlagManager" type="Node" unique_id=1901601235]
+script = ExtResource("1_yy2vb")
