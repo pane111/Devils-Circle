@@ -10,8 +10,17 @@ Let me know if you do!
 => END
 
 ~ weirdo
-That man in the south -
-His words confuse me.
-I think he is not okay -
-But what do I know...
+if FlagManager.check_flag("weirdo",0):
+	That man in the south -
+	His words confuse me.
+	I think he is not okay -
+	But what do I know...
+	do FlagManager.set_flag("weirdo",1)
+else:
+	What? -
+	I have nothing more for you.
+=> END
+
+~ flametut
+At the FLAME SHRINE, you can record your progress.
 => END

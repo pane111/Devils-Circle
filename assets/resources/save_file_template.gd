@@ -3,3 +3,4 @@ extends Resource
 
 
 var flags: Dictionary[String,int]
+var lastscene: String

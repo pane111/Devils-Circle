@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://dghfnlqglt42t"]
+
+[ext_resource type="Texture2D" uid="uid://dkko8ew0sg4l0" path="res://assets/sprites/flameshrine.png" id="1_8syv5"]
+[ext_resource type="Script" uid="uid://bxuoabogby1b5" path="res://assets/scenes/misc/flame_shrine.gd" id="1_a1kra"]
+[ext_resource type="AudioStream" uid="uid://dgnbgpl1xuyrw" path="res://assets/audio/sfx/accept.wav" id="3_xdyjf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h8c8n"]
+size = Vector2(16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a1kra"]
+atlas = ExtResource("1_8syv5")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xdyjf"]
+atlas = ExtResource("1_8syv5")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1rrfw"]
+atlas = ExtResource("1_8syv5")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j1ecf"]
+atlas = ExtResource("1_8syv5")
+region = Rect2(48, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h8c8n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a1kra")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xdyjf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1rrfw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j1ecf")
+}],
+"loop": 2,
+"name": &"default",
+"speed": 8.0
+}]
+
+[node name="FlameShrine" type="StaticBody2D" unique_id=633095752 groups=["interactable"]]
+y_sort_enabled = true
+collision_layer = 8
+script = ExtResource("1_a1kra")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=917942158]
+shape = SubResource("RectangleShape2D_h8c8n")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1390872715]
+sprite_frames = SubResource("SpriteFrames_h8c8n")
+autoplay = "default"
+frame_progress = 0.22519962
+offset = Vector2(0, -8)
+
+[node name="SaveSound" type="AudioStreamPlayer2D" parent="." unique_id=2024771030]
+stream = ExtResource("3_xdyjf")
+bus = &"SFX"
+
+[node name="SpawnPoint" type="Node2D" parent="." unique_id=1075293916]
+position = Vector2(0, 16)

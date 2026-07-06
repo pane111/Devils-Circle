@@ -11,6 +11,7 @@ func _ready() -> void:
 	$CanvasLayer/Panel/VBoxContainer/PlayBtn.grab_focus()
 
 func _on_play_btn_pressed() -> void:
+	FlagManager.reset_all_flags()
 	GameManager.load_new_scene(starter_scene)
 
 
@@ -23,3 +24,7 @@ func _on_settings_btn_pressed() -> void:
 
 func _on_quit_btn_pressed() -> void:
 	get_tree().quit()
+
+
+func _on_load_btn_pressed() -> void:
+	GameManager.load_data(0)
