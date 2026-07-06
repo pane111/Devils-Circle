@@ -11,7 +11,7 @@ func _ready() -> void:
 	close_all_popups()
 
 func _unhandled_input(event: InputEvent) -> void:
-	if Input.is_action_just_pressed("menu"):
+	if Input.is_action_just_pressed("menu") and GameManager.player.process_mode!=ProcessMode.PROCESS_MODE_DISABLED:
 		set_pause(!get_tree().paused)
 		if %SettingsMenu.visible:
 			set_settings(false)

@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://0dwelbdhueoa" path="res://assets/scenes/system/vol_slider.gd" id="2_aputa"]
 [ext_resource type="Script" uid="uid://b7untvdssjt1e" path="res://assets/scenes/system/menu.gd" id="2_c7f67"]
 [ext_resource type="Script" uid="uid://cva6ijfpr4noh" path="res://assets/scenes/system/pause_menu.gd" id="3_xd8oc"]
+[ext_resource type="Script" uid="uid://co673ijg7ufot" path="res://addons/extra_nodes/sound_button.gd" id="4_byvy3"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jo5aa"]
 bg_color = Color(0, 0, 0, 1)
@@ -134,19 +135,23 @@ exit_method = "_on_close_sys_btn_pressed"
 [node name="VBoxContainer" type="VBoxContainer" parent="PopupMenus/PauseMenu/VBoxContainer/SystemMenu" unique_id=1824140995]
 layout_mode = 2
 
-[node name="SettingsBtn" type="Button" parent="PopupMenus/PauseMenu/VBoxContainer/SystemMenu/VBoxContainer" unique_id=1356552237]
+[node name="SettingsBtn" type="Button" parent="PopupMenus/PauseMenu/VBoxContainer/SystemMenu/VBoxContainer" unique_id=222276389]
 unique_name_in_owner = true
 layout_mode = 2
 focus_neighbor_top = NodePath("../CloseSysBtn")
 text = "Settings"
 alignment = 0
+script = ExtResource("4_byvy3")
+metadata/_custom_type_script = "uid://co673ijg7ufot"
 
-[node name="TitleBtn" type="Button" parent="PopupMenus/PauseMenu/VBoxContainer/SystemMenu/VBoxContainer" unique_id=891522004]
+[node name="TitleBtn" type="Button" parent="PopupMenus/PauseMenu/VBoxContainer/SystemMenu/VBoxContainer" unique_id=681233214]
 layout_mode = 2
 text = "Return to Title"
 alignment = 0
+script = ExtResource("4_byvy3")
+metadata/_custom_type_script = "uid://co673ijg7ufot"
 
-[node name="CloseSysBtn" type="Button" parent="PopupMenus/PauseMenu/VBoxContainer/SystemMenu/VBoxContainer" unique_id=1399220266]
+[node name="CloseSysBtn" type="Button" parent="PopupMenus/PauseMenu/VBoxContainer/SystemMenu/VBoxContainer" unique_id=936179636]
 unique_name_in_owner = true
 layout_mode = 2
 focus_neighbor_top = NodePath("../TitleBtn")
@@ -155,6 +160,8 @@ focus_next = NodePath("../SettingsBtn")
 focus_previous = NodePath("../TitleBtn")
 text = "Close"
 alignment = 0
+script = ExtResource("4_byvy3")
+metadata/_custom_type_script = "uid://co673ijg7ufot"
 
 [node name="MenuPanel" type="PanelContainer" parent="PopupMenus/PauseMenu/VBoxContainer" unique_id=1065160027]
 layout_mode = 2
@@ -165,30 +172,40 @@ layout_mode = 2
 theme_override_constants/separation = 18
 alignment = 1
 
-[node name="InvBtn" type="Button" parent="PopupMenus/PauseMenu/VBoxContainer/MenuPanel/HBoxContainer" unique_id=1388542121]
+[node name="InvBtn" type="Button" parent="PopupMenus/PauseMenu/VBoxContainer/MenuPanel/HBoxContainer" unique_id=75971961]
 unique_name_in_owner = true
 layout_mode = 2
 focus_neighbor_left = NodePath("../CloseBtn")
 text = "Inventory"
+script = ExtResource("4_byvy3")
+metadata/_custom_type_script = "uid://co673ijg7ufot"
 
-[node name="StatusBtn" type="Button" parent="PopupMenus/PauseMenu/VBoxContainer/MenuPanel/HBoxContainer" unique_id=1375334196]
+[node name="StatusBtn" type="Button" parent="PopupMenus/PauseMenu/VBoxContainer/MenuPanel/HBoxContainer" unique_id=164035632]
 layout_mode = 2
 text = "Status"
+script = ExtResource("4_byvy3")
+metadata/_custom_type_script = "uid://co673ijg7ufot"
 
-[node name="SkillsBtn" type="Button" parent="PopupMenus/PauseMenu/VBoxContainer/MenuPanel/HBoxContainer" unique_id=1953129188]
+[node name="SkillsBtn" type="Button" parent="PopupMenus/PauseMenu/VBoxContainer/MenuPanel/HBoxContainer" unique_id=1128262218]
 layout_mode = 2
 text = "Skills"
+script = ExtResource("4_byvy3")
+metadata/_custom_type_script = "uid://co673ijg7ufot"
 
-[node name="SystemBtn" type="Button" parent="PopupMenus/PauseMenu/VBoxContainer/MenuPanel/HBoxContainer" unique_id=905720522]
+[node name="SystemBtn" type="Button" parent="PopupMenus/PauseMenu/VBoxContainer/MenuPanel/HBoxContainer" unique_id=1716881845]
 unique_name_in_owner = true
 layout_mode = 2
 text = "System"
+script = ExtResource("4_byvy3")
+metadata/_custom_type_script = "uid://co673ijg7ufot"
 
-[node name="CloseBtn" type="Button" parent="PopupMenus/PauseMenu/VBoxContainer/MenuPanel/HBoxContainer" unique_id=807361814]
+[node name="CloseBtn" type="Button" parent="PopupMenus/PauseMenu/VBoxContainer/MenuPanel/HBoxContainer" unique_id=556684364]
 unique_name_in_owner = true
 layout_mode = 2
 focus_neighbor_right = NodePath("../InvBtn")
 text = "Close"
+script = ExtResource("4_byvy3")
+metadata/_custom_type_script = "uid://co673ijg7ufot"
 
 [node name="SettingsMenu" type="Panel" parent="PopupMenus" unique_id=2081625694]
 unique_name_in_owner = true
@@ -311,7 +328,7 @@ focus_neighbor_top = NodePath("../../../Slider2/HBoxContainer/MusicSlider")
 focus_neighbor_bottom = NodePath("../../../../CloseSettings")
 rounded = true
 
-[node name="CloseSettings" type="Button" parent="PopupMenus/SettingsMenu" unique_id=932754937]
+[node name="CloseSettings" type="Button" parent="PopupMenus/SettingsMenu" unique_id=856043743]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.73
@@ -321,6 +338,8 @@ anchor_bottom = 0.9791667
 grow_horizontal = 0
 grow_vertical = 0
 text = "Save & Close"
+script = ExtResource("4_byvy3")
+metadata/_custom_type_script = "uid://co673ijg7ufot"
 metadata/_edit_use_anchors_ = true
 
 [node name="MainHUD" type="CanvasLayer" parent="." unique_id=1779766172]

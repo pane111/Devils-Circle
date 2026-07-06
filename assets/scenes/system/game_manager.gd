@@ -52,6 +52,7 @@ func load_new_scene(scene_path,door=null,transition=true,has_player=true):
 	else:
 		maincam.reparent(self)
 		maincam.position = Vector2.ZERO
+		player.process_mode = Node.PROCESS_MODE_DISABLED
 	is_loading_scene=false
 
 func save_config():

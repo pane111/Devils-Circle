@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://bmc2c4t8k7pen"]
+
+[ext_resource type="Texture2D" uid="uid://diqvxxbhut1cr" path="res://assets/sprites/door.png" id="1_4l0oi"]
+[ext_resource type="Script" uid="uid://deg3uv51yc0oe" path="res://assets/scenes/templates/door.gd" id="1_6qsxb"]
+[ext_resource type="AudioStream" uid="uid://cqt2vmw25g6tm" path="res://assets/audio/sfx/door.wav" id="3_rjabc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h8c8n"]
+size = Vector2(16, 16)
+
+[node name="Door" type="Area2D" unique_id=1779081613]
+collision_layer = 0
+script = ExtResource("1_6qsxb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=983638376]
+shape = SubResource("RectangleShape2D_h8c8n")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=242267656]
+texture = ExtResource("1_4l0oi")
+
+[node name="DoorSound" type="AudioStreamPlayer2D" parent="." unique_id=38364317]
+stream = ExtResource("3_rjabc")
+bus = &"SFX"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

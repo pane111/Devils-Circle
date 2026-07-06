@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://wip1cwppf1sk"]
+
+[ext_resource type="Script" uid="uid://co673ijg7ufot" path="res://addons/extra_nodes/sound_button.gd" id="1_vraor"]
+
+[node name="SoundButton" type="Button" unique_id=1189746822]
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("1_vraor")
+
+[connection signal="focus_entered" from="." to="." method="_on_focus_entered"]

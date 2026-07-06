@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://c3aavisk576al" path="res://assets/scenes/system/title_screen.gd" id="1_bivv5"]
 [ext_resource type="AudioStream" uid="uid://ddnlg6e2moqrp" path="res://assets/audio/music/Theme of black blade.ogg" id="2_d8qri"]
 [ext_resource type="Theme" uid="uid://0u0xtbmu23kn" path="res://assets/resources/standard_theme.tres" id="3_d8qri"]
+[ext_resource type="Script" uid="uid://co673ijg7ufot" path="res://addons/extra_nodes/sound_button.gd" id="4_33tec"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8rs7a"]
 bg_color = Color(0, 0, 0, 1)
@@ -44,7 +45,7 @@ fit_content = true
 scroll_active = false
 autowrap_mode = 0
 
-[node name="PlayBtn" type="Button" parent="CanvasLayer/Panel/VBoxContainer" unique_id=91843066]
+[node name="PlayBtn" type="Button" parent="CanvasLayer/Panel/VBoxContainer" unique_id=43217991]
 custom_maximum_size = Vector2(128, 12)
 layout_mode = 2
 focus_neighbor_top = NodePath("../QuitBtn")
@@ -52,22 +53,28 @@ focus_neighbor_bottom = NodePath("../SettingsBtn")
 theme = ExtResource("3_d8qri")
 text = "Start Game"
 alignment = 0
+script = ExtResource("4_33tec")
+metadata/_custom_type_script = "uid://co673ijg7ufot"
 
-[node name="SettingsBtn" type="Button" parent="CanvasLayer/Panel/VBoxContainer" unique_id=1176011271]
+[node name="SettingsBtn" type="Button" parent="CanvasLayer/Panel/VBoxContainer" unique_id=1474356890]
 custom_maximum_size = Vector2(128, -1)
 layout_mode = 2
 focus_neighbor_top = NodePath("../PlayBtn")
 focus_neighbor_bottom = NodePath("../QuitBtn")
 text = "Settings"
 alignment = 0
+script = ExtResource("4_33tec")
+metadata/_custom_type_script = "uid://co673ijg7ufot"
 
-[node name="QuitBtn" type="Button" parent="CanvasLayer/Panel/VBoxContainer" unique_id=87936730]
+[node name="QuitBtn" type="Button" parent="CanvasLayer/Panel/VBoxContainer" unique_id=1572107439]
 custom_maximum_size = Vector2(128, -1)
 layout_mode = 2
 focus_neighbor_top = NodePath("../SettingsBtn")
 focus_neighbor_bottom = NodePath("../PlayBtn")
 text = "Quit"
 alignment = 0
+script = ExtResource("4_33tec")
+metadata/_custom_type_script = "uid://co673ijg7ufot"
 
 [connection signal="pressed" from="CanvasLayer/Panel/VBoxContainer/PlayBtn" to="." method="_on_play_btn_pressed"]
 [connection signal="pressed" from="CanvasLayer/Panel/VBoxContainer/SettingsBtn" to="." method="_on_settings_btn_pressed"]
