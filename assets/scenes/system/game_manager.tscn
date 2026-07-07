@@ -2,12 +2,41 @@
 
 [ext_resource type="Script" uid="uid://b0qnqla4jl4xp" path="res://assets/scenes/system/game_manager.gd" id="1_6cdqa"]
 [ext_resource type="PackedScene" uid="uid://bdwxh5lad6at2" path="res://assets/scenes/templates/player.tscn" id="2_fwxlo"]
+[ext_resource type="Script" uid="uid://cnavc8pynh0tr" path="res://assets/scenes/system/follower_point.gd" id="3_k55o1"]
+[ext_resource type="Texture2D" uid="uid://diqvxxbhut1cr" path="res://assets/sprites/door.png" id="4_tugpy"]
+[ext_resource type="PackedScene" uid="uid://dme73vr3nday5" path="res://assets/scenes/followers/mage_follower.tscn" id="5_aakag"]
+[ext_resource type="PackedScene" uid="uid://8botaobgdsqb" path="res://assets/scenes/followers/o_follower.tscn" id="6_cft48"]
+[ext_resource type="PackedScene" uid="uid://bqjidym7ysnyp" path="res://assets/scenes/followers/s_follower.tscn" id="7_3pr6o"]
 
-[node name="GameManager" type="Node" unique_id=61149644]
+[node name="GameManager" type="Node" unique_id=61149644 node_paths=PackedStringArray("followers")]
 process_mode = 3
 script = ExtResource("1_6cdqa")
+followers = {
+"anne": NodePath("Mage"),
+"oscar": NodePath("Oscar"),
+"sybil": NodePath("Sybil")
+}
 
 [node name="Player" parent="." unique_id=1861052517 instance=ExtResource("2_fwxlo")]
 
 [node name="MainCam" type="Camera2D" parent="." unique_id=443480863]
 process_mode = 3
+
+[node name="FollowerPoint" type="Node2D" parent="." unique_id=1075354699 node_paths=PackedStringArray("player")]
+unique_name_in_owner = true
+script = ExtResource("3_k55o1")
+player = NodePath("../Player")
+
+[node name="Sprite2D" type="Sprite2D" parent="FollowerPoint" unique_id=583826569]
+visible = false
+texture = ExtResource("4_tugpy")
+
+[node name="Mage" parent="." unique_id=109607271 node_paths=PackedStringArray("target") instance=ExtResource("5_aakag")]
+target = NodePath("../FollowerPoint")
+move_speed = 75.0
+
+[node name="Oscar" parent="." unique_id=507081398 node_paths=PackedStringArray("target") instance=ExtResource("6_cft48")]
+target = NodePath("../FollowerPoint")
+
+[node name="Sybil" parent="." unique_id=955565065 node_paths=PackedStringArray("target") instance=ExtResource("7_3pr6o")]
+target = NodePath("../FollowerPoint")

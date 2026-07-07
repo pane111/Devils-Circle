@@ -2,15 +2,22 @@ extends "res://character.gd"
 @export var dialogue_start = "start"
 @export var dialogue_res: DialogueResource
 @export var animate_on_ready=true
+
+@export var req_flag: String
+@export var req_value = 1
 var player
 
 func _ready() -> void:
+	if !req_flag.is_empty() && !FlagManager.check_flag(req_flag,req_value):
+		queue_free()
+	
 	if can_move:
 		$RandomMoveTimer.start(randf_range(0.5,3.0))
 	else:
 		if animate_on_ready:
 			animate(lastdir,false,true)
-
+func remove():
+	queue_free()
 func on_interact():
 	player = GameManager.player
 	var dir=player.global_position-global_position

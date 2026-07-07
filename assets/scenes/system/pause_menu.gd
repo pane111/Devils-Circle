@@ -32,6 +32,8 @@ func _on_settings_btn_pressed() -> void:
 
 
 func _on_title_btn_pressed() -> void:
-	Input.action_press("menu")
+	close_all_submenus()
+	HudManager.close_all_popups()
+	get_tree().paused=false
 	FlagManager.reset_all_flags()
 	GameManager.load_new_scene("uid://csqyyca6875fq",null,true,false)

@@ -2,17 +2,28 @@ extends Node
 
 # The GameManager will handle the main game features.
 @onready var player = $Player
+@onready var fp = %FollowerPoint
 var cur_scene #This is the currently loaded scene. For example, the title screen or whatever level is currently active
 @onready var maincam = $MainCam
 var is_loading_scene=false
 var lscene=""
+var party_members: Dictionary[String,int]
+signal sprint_on
+signal sprint_off
+@export var followers: Dictionary[String,Node]
 func _ready() -> void:
 	load_config()
 	player.hide()
+	hide_followers()
 	player.process_mode=Node.PROCESS_MODE_DISABLED
 	await get_tree().process_frame
 	CutsceneManager.register_entity("player",player)
 
+func set_sprint(val):
+	if val:
+		sprint_on.emit()
+	else:
+		sprint_off.emit()
 
 func load_new_scene(scene_path,door=null,transition=true,has_player=true):
 	if is_loading_scene: return
@@ -22,6 +33,7 @@ func load_new_scene(scene_path,door=null,transition=true,has_player=true):
 		HudManager.fade_to_black()
 		await HudManager.fade_midpoint
 	player.reparent(self)
+	load_pms()
 	cur_scene.queue_free()
 	var new_scene = load(scene_path).instantiate()
 	add_sibling(new_scene)
@@ -33,9 +45,11 @@ func load_new_scene(scene_path,door=null,transition=true,has_player=true):
 		lscene = scene_path
 		player.process_mode = Node.PROCESS_MODE_PAUSABLE
 		player.show()
+		
 		maincam.position_smoothing_enabled=false
 		maincam.reparent(player.cam_pivot)
 		player.reparent(cur_scene)
+		
 		player.cam_pivot.position = Vector2.ZERO
 		maincam.position=Vector2.ZERO
 		
@@ -46,6 +60,8 @@ func load_new_scene(scene_path,door=null,transition=true,has_player=true):
 		if player != null:
 			if cur_scene.doors[door] != null:
 				player.global_position = cur_scene.doors[door].global_position
+				fp.global_position = player.global_position + Vector2.UP
+				load_pms()
 			else:
 				printerr("Door "+door+ " was null!")
 		if transition:
@@ -55,6 +71,7 @@ func load_new_scene(scene_path,door=null,transition=true,has_player=true):
 		maincam.reparent(self)
 		maincam.position = Vector2.ZERO
 		player.process_mode = Node.PROCESS_MODE_DISABLED
+		hide_followers()
 	is_loading_scene=false
 
 func save_config():
@@ -82,11 +99,32 @@ func load_config():
 		AudioServer.set_bus_volume_linear(2,config.get_value(sec,"sfx_volume"))
 	print_debug("Loaded configurations")
 
+func add_pm(pname):
+	party_members[pname]=1
+	load_pms()
+
+func load_pms():
+	hide_followers()
+	fp.reparent(player.get_parent())
+	
+	for p in party_members:
+		if party_members[p] == 1:
+			followers[p].set_active(true)
+			followers[p].reparent(player.get_parent())
+			followers[p].reset_pos()
+
+func reset_pms():
+	party_members.clear()
+func hide_followers():
+	for f in followers:
+		followers[f].set_active(false)
+
 func save_data(file_num: int):
 	var save_file = FileAccess.open("user://savegame"+str(file_num)+".sav",FileAccess.WRITE)
 	var saved_data = {
 		"flags":FlagManager.flags,
-		"lastscene":lscene
+		"lastscene":lscene,
+		"party_members":party_members
 	}
 	var json_file = JSON.stringify(saved_data)
 	if json_file != null:
@@ -109,6 +147,10 @@ func load_data(file_num: int):
 		var lflags = sf_temp.get("flags",{})
 		for key in lflags:
 			FlagManager.flags[key] = lflags[key]
+		
+		var lpm = sf_temp.get("party_members",{})
+		for key in lpm:
+			party_members[key] = lpm[key]
 		lscene = sf_temp["lastscene"]
 		load_new_scene(lscene,"shrine")
 	else:

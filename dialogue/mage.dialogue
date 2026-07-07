@@ -1,0 +1,16 @@
+~ start
+Anne: Oh, hi -
+Anne: Are you also here for the quest?
+Anne: Can I accompany you? -
+Anne: My magic will be helpful.
+- Yes
+	Anne: Thank you!
+	do FlagManager.set_flag("mage_recruited",1)
+	Anne: Let's be off!
+	do remove()
+	do GameManager.add_pm("anne")
+	Anne has joined the party!
+- No
+	Anne: Oh -
+	Anne: Come back if you change your mind.
+=> END

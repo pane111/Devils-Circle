@@ -8,6 +8,7 @@ func _ready() -> void:
 	if GameManager.cur_scene == null:
 		GameManager.cur_scene=self
 	AudioManager.play_song(title_music)
+	GameManager.reset_pms()
 	$CanvasLayer/Panel/VBoxContainer/PlayBtn.grab_focus()
 
 func _on_play_btn_pressed() -> void:

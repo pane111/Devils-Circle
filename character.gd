@@ -79,12 +79,14 @@ func set_anim(a_name):
 	anim.play(a_name)
 
 
-func jump(dur=0.25,height=32.0):
+func jump(dur=0.25,height=16.0):
+	$JumpSound.play()
+	var stored_offset = anim.offset
 	var t = get_tree().create_tween()
-	t.tween_property(anim,"offset",Vector2(0,-height),dur/2).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
+	t.tween_property(anim,"offset",stored_offset+Vector2(0,-height),dur/2).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
 	await t.finished
 	t = get_tree().create_tween()
-	t.tween_property(anim,"offset",Vector2(0,0),dur/2).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
+	t.tween_property(anim,"offset",stored_offset,dur/2).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
 	await t.finished
 	jumped.emit()
 

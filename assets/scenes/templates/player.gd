@@ -38,6 +38,7 @@ func _unhandled_input(_event: InputEvent) -> void:
 	var inp = Input.get_vector("left","right","up","down")
 	if Input.is_action_just_pressed("sprint") and sprint_enabled:
 		is_sprinting=!is_sprinting
+		GameManager.set_sprint(is_sprinting)
 	
 	if Input.is_action_just_pressed("action"):
 		attack()

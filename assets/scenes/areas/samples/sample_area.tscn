@@ -7,6 +7,7 @@
 [ext_resource type="Resource" uid="uid://d1bmt3sef28qi" path="res://dialogue/village.dialogue" id="4_wmmqr"]
 [ext_resource type="PackedScene" uid="uid://bmc2c4t8k7pen" path="res://assets/scenes/templates/door.tscn" id="6_vqtmf"]
 [ext_resource type="PackedScene" uid="uid://dghfnlqglt42t" path="res://assets/scenes/misc/flame_shrine.tscn" id="7_xvbuh"]
+[ext_resource type="PackedScene" uid="uid://ij3i83fqoj6d" path="res://assets/scenes/npcs/mage.tscn" id="8_72v2h"]
 
 [node name="SampleArea" type="Node2D" unique_id=1103649657 node_paths=PackedStringArray("doors")]
 y_sort_enabled = true
@@ -82,3 +83,6 @@ dialogue_start = "flametut"
 dialogue_res = ExtResource("4_wmmqr")
 can_move = false
 lastdir = Vector2(0, 1)
+
+[node name="Mage" parent="." unique_id=257064423 instance=ExtResource("8_72v2h")]
+position = Vector2(328, 104)
