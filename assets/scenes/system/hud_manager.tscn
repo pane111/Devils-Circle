@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://q3juos8gmc5w" path="res://assets/scenes/system/hud_manager.gd" id="1_jo5aa"]
 [ext_resource type="Script" uid="uid://0dwelbdhueoa" path="res://assets/scenes/system/vol_slider.gd" id="2_aputa"]
 [ext_resource type="Script" uid="uid://b7untvdssjt1e" path="res://assets/scenes/system/menu.gd" id="2_c7f67"]
+[ext_resource type="Script" uid="uid://byscb1kups7w2" path="res://assets/scenes/system/party_menu.gd" id="3_qtnd7"]
 [ext_resource type="Script" uid="uid://cva6ijfpr4noh" path="res://assets/scenes/system/pause_menu.gd" id="3_xd8oc"]
 [ext_resource type="Script" uid="uid://co673ijg7ufot" path="res://addons/extra_nodes/sound_button.gd" id="4_byvy3"]
 
@@ -63,6 +64,9 @@ _data = {
 &"fade_to_black": SubResource("Animation_c7f67")
 }
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h8c8n"]
+bg_color = Color(0, 0, 0, 1)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eldk4"]
 content_margin_left = 16.0
 bg_color = Color(0, 0, 0, 1)
@@ -122,6 +126,38 @@ grow_vertical = 2
 theme_override_constants/separation = 0
 alignment = 2
 
+[node name="PartyMenu" type="PanelContainer" parent="PopupMenus/PauseMenu/VBoxContainer" unique_id=738280772 node_paths=PackedStringArray("return_to")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_h8c8n")
+script = ExtResource("3_qtnd7")
+return_to = NodePath("../..")
+exit_method = "_on_close_party_btn_pressed"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PopupMenus/PauseMenu/VBoxContainer/PartyMenu" unique_id=1463803182]
+layout_mode = 2
+
+[node name="PLevel" type="Label" parent="PopupMenus/PauseMenu/VBoxContainer/PartyMenu/VBoxContainer" unique_id=850039342]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "Party Level: 100"
+
+[node name="PMContainer" type="VBoxContainer" parent="PopupMenus/PauseMenu/VBoxContainer/PartyMenu/VBoxContainer" unique_id=883442542]
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(16, 0)
+theme_override_constants/separation = 32
+alignment = 2
+
+[node name="ClosePartyButton" type="Button" parent="PopupMenus/PauseMenu/VBoxContainer/PartyMenu/VBoxContainer/PMContainer" unique_id=176159052]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Return"
+alignment = 0
+script = ExtResource("4_byvy3")
+metadata/_custom_type_script = "uid://co673ijg7ufot"
+
 [node name="SystemMenu" type="PanelContainer" parent="PopupMenus/PauseMenu/VBoxContainer" unique_id=1661136205 node_paths=PackedStringArray("return_to")]
 unique_name_in_owner = true
 visible = false
@@ -158,7 +194,7 @@ focus_neighbor_top = NodePath("../TitleBtn")
 focus_neighbor_bottom = NodePath("../SettingsBtn")
 focus_next = NodePath("../SettingsBtn")
 focus_previous = NodePath("../TitleBtn")
-text = "Close"
+text = "Return"
 alignment = 0
 script = ExtResource("4_byvy3")
 metadata/_custom_type_script = "uid://co673ijg7ufot"
@@ -180,15 +216,10 @@ text = "Inventory"
 script = ExtResource("4_byvy3")
 metadata/_custom_type_script = "uid://co673ijg7ufot"
 
-[node name="StatusBtn" type="Button" parent="PopupMenus/PauseMenu/VBoxContainer/MenuPanel/HBoxContainer" unique_id=164035632]
+[node name="PartyBtn" type="Button" parent="PopupMenus/PauseMenu/VBoxContainer/MenuPanel/HBoxContainer" unique_id=164035632]
+unique_name_in_owner = true
 layout_mode = 2
-text = "Status"
-script = ExtResource("4_byvy3")
-metadata/_custom_type_script = "uid://co673ijg7ufot"
-
-[node name="SkillsBtn" type="Button" parent="PopupMenus/PauseMenu/VBoxContainer/MenuPanel/HBoxContainer" unique_id=1128262218]
-layout_mode = 2
-text = "Skills"
+text = "Party"
 script = ExtResource("4_byvy3")
 metadata/_custom_type_script = "uid://co673ijg7ufot"
 
@@ -344,9 +375,11 @@ metadata/_edit_use_anchors_ = true
 
 [node name="MainHUD" type="CanvasLayer" parent="." unique_id=1779766172]
 
+[connection signal="pressed" from="PopupMenus/PauseMenu/VBoxContainer/PartyMenu/VBoxContainer/PMContainer/ClosePartyButton" to="PopupMenus/PauseMenu" method="_on_close_party_button_pressed"]
 [connection signal="pressed" from="PopupMenus/PauseMenu/VBoxContainer/SystemMenu/VBoxContainer/SettingsBtn" to="PopupMenus/PauseMenu" method="_on_settings_btn_pressed"]
 [connection signal="pressed" from="PopupMenus/PauseMenu/VBoxContainer/SystemMenu/VBoxContainer/TitleBtn" to="PopupMenus/PauseMenu" method="_on_title_btn_pressed"]
 [connection signal="pressed" from="PopupMenus/PauseMenu/VBoxContainer/SystemMenu/VBoxContainer/CloseSysBtn" to="PopupMenus/PauseMenu" method="_on_close_sys_btn_pressed"]
+[connection signal="pressed" from="PopupMenus/PauseMenu/VBoxContainer/MenuPanel/HBoxContainer/PartyBtn" to="PopupMenus/PauseMenu" method="_on_party_btn_pressed"]
 [connection signal="pressed" from="PopupMenus/PauseMenu/VBoxContainer/MenuPanel/HBoxContainer/SystemBtn" to="PopupMenus/PauseMenu" method="_on_system_btn_pressed"]
 [connection signal="pressed" from="PopupMenus/PauseMenu/VBoxContainer/MenuPanel/HBoxContainer/CloseBtn" to="PopupMenus/PauseMenu" method="_on_close_btn_pressed"]
 [connection signal="value_changed" from="PopupMenus/SettingsMenu/Sliders/Slider/HBoxContainer/MasterSlider" to="PopupMenus/SettingsMenu/Sliders/Slider" method="_on_slider_value_changed"]

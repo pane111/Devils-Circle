@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bmc2c4t8k7pen" path="res://assets/scenes/templates/door.tscn" id="6_vqtmf"]
 [ext_resource type="PackedScene" uid="uid://dghfnlqglt42t" path="res://assets/scenes/misc/flame_shrine.tscn" id="7_xvbuh"]
 [ext_resource type="PackedScene" uid="uid://ij3i83fqoj6d" path="res://assets/scenes/npcs/mage.tscn" id="8_72v2h"]
+[ext_resource type="PackedScene" uid="uid://ce2cxj3ckw5o4" path="res://assets/scenes/npcs/knight.tscn" id="9_ih2am"]
 
 [node name="SampleArea" type="Node2D" unique_id=1103649657 node_paths=PackedStringArray("doors")]
 y_sort_enabled = true
@@ -86,3 +87,6 @@ lastdir = Vector2(0, 1)
 
 [node name="Mage" parent="." unique_id=257064423 instance=ExtResource("8_72v2h")]
 position = Vector2(328, 104)
+
+[node name="Knight" parent="." unique_id=1259702238 instance=ExtResource("9_ih2am")]
+position = Vector2(136, 184)

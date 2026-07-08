@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Accessory" format=3 uid="uid://bnhohttvng8xj"]
+
+[ext_resource type="Script" uid="uid://dbcehx5y5ichw" path="res://assets/resources/equipment/accessory.gd" id="1_0ssns"]
+
+[resource]
+script = ExtResource("1_0ssns")
+stat_changes = {
+"agi": 0,
+"def": 0,
+"hp": 0,
+"mag": 1,
+"mdf": 0,
+"str": 0
+}
+ref_name = "earrings"
+item_name = "Crystal Earrings"
+item_desc = "A pair of magic-imbued earrings."
+metadata/_custom_type_script = "uid://dbcehx5y5ichw"

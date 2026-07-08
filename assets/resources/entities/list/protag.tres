@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Battle_Entity" format=3 uid="uid://c0oeoklafu75d"]
+
+[ext_resource type="Script" uid="uid://btmwkwsvwi5d4" path="res://assets/resources/entities/entity.gd" id="1_sjo8x"]
+
+[resource]
+script = ExtResource("1_sjo8x")
+ref_name = "protag"
+entity_desc = "A traveler with a varied skillset."
+learnset = Dictionary[int, String]({
+1: "heal",
+3: "missile",
+10: "bladedance"
+})
+metadata/_custom_type_script = "uid://btmwkwsvwi5d4"

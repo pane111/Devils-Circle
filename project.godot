@@ -30,9 +30,11 @@ FlagManager="*uid://7eur0ooeorwt"
 CharacterDatabase="*uid://35gtow4ol6g6"
 CutsceneManager="*uid://dfxcpp607o4g4"
 AudioManager="*uid://c8m70ejvv2mx6"
+ResourceManager="*uid://dvfbdiha7ullb"
 EffectManager="*uid://conpnhpvwrt22"
 HudManager="*uid://frbal7ust43y"
 DialogueManager="*uid://c3rodes2l3gxb"
+PartyManager="*uid://billql623xhrs"
 
 [dialogue_manager]
 

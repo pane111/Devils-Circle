@@ -13,9 +13,11 @@ global_ui_cancel_sound = ExtResource("3_hgx21")
 global_ui_select_sound = ExtResource("4_e0ajw")
 
 [node name="MusicLayer1" type="AudioStreamPlayer" parent="." unique_id=725438879]
+volume_db = -12.0
 bus = &"Music"
 
 [node name="MusicLayer2" type="AudioStreamPlayer" parent="." unique_id=552263599]
+volume_db = -12.0
 bus = &"Music"
 
 [node name="HudSFX" type="AudioStreamPlayer" parent="." unique_id=1337659335]

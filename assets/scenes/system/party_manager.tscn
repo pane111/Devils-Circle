@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://billql623xhrs"]
+
+[ext_resource type="Script" uid="uid://bgoyshfgjvqdp" path="res://assets/scenes/system/party_manager.gd" id="1_3ysn8"]
+[ext_resource type="Script" uid="uid://cylv3fhlacu77" path="res://assets/resources/other/party_member.gd" id="2_idkmr"]
+[ext_resource type="Resource" uid="uid://dsjfj5w8o3cgu" path="res://assets/resources/other/player.tres" id="3_qqs61"]
+[ext_resource type="Resource" uid="uid://cuf10ry1fav6a" path="res://assets/resources/other/mage.tres" id="4_qqs61"]
+[ext_resource type="Resource" uid="uid://cahkif4k1o2k5" path="res://assets/resources/other/knight.tres" id="5_p7res"]
+[ext_resource type="Resource" uid="uid://b10rt28vtlh6w" path="res://assets/resources/other/ranger.tres" id="6_t0ajb"]
+
+[node name="PartyManager" type="Node" unique_id=1044435316]
+script = ExtResource("1_3ysn8")
+active_members = Dictionary[String, ExtResource("2_idkmr")]({
+"protag": ExtResource("3_qqs61")
+})
+all_members = Dictionary[String, ExtResource("2_idkmr")]({
+"anne": ExtResource("4_qqs61"),
+"oscar": ExtResource("5_p7res"),
+"protag": ExtResource("3_qqs61"),
+"sybil": ExtResource("6_t0ajb")
+})

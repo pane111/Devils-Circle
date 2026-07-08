@@ -21,3 +21,5 @@ func set_flag(f,val):
 
 func reset_all_flags():
 	flags.clear()
+	GameManager.player_name="???"
+	PartyManager.reset_all()

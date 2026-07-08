@@ -7,7 +7,10 @@ var cur_scene #This is the currently loaded scene. For example, the title screen
 @onready var maincam = $MainCam
 var is_loading_scene=false
 var lscene=""
-var party_members: Dictionary[String,int]
+var party_members: Dictionary[String,int] = {
+	"protag":1
+}
+var player_name="???"
 signal sprint_on
 signal sprint_off
 @export var followers: Dictionary[String,Node]
@@ -108,23 +111,31 @@ func load_pms():
 	fp.reparent(player.get_parent())
 	
 	for p in party_members:
-		if party_members[p] == 1:
+		if party_members.has(p):
 			followers[p].set_active(true)
 			followers[p].reparent(player.get_parent())
 			followers[p].reset_pos()
+			PartyManager.add_pm(p)
+		else:
+			if p == "protag":
+				PartyManager.add_pm(p)
 
 func reset_pms():
 	party_members.clear()
+	PartyManager.active_members.clear()
 func hide_followers():
 	for f in followers:
 		followers[f].set_active(false)
 
 func save_data(file_num: int):
+	PartyManager.fully_heal()
 	var save_file = FileAccess.open("user://savegame"+str(file_num)+".sav",FileAccess.WRITE)
 	var saved_data = {
 		"flags":FlagManager.flags,
 		"lastscene":lscene,
-		"party_members":party_members
+		"party_members":party_members,
+		"playername":player_name,
+		"party_level":PartyManager.party_level
 	}
 	var json_file = JSON.stringify(saved_data)
 	if json_file != null:
@@ -151,7 +162,16 @@ func load_data(file_num: int):
 		var lpm = sf_temp.get("party_members",{})
 		for key in lpm:
 			party_members[key] = lpm[key]
-		lscene = sf_temp["lastscene"]
+		if sf_temp.has("lastscene"):
+			lscene = sf_temp["lastscene"]
+		else:
+			print_debug("Last scene was null")
+		if sf_temp.has("playername"):
+			player_name = sf_temp["playername"]
+		else:
+			player_name="LOST"
+		PartyManager.party_level = roundi(sf_temp["party_level"]) if sf_temp.has("party_level") else 1
+		PartyManager.fully_heal()
 		load_new_scene(lscene,"shrine")
 	else:
 		print_debug("Save data could not be parsed")

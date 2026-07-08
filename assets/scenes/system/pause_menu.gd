@@ -8,9 +8,12 @@ func _unhandled_input(event: InputEvent) -> void:
 func _on_close_btn_pressed() -> void:
 	HudManager.set_pause(false)
 
+func _ready() -> void:
+	close_all_submenus()
+
 func close_all_submenus():
 	%SystemMenu.hide()
-	
+	%PartyMenu.hide()
 	HudManager.active_menu=self
 
 func _on_system_btn_pressed() -> void:
@@ -37,3 +40,16 @@ func _on_title_btn_pressed() -> void:
 	get_tree().paused=false
 	FlagManager.reset_all_flags()
 	GameManager.load_new_scene("uid://csqyyca6875fq",null,true,false)
+
+
+func _on_close_party_button_pressed() -> void:
+	%PartyMenu.hide()
+	HudManager.active_menu=self
+	%PartyBtn.grab_focus()
+
+
+func _on_party_btn_pressed() -> void:
+	%PartyMenu.on_open()
+	%PartyMenu.show()
+	HudManager.active_menu=%PartyMenu
+	%PartyMenu.pm_cont.get_child(0).grab_focus()

@@ -3,7 +3,7 @@ extends "res://character.gd"
 
 @export var target: Node2D
 @export var offset: Vector2
-@export var maintained_distance=8.0
+@export var maintained_distance=14.0
 @export var following=true
 var nocol = false
 var speed_mult=1.0
@@ -46,17 +46,18 @@ func _process(delta: float) -> void:
 	var dir = tpos-global_position
 	
 	var dist = dir.length()
-	if dist > maintained_distance:
+	if dist >= maintained_distance:
 		if dist > 100 && !nocol:
 			$CollisionShape2D.set_deferred("disabled",true)
 			jump()
 			nocol=true
-		velocity = lerp(velocity,dir.normalized()*move_speed * speed_mult,delta*8)
+		velocity = lerp(velocity,dir.normalized()*move_speed * speed_mult,delta*4)
+		#velocity = dir.normalized()*move_speed * speed_mult
 		moving=true
 		animate(velocity.normalized(),true,true)
 		lastdir=velocity.normalized()
 	else:
-		velocity = lerp(velocity,Vector2.ZERO,delta*5)
+		velocity = lerp(velocity,Vector2.ZERO,delta*8)
 		$CollisionShape2D.set_deferred("disabled",false)
 		nocol=false
 	if velocity.length() <= 5:

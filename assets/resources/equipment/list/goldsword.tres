@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Weapon" format=3 uid="uid://bp6pewuengdss"]
+
+[ext_resource type="Script" uid="uid://dw35i1bjs1rmt" path="res://assets/resources/equipment/weapon.gd" id="1_lhchp"]
+
+[resource]
+script = ExtResource("1_lhchp")
+hit_effect = "slash"
+stat_changes = {
+"agi": 0,
+"def": 0,
+"hp": 0,
+"mag": 0,
+"mdf": 0,
+"str": 1
+}
+ref_name = "goldsword"
+item_name = "Gold Sword"
+item_desc = "A light sword with a golden hilt. More useful as a decoration than a weapon."
+metadata/_custom_type_script = "uid://dw35i1bjs1rmt"

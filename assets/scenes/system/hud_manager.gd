@@ -24,7 +24,9 @@ func _unhandled_input(event: InputEvent) -> void:
 			active_menu.call("return_to_prev")
 			#AudioManager.play_global_cancel()
 			
-
+func add_pm(pname):
+	%PartyMenu.add_pm(pname)
+	
 func close_all_popups():
 	for c in $PopupMenus.get_children():
 		c.hide()

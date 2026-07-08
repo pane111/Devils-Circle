@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://ce2cxj3ckw5o4"]
+
+[ext_resource type="Script" uid="uid://b7w13ywip5rpq" path="res://assets/scenes/templates/npc.gd" id="1_qcm05"]
+[ext_resource type="Resource" uid="uid://ls6h0nj7x4th" path="res://dialogue/mage.dialogue" id="2_nafyn"]
+[ext_resource type="SpriteFrames" uid="uid://dffe3h5230y7k" path="res://assets/resources/spriteframes/oscar.tres" id="3_qcm05"]
+[ext_resource type="Texture2D" uid="uid://c25mjmle2pvd" path="res://assets/sprites/tiny_shadow.png" id="4_nxps3"]
+[ext_resource type="AudioStream" uid="uid://bb6ysix265pko" path="res://assets/audio/sfx/jump.wav" id="5_mkykd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fwxlo"]
+size = Vector2(8, 8)
+
+[node name="Knight" type="CharacterBody2D" unique_id=109607271 node_paths=PackedStringArray("anim") groups=["interactable", "slashable"]]
+collision_layer = 8
+collision_mask = 137
+motion_mode = 1
+script = ExtResource("1_qcm05")
+dialogue_start = "knight"
+dialogue_res = ExtResource("2_nafyn")
+req_flag = "knight_recruited"
+req_value = 0
+anim = NodePath("CSprite")
+can_move = false
+lastdir = Vector2(0, 1)
+
+[node name="CSprite" type="AnimatedSprite2D" parent="." unique_id=2076724140]
+sprite_frames = ExtResource("3_qcm05")
+animation = &"move_up"
+offset = Vector2(0, -4)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1558998834]
+shape = SubResource("RectangleShape2D_fwxlo")
+
+[node name="RandomMoveTimer" type="Timer" parent="." unique_id=511630973]
+
+[node name="Shadow" type="Sprite2D" parent="." unique_id=2079903065]
+z_index = -1
+texture = ExtResource("4_nxps3")
+
+[node name="JumpSound" type="AudioStreamPlayer2D" parent="." unique_id=1197663602]
+stream = ExtResource("5_mkykd")
+volume_db = -20.0
+bus = &"SFX"
+
+[connection signal="timeout" from="RandomMoveTimer" to="." method="_on_random_move_timer_timeout"]

@@ -22,5 +22,6 @@ else:
 => END
 
 ~ flametut
-At the FLAME SHRINE, you can record your progress.
+do PartyManager.level_up()
+I have increased your level.
 => END

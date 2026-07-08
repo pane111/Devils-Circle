@@ -3,6 +3,10 @@ extends Control
 @export var return_to: Node
 @export var exit_method: String
 
+
+func on_open():
+	pass
+
 func return_to_prev():
 	HudManager.active_menu=return_to
 	self.hide()

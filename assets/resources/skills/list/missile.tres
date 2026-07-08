@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Skill" format=3 uid="uid://bui24uuud7w26"]
+
+[ext_resource type="Script" uid="uid://dmgnhpwpb53ur" path="res://assets/resources/skills/skill.gd" id="1_rxrof"]
+
+[resource]
+script = ExtResource("1_rxrof")
+ref_name = "missile"
+skill_name = "Missile"
+skill_desc = "Launch a magic projectile at a target."
+power = 3.0
+scale_stat = "mag"
+energy_cost = 40.0
+d_type = 1
+metadata/_custom_type_script = "uid://dmgnhpwpb53ur"

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Skill" format=3 uid="uid://cbr7035xtk5rk"]
+
+[ext_resource type="Script" uid="uid://dmgnhpwpb53ur" path="res://assets/resources/skills/skill.gd" id="1_0jrr2"]
+
+[resource]
+script = ExtResource("1_0jrr2")
+ref_name = "heal"
+skill_name = "Heal"
+skill_desc = "Heal a target for a small amount."
+power = 2.0
+scale_stat = "mag"
+energy_cost = 25.0
+can_use_in_field = true
+metadata/_custom_type_script = "uid://dmgnhpwpb53ur"

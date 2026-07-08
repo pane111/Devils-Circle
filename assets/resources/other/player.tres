@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="PartyMember" format=3 uid="uid://dsjfj5w8o3cgu"]
+
+[ext_resource type="Script" uid="uid://cylv3fhlacu77" path="res://assets/resources/other/party_member.gd" id="1_afeb2"]
+
+[resource]
+script = ExtResource("1_afeb2")
+is_player = true
+portrait = "uid://dvjpr6x0ym73v"
+base_entity = "protag"
+weapon = "goldsword"
+weapon_type = "Sword"
+armor = "coat"
+acc = "earrings"
+metadata/_custom_type_script = "uid://cylv3fhlacu77"

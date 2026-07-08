@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="Skill" format=3 uid="uid://ddamfdfgnpktu"]
+
+[ext_resource type="Script" uid="uid://dmgnhpwpb53ur" path="res://assets/resources/skills/skill.gd" id="1_adslo"]
+
+[resource]
+script = ExtResource("1_adslo")
+ref_name = "flameburst"
+skill_name = "Flame Burst"
+skill_desc = "Damages all enemies with fire."
+power = 1.2
+scale_stat = "mag"
+energy_cost = 35.0
+d_type = 1
+element = 1
+target = 1
+def_target = 1
+grants_effect = true
+effect_granted = "burn"
+effect_chance = 25.0
+metadata/_custom_type_script = "uid://dmgnhpwpb53ur"

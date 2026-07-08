@@ -1,6 +1,5 @@
 ~ start
 Anne: Oh, hi -
-Anne: Are you also here for the quest?
 Anne: Can I accompany you? -
 Anne: My magic will be helpful.
 - Yes
@@ -13,4 +12,19 @@ Anne: My magic will be helpful.
 - No
 	Anne: Oh -
 	Anne: Come back if you change your mind.
+=> END
+
+~ knight
+Oscar: Oh, do you need help? -
+Oscar: I will be happy to serve as your protector!
+- Yes
+	Oscar: Very well!
+	do FlagManager.set_flag("knight_recruited",1)
+	Oscar: Commence forth!
+	do remove()
+	do GameManager.add_pm("oscar")
+	Oscar has joined the party!
+- No
+	Oscar: What!?
+	Oscar: You must be crazy!
 => END
