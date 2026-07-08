@@ -13,6 +13,8 @@ func add_pm(pname: String):
 	var newpm = load(pm_container_button).instantiate()
 	pm_cont.add_child(newpm)
 	pm_cont.move_child(returnbtn,pm_cont.get_child_count()-1)
+	returnbtn.focus_neighbor_bottom = pm_cont.get_child(0).get_path()
+	pm_cont.get_child(0).focus_neighbor_top = returnbtn.get_path()
 	newpm.set_pm(pname)
 	pms[pname] = newpm
 func reset_pms():
