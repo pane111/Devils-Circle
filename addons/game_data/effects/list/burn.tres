@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Effect" format=3 uid="uid://ccw74evbe25u3"]
 
-[ext_resource type="Script" uid="uid://bmc2vff8stni0" path="res://assets/resources/effects/effect.gd" id="1_keaql"]
+[ext_resource type="Script" uid="uid://bmc2vff8stni0" path="res://addons/game_data/effects/effect.gd" id="1_keaql"]
 
 [resource]
 script = ExtResource("1_keaql")

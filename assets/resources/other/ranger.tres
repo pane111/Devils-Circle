@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="PartyMember" format=3 uid="uid://b10rt28vtlh6w"]
 
-[ext_resource type="Resource" uid="uid://b4aoo8afyl1t2" path="res://assets/resources/entities/list/ranger.tres" id="1_xw28t"]
+[ext_resource type="Resource" uid="uid://b4aoo8afyl1t2" path="res://addons/game_data/entities/list/ranger.tres" id="1_xw28t"]
 [ext_resource type="Script" uid="uid://cylv3fhlacu77" path="res://assets/resources/other/party_member.gd" id="2_2hjpr"]
 [ext_resource type="Texture2D" uid="uid://dvjpr6x0ym73v" path="res://assets/sprites/portraits/protag.png" id="2_x8pqh"]
 

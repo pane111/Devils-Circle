@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Battle_Entity" format=3 uid="uid://b4aoo8afyl1t2"]
 
-[ext_resource type="Script" uid="uid://btmwkwsvwi5d4" path="res://assets/resources/entities/entity.gd" id="1_7qcrq"]
+[ext_resource type="Script" uid="uid://btmwkwsvwi5d4" path="res://addons/game_data/entities/entity.gd" id="1_7qcrq"]
 
 [resource]
 script = ExtResource("1_7qcrq")

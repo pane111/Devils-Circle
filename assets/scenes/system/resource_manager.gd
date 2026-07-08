@@ -1,5 +1,7 @@
 extends Node
 
+@export var base_path: String
+
 @export var database: Dictionary = {
 	"Entities": {},
 	"Items": {},
@@ -8,15 +10,15 @@ extends Node
 }
 
 var category_paths = {
-	"Entities": "res://assets/resources/entities/list/",
-	"Items": "res://assets/resources/items/list/",
-	"Equipment": "res://assets/resources/equipment/list/",
-	"Skills": "res://assets/resources/skills/list/"
+	"Entities": "entities/list/",
+	"Items": "items/list/",
+	"Equipment": "equipment/list/",
+	"Skills": "skills/list/"
 }
 
 func _ready():
 	for category in category_paths:
-		load_category(category, category_paths[category])
+		load_category(category, base_path+category_paths[category])
 
 func load_category(category_name: String, path: String):
 	var dir = DirAccess.open(path)
@@ -25,19 +27,17 @@ func load_category(category_name: String, path: String):
 		return
 		
 	dir.list_dir_begin()
-	var file_name = dir.get_next()
-	
-	while file_name != "":
-		if !dir.current_is_dir() and file_name.ends_with(".tres"):
-			var full_path = path.path_join(file_name)
-			var res = load(full_path)
-			
+	for file: String in dir.get_files():
+		
+		var stripped_file = file.trim_suffix(".remap").trim_suffix(".import")
+		
+		if stripped_file.ends_with(".tres"):
+			var fpath = path.path_join(stripped_file)
+			var res = load(fpath)
 			if res and "ref_name" in res:
 				database[category_name][res.ref_name] = res
 			else:
-				print_debug("Could not load/identify resource at: " + full_path)
-				
-		file_name = dir.get_next()
+				print_debug("Could not load resource at " + path)
 	
 	dir.list_dir_end()
 	print("Loaded category: ", category_name, " with ", database[category_name].size(), " items.")

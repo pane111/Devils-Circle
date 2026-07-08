@@ -4,3 +4,4 @@
 
 [node name="ResourceManager" type="Node" unique_id=1652645133]
 script = ExtResource("1_3s5vc")
+base_path = "res://addons/game_data/"

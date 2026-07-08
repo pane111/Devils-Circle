@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Accessory" format=3 uid="uid://bnhohttvng8xj"]
 
-[ext_resource type="Script" uid="uid://dbcehx5y5ichw" path="res://assets/resources/equipment/accessory.gd" id="1_0ssns"]
+[ext_resource type="Script" uid="uid://dbcehx5y5ichw" path="res://addons/game_data/equipment/accessory.gd" id="1_0ssns"]
 
 [resource]
 script = ExtResource("1_0ssns")
