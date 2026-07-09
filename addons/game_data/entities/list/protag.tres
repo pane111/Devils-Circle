@@ -6,6 +6,14 @@
 script = ExtResource("1_sjo8x")
 ref_name = "protag"
 entity_desc = "A traveler with a varied skillset."
+stat_growths = {
+"agi": 2.0,
+"def": 1.3,
+"hp": 2.5,
+"mag": 2.2,
+"mdf": 1.3,
+"str": 2.2
+}
 learnset = Dictionary[int, String]({
 1: "heal",
 3: "missile",

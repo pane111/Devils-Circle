@@ -5,22 +5,22 @@
 [resource]
 script = ExtResource("1_xm5be")
 ref_name = "anne"
-entity_name = "Anne"
+entity_name = "Mage"
 entity_desc = "A self-described master of magic."
 base_stats = {
 "agi": 1.0,
 "def": 1.0,
 "hp": 9.0,
-"mag": 1.0,
-"mdf": 1.0,
+"mag": 4.0,
+"mdf": 2.0,
 "str": 1.0
 }
 stat_growths = {
-"agi": 1.0,
-"def": 1.0,
+"agi": 1.75,
+"def": 1.2,
 "hp": 2.25,
-"mag": 1.0,
-"mdf": 1.0,
+"mag": 2.5,
+"mdf": 2.0,
 "str": 1.0
 }
 learnset = Dictionary[int, String]({

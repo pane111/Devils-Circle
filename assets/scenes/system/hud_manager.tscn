@@ -6,6 +6,12 @@
 [ext_resource type="Script" uid="uid://byscb1kups7w2" path="res://assets/scenes/system/party_menu.gd" id="3_qtnd7"]
 [ext_resource type="Script" uid="uid://cva6ijfpr4noh" path="res://assets/scenes/system/pause_menu.gd" id="3_xd8oc"]
 [ext_resource type="Script" uid="uid://co673ijg7ufot" path="res://addons/extra_nodes/sound_button.gd" id="4_byvy3"]
+[ext_resource type="Texture2D" uid="uid://d12q6scbscog3" path="res://assets/sprites/portraits/knight.png" id="4_l1qgl"]
+[ext_resource type="Texture2D" uid="uid://dp7lo1jxdi4rm" path="res://assets/sprites/misc/equipment.png" id="5_gmjgi"]
+[ext_resource type="Script" uid="uid://43l8wmtplowm" path="res://assets/scenes/system/party_detail.gd" id="5_qtnd7"]
+[ext_resource type="Texture2D" uid="uid://c021lkjefu0fh" path="res://assets/sprites/ui/back.png" id="6_1koee"]
+[ext_resource type="Texture2D" uid="uid://c1d0bk55cc8k6" path="res://assets/sprites/misc/armor.png" id="6_qtnd7"]
+[ext_resource type="Texture2D" uid="uid://cs8w4eogwa43s" path="res://assets/sprites/misc/acc.png" id="7_l1qgl"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jo5aa"]
 bg_color = Color(0, 0, 0, 1)
@@ -65,6 +71,8 @@ _data = {
 }
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h8c8n"]
+content_margin_left = 48.0
+content_margin_right = 16.0
 bg_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eldk4"]
@@ -72,6 +80,13 @@ content_margin_left = 16.0
 bg_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l3403"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vepnw"]
+content_margin_left = 16.0
+content_margin_top = 16.0
+content_margin_right = 16.0
+content_margin_bottom = 16.0
 bg_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aputa"]
@@ -129,11 +144,12 @@ alignment = 2
 [node name="PartyMenu" type="PanelContainer" parent="PopupMenus/PauseMenu/VBoxContainer" unique_id=738280772 node_paths=PackedStringArray("return_to")]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_h8c8n")
 script = ExtResource("3_qtnd7")
 return_to = NodePath("../..")
-exit_method = "_on_close_party_btn_pressed"
+exit_method = "_on_close_party_button_pressed"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PopupMenus/PauseMenu/VBoxContainer/PartyMenu" unique_id=1463803182]
 layout_mode = 2
@@ -145,15 +161,19 @@ text = "Party Level: 100"
 
 [node name="PMContainer" type="VBoxContainer" parent="PopupMenus/PauseMenu/VBoxContainer/PartyMenu/VBoxContainer" unique_id=883442542]
 layout_mode = 2
-offset_transform_enabled = true
+size_flags_vertical = 3
 offset_transform_position = Vector2(16, 0)
 theme_override_constants/separation = 32
-alignment = 2
 
 [node name="ClosePartyButton" type="Button" parent="PopupMenus/PauseMenu/VBoxContainer/PartyMenu/VBoxContainer/PMContainer" unique_id=176159052]
 unique_name_in_owner = true
 layout_mode = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_right = NodePath(".")
+focus_next = NodePath(".")
+focus_previous = NodePath(".")
 text = "Return"
+icon = ExtResource("6_1koee")
 alignment = 0
 script = ExtResource("4_byvy3")
 metadata/_custom_type_script = "uid://co673ijg7ufot"
@@ -195,6 +215,7 @@ focus_neighbor_bottom = NodePath("../SettingsBtn")
 focus_next = NodePath("../SettingsBtn")
 focus_previous = NodePath("../TitleBtn")
 text = "Return"
+icon = ExtResource("6_1koee")
 alignment = 0
 script = ExtResource("4_byvy3")
 metadata/_custom_type_script = "uid://co673ijg7ufot"
@@ -235,6 +256,120 @@ unique_name_in_owner = true
 layout_mode = 2
 focus_neighbor_right = NodePath("../InvBtn")
 text = "Close"
+icon = ExtResource("6_1koee")
+script = ExtResource("4_byvy3")
+metadata/_custom_type_script = "uid://co673ijg7ufot"
+
+[node name="PartyDetail" type="PanelContainer" parent="PopupMenus/PauseMenu" unique_id=828804076 node_paths=PackedStringArray("return_to")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_vepnw")
+script = ExtResource("5_qtnd7")
+return_to = NodePath("../VBoxContainer/PartyMenu")
+exit_method = "hide_pd"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PopupMenus/PauseMenu/PartyDetail" unique_id=528390164]
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="PopupMenus/PauseMenu/PartyDetail/VBoxContainer" unique_id=1262029083]
+layout_mode = 2
+
+[node name="DetailPortrait" type="TextureRect" parent="PopupMenus/PauseMenu/PartyDetail/VBoxContainer/HBoxContainer2" unique_id=1932296954]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("4_l1qgl")
+
+[node name="PMName" type="Label" parent="PopupMenus/PauseMenu/PartyDetail/VBoxContainer/HBoxContainer2" unique_id=694102119]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Name"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PopupMenus/PauseMenu/PartyDetail/VBoxContainer" unique_id=458357906]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PopupMenus/PauseMenu/PartyDetail/VBoxContainer/VBoxContainer" unique_id=1256415932]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "Stats"
+
+[node name="Stats" type="Label" parent="PopupMenus/PauseMenu/PartyDetail/VBoxContainer/VBoxContainer" unique_id=1378142735]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 8
+text = "Vitality - 9999
+Strength - 9999
+Magic - 9999
+Defense - 9999
+MDefense - 9999
+Agility - 9999"
+horizontal_alignment = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="PopupMenus/PauseMenu/PartyDetail/VBoxContainer" unique_id=273493316]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_constants/separation = 0
+
+[node name="WpnBtn" type="Button" parent="PopupMenus/PauseMenu/PartyDetail/VBoxContainer/VBoxContainer2" unique_id=1557891151]
+unique_name_in_owner = true
+layout_mode = 2
+focus_neighbor_top = NodePath("../../HBoxContainer/SkillsBtn")
+text = "Gold Sword"
+icon = ExtResource("5_gmjgi")
+script = ExtResource("4_byvy3")
+metadata/_custom_type_script = "uid://co673ijg7ufot"
+
+[node name="ArmorBtn" type="Button" parent="PopupMenus/PauseMenu/PartyDetail/VBoxContainer/VBoxContainer2" unique_id=755002305]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Coat"
+icon = ExtResource("6_qtnd7")
+script = ExtResource("4_byvy3")
+metadata/_custom_type_script = "uid://co673ijg7ufot"
+
+[node name="AccBtn" type="Button" parent="PopupMenus/PauseMenu/PartyDetail/VBoxContainer/VBoxContainer2" unique_id=2069329732]
+unique_name_in_owner = true
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../../HBoxContainer/SkillsBtn")
+text = "Earrings"
+icon = ExtResource("7_l1qgl")
+script = ExtResource("4_byvy3")
+metadata/_custom_type_script = "uid://co673ijg7ufot"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PopupMenus/PauseMenu/PartyDetail/VBoxContainer" unique_id=368326440]
+layout_mode = 2
+theme_override_constants/separation = 256
+alignment = 1
+
+[node name="SkillsBtn" type="Button" parent="PopupMenus/PauseMenu/PartyDetail/VBoxContainer/HBoxContainer" unique_id=1200580104]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+focus_neighbor_left = NodePath("../DetailReturnBtn")
+focus_neighbor_top = NodePath("../../VBoxContainer2/AccBtn")
+focus_neighbor_right = NodePath("../DetailReturnBtn")
+focus_neighbor_bottom = NodePath("../../VBoxContainer2/WpnBtn")
+text = "Skills"
+script = ExtResource("4_byvy3")
+metadata/_custom_type_script = "uid://co673ijg7ufot"
+
+[node name="DetailReturnBtn" type="Button" parent="PopupMenus/PauseMenu/PartyDetail/VBoxContainer/HBoxContainer" unique_id=1382549359]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 8
+focus_neighbor_left = NodePath("../SkillsBtn")
+focus_neighbor_right = NodePath("../SkillsBtn")
+focus_neighbor_bottom = NodePath("../../VBoxContainer2/WpnBtn")
+text = "Return"
+icon = ExtResource("6_1koee")
 script = ExtResource("4_byvy3")
 metadata/_custom_type_script = "uid://co673ijg7ufot"
 
@@ -382,6 +517,7 @@ metadata/_edit_use_anchors_ = true
 [connection signal="pressed" from="PopupMenus/PauseMenu/VBoxContainer/MenuPanel/HBoxContainer/PartyBtn" to="PopupMenus/PauseMenu" method="_on_party_btn_pressed"]
 [connection signal="pressed" from="PopupMenus/PauseMenu/VBoxContainer/MenuPanel/HBoxContainer/SystemBtn" to="PopupMenus/PauseMenu" method="_on_system_btn_pressed"]
 [connection signal="pressed" from="PopupMenus/PauseMenu/VBoxContainer/MenuPanel/HBoxContainer/CloseBtn" to="PopupMenus/PauseMenu" method="_on_close_btn_pressed"]
+[connection signal="pressed" from="PopupMenus/PauseMenu/PartyDetail/VBoxContainer/HBoxContainer/DetailReturnBtn" to="PopupMenus/PauseMenu" method="hide_pd"]
 [connection signal="value_changed" from="PopupMenus/SettingsMenu/Sliders/Slider/HBoxContainer/MasterSlider" to="PopupMenus/SettingsMenu/Sliders/Slider" method="_on_slider_value_changed"]
 [connection signal="value_changed" from="PopupMenus/SettingsMenu/Sliders/Slider2/HBoxContainer/MusicSlider" to="PopupMenus/SettingsMenu/Sliders/Slider2" method="_on_slider_value_changed"]
 [connection signal="value_changed" from="PopupMenus/SettingsMenu/Sliders/Slider3/HBoxContainer/SFXSlider" to="PopupMenus/SettingsMenu/Sliders/Slider3" method="_on_slider_value_changed"]

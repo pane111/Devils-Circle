@@ -5,6 +5,8 @@ extends "res://addons/extra_nodes/sound_button.gd"
 @onready var portrait = $HBoxContainer/Portrait
 @onready var hpbar = $HBoxContainer/HPInfo/HPBar
 @onready var hpamt = $HBoxContainer/HPInfo/HPAmt
+@onready var enbar = $HBoxContainer/EnergyInfo/EnergyBar
+@onready var enamt = $HBoxContainer/EnergyInfo/EnergyAmt
 var pm_entity: PartyMember
 var fstats
 func _ready() -> void:
@@ -33,5 +35,11 @@ func load_pm():
 	var max_hp = fstats["hp"]
 	hpamt.text = str(roundi(cur_hp))+"/"+str(roundi(max_hp))
 	hpbar.value = (cur_hp/max_hp)
+	var cur_en = PartyManager.member_states[pm_name]["cur_energy"]
+	enbar.value = cur_en
+	enamt.text = str(roundi(cur_en))+"/100"
 	
-	
+
+
+func _on_pressed() -> void:
+	HudManager.p_menu.show_pd(pm_name,self,portrait.texture)

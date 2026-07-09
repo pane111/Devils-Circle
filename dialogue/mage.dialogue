@@ -28,3 +28,12 @@ Oscar: I will be happy to serve as your protector!
 	Oscar: What!?
 	Oscar: You must be crazy!
 => END
+
+~ ranger
+Sybil: ...
+Sybil: I'll come with you.
+do FlagManager.set_flag("ranger_recruited",1)
+do remove()
+do GameManager.add_pm("sybil")
+Sybil has joined the party!
+=> END

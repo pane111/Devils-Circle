@@ -1,6 +1,6 @@
 extends Node
 
-
+var lastpmbtn
 func _unhandled_input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("ui_cancel") and HudManager.active_menu==self:
 		AudioManager.play_global_cancel()
@@ -11,9 +11,22 @@ func _on_close_btn_pressed() -> void:
 func _ready() -> void:
 	close_all_submenus()
 
+func show_pd(pname,btn,portrait_texture):
+	if btn != null:
+		lastpmbtn = btn
+	%PartyDetail.set_pm(pname,portrait_texture)
+	%PartyDetail.show()
+	HudManager.active_menu=%PartyDetail
+	%WpnBtn.grab_focus()
+func hide_pd():
+	%PartyDetail.hide()
+	HudManager.active_menu = %PartyMenu
+	lastpmbtn.grab_focus()
+
 func close_all_submenus():
 	%SystemMenu.hide()
 	%PartyMenu.hide()
+	%PartyDetail.hide()
 	HudManager.active_menu=self
 
 func _on_system_btn_pressed() -> void:
@@ -44,6 +57,7 @@ func _on_title_btn_pressed() -> void:
 
 func _on_close_party_button_pressed() -> void:
 	%PartyMenu.hide()
+	%PartyDetail.hide()
 	HudManager.active_menu=self
 	%PartyBtn.grab_focus()
 

@@ -27,7 +27,8 @@ func add_pm(pname: String):
 	active_members[pname] = all_members[pname]
 	var max_hp = get_final_stat("hp",pname)
 	member_states[pname] = {
-		"cur_hp": max_hp
+		"cur_hp": max_hp,
+		"cur_energy": 100.0
 	}
 	HudManager.add_pm(pname)
 	
@@ -35,6 +36,7 @@ func add_pm(pname: String):
 func fully_heal():
 	for pm in active_members.keys():
 		member_states[pm]["cur_hp"] = get_final_stat("hp",pm)
+		member_states[pm]["cur_energy"] = 100.0
 
 func get_final_stat(stat,pname):
 

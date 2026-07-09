@@ -5,6 +5,6 @@
 [resource]
 script = ExtResource("2_7y68r")
 portrait = "uid://d12q6scbscog3"
-base_entity = "knight"
+base_entity = "oscar"
 weapon_type = "Spear"
 metadata/_custom_type_script = "uid://cylv3fhlacu77"

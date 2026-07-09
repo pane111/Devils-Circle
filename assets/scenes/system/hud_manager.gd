@@ -3,6 +3,7 @@ extends Node
 signal fade_midpoint
 signal fade_ended
 @export var fade_from_black_at_launch=false
+@onready var p_menu = %PauseMenu
 signal settings_closed
 var active_menu: Node
 func _ready() -> void:

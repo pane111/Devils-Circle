@@ -4,10 +4,11 @@ extends "res://assets/scenes/system/menu.gd"
 @onready var returnbtn = $VBoxContainer/PMContainer/ClosePartyButton
 var pm_container_button = "uid://bm0wgrgr0su58"
 var pms: Dictionary[String,Node]
-
 func _ready() -> void:
 	PartyManager.reset_sig.connect(reset_pms)
 
+func hide_pd():
+	HudManager.p_menu.hide_pd()
 func add_pm(pname: String):
 	if pms.has(pname): return
 	var newpm = load(pm_container_button).instantiate()
