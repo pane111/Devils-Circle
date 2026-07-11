@@ -6,6 +6,8 @@ signal fade_ended
 @onready var p_menu = %PauseMenu
 signal settings_closed
 var active_menu: Node
+var last_entered_word=""
+signal confirmed_entry
 func _ready() -> void:
 	if fade_from_black_at_launch:
 		fade_black_out()
@@ -24,7 +26,17 @@ func _unhandled_input(event: InputEvent) -> void:
 		if active_menu != null && active_menu.has_method("return_to_prev"):
 			active_menu.call("return_to_prev")
 			#AudioManager.play_global_cancel()
-			
+
+
+func show_keyboard():
+	%OnscreenKeyboard.activate()
+	await confirmed_entry
+	print_debug("Confirmed word: " + last_entered_word)
+	
+func confirm_keyboard_entry(word):
+	last_entered_word=word
+	confirmed_entry.emit()
+
 func add_pm(pname):
 	%PartyMenu.add_pm(pname)
 	

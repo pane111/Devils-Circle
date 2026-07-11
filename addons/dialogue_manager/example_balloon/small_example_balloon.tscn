@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://13s5spsk34qu"]
 
 [ext_resource type="Script" uid="uid://d1wt4ma6055l8" path="res://addons/dialogue_manager/example_balloon/example_balloon.gd" id="1_s2gbs"]
+[ext_resource type="Texture2D" uid="uid://dn6k1es6qkudl" path="res://assets/sprites/portraits/chaos.png" id="2_6b6c8"]
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_hfvdi"]
 [ext_resource type="Script" uid="uid://bb52rsfwhkxbn" path="res://addons/dialogue_manager/dialogue_responses_menu.gd" id="3_1j1j0"]
 
@@ -154,13 +155,19 @@ layout_mode = 2
 [node name="HBoxContainer" type="HBoxContainer" parent="Balloon/MarginContainer/PanelContainer/MarginContainer" unique_id=332260038]
 layout_mode = 2
 
+[node name="CharacterPortrait" type="TextureRect" parent="Balloon/MarginContainer/PanelContainer/MarginContainer/HBoxContainer" unique_id=218128215]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("2_6b6c8")
+stretch_mode = 4
+
 [node name="VBoxContainer" type="VBoxContainer" parent="Balloon/MarginContainer/PanelContainer/MarginContainer/HBoxContainer" unique_id=963560670]
 layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="CharacterLabel" type="RichTextLabel" parent="Balloon/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer" unique_id=445933984]
 unique_name_in_owner = true
-modulate = Color(1, 1, 1, 0.501961)
+modulate = Color(1, 1, 1, 0.6862745)
 layout_mode = 2
 mouse_filter = 1
 bbcode_enabled = true

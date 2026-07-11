@@ -2,7 +2,7 @@
 class_name CharacterContainer
 extends Resource
 
-@export var portraits : SpriteFrames #Will be displayed in dialogue
+@export var portraits : Dictionary[String,Texture2D]
 @export var voice: AudioStream #Plays when typing
 @export var display_name: String #Name that will be displayed in dialogue
 @export var ref_name: String #Name that will be used to reference this character

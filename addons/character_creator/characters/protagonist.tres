@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="CharacterContainer" format=3 uid="uid://uk4rbadbmyx4"]
+
+[ext_resource type="Texture2D" uid="uid://dvjpr6x0ym73v" path="res://assets/sprites/portraits/protag.png" id="1_8ar06"]
+[ext_resource type="Script" uid="uid://ki7ie1vxrhxy" path="res://addons/character_creator/character_container.gd" id="2_m66n1"]
+
+[resource]
+script = ExtResource("2_m66n1")
+portraits = Dictionary[String, Texture2D]({
+"default": ExtResource("1_8ar06")
+})
+display_name = "Player"
+ref_name = "player"
+metadata/_custom_type_script = "uid://ki7ie1vxrhxy"

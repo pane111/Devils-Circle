@@ -50,7 +50,7 @@ func _unhandled_input(_event: InputEvent) -> void:
 		speedmult=1.0
 	
 	if lastdir == null: lastdir=Vector2.ZERO
-	velocity = inp.normalized() * move_speed * speedmult
+	velocity = inp.normalized() * move_speed * speedmult * area_mult
 	icast.target_position = lastdir.normalized()*max_interaction_range
 	anim.speed_scale = speedmult
 	if inp.length() > 0:

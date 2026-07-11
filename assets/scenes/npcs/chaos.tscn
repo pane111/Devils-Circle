@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://bcag4omlcti1b"]
+
+[ext_resource type="Script" uid="uid://b7w13ywip5rpq" path="res://assets/scenes/templates/npc.gd" id="1_hlxjp"]
+[ext_resource type="Resource" uid="uid://doi04s46t61gr" path="res://dialogue/introduction.dialogue" id="2_hlxjp"]
+[ext_resource type="SpriteFrames" uid="uid://dpcnpg7qt6txo" path="res://assets/resources/spriteframes/chaos.tres" id="3_hlxjp"]
+[ext_resource type="Texture2D" uid="uid://c25mjmle2pvd" path="res://assets/sprites/tiny_shadow.png" id="4_jbhqy"]
+[ext_resource type="AudioStream" uid="uid://bb6ysix265pko" path="res://assets/audio/sfx/jump.wav" id="5_o7pbx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fwxlo"]
+size = Vector2(8, 8)
+
+[node name="Chaos" type="CharacterBody2D" unique_id=109607271 node_paths=PackedStringArray("anim") groups=["interactable", "slashable"]]
+collision_layer = 8
+collision_mask = 137
+motion_mode = 1
+script = ExtResource("1_hlxjp")
+dialogue_res = ExtResource("2_hlxjp")
+req_flag = "mage_recruited"
+req_value = 0
+anim = NodePath("CSprite")
+can_move = false
+lastdir = Vector2(0, 1)
+
+[node name="CSprite" type="AnimatedSprite2D" parent="." unique_id=2076724140]
+sprite_frames = ExtResource("3_hlxjp")
+animation = &"idle_down"
+offset = Vector2(0, -4)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1558998834]
+shape = SubResource("RectangleShape2D_fwxlo")
+
+[node name="RandomMoveTimer" type="Timer" parent="." unique_id=511630973]
+
+[node name="Shadow" type="Sprite2D" parent="." unique_id=2079903065]
+z_index = -1
+texture = ExtResource("4_jbhqy")
+
+[node name="JumpSound" type="AudioStreamPlayer2D" parent="." unique_id=1197663602]
+stream = ExtResource("5_o7pbx")
+volume_db = -20.0
+bus = &"SFX"
+
+[connection signal="timeout" from="RandomMoveTimer" to="." method="_on_random_move_timer_timeout"]

@@ -13,6 +13,7 @@ func _ready() -> void:
 	DialogueManager.dialogue_ended.connect(func(_info = null): set_dia(false))
 	GameManager.sprint_on.connect(sprint_on)
 	GameManager.sprint_off.connect(sprint_off)
+	
 
 
 func set_dia(val):
@@ -51,7 +52,7 @@ func _process(delta: float) -> void:
 			$CollisionShape2D.set_deferred("disabled",true)
 			jump()
 			nocol=true
-		velocity = lerp(velocity,dir.normalized()*move_speed * speed_mult,delta*4)
+		velocity = lerp(velocity,dir.normalized()*move_speed * speed_mult * area_mult,delta*4)
 		#velocity = dir.normalized()*move_speed * speed_mult
 		moving=true
 		animate(velocity.normalized(),true,true)

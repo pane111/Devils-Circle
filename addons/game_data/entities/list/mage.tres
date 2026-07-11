@@ -5,7 +5,7 @@
 [resource]
 script = ExtResource("1_xm5be")
 ref_name = "anne"
-entity_name = "Mage"
+entity_name = "Anne"
 entity_desc = "A self-described master of magic."
 base_stats = {
 "agi": 1.0,

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="CharacterContainer" format=3 uid="uid://xmyshknjd7dw"]
+
+[ext_resource type="Texture2D" uid="uid://qwkhqjjf2fb" path="res://assets/sprites/portraits/ranger.png" id="1_chkts"]
+[ext_resource type="Script" uid="uid://ki7ie1vxrhxy" path="res://addons/character_creator/character_container.gd" id="2_fto6x"]
+
+[resource]
+script = ExtResource("2_fto6x")
+portraits = Dictionary[String, Texture2D]({
+"default": ExtResource("1_chkts")
+})
+display_name = "Sybil"
+ref_name = "sybil"
+display_color = Color(0.2757448, 0.5998953, 1, 1)
+metadata/_custom_type_script = "uid://ki7ie1vxrhxy"

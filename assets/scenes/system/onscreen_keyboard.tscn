@@ -1,0 +1,180 @@
+[gd_scene format=3 uid="uid://bi7318aoi1ml"]
+
+[ext_resource type="Script" uid="uid://fughep7r61ch" path="res://assets/scenes/system/onscreen_keyboard.gd" id="1_whmgj"]
+[ext_resource type="Script" uid="uid://co673ijg7ufot" path="res://addons/extra_nodes/sound_button.gd" id="2_1exuk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uska6"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h8c8n"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vepnw"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+
+[node name="OnscreenKeyboard" type="Control" unique_id=1732676958]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_position = Vector2(-200, -120)
+script = ExtResource("1_whmgj")
+characters = "bcdefghijklmnopqrstuvwxyz -/+"
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1146075467]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.34
+anchor_top = 0.40833333
+anchor_right = 0.66
+anchor_bottom = 0.59166664
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 8
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="TextEntry" type="LineEdit" parent="VBoxContainer" unique_id=1961985762]
+custom_minimum_size = Vector2(128, 0)
+custom_maximum_size = Vector2(128, -1)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxFlat_uska6")
+theme_override_styles/read_only = SubResource("StyleBoxFlat_uska6")
+theme_override_styles/focus = SubResource("StyleBoxFlat_uska6")
+alignment = 1
+max_length = 12
+virtual_keyboard_enabled = false
+metadata/_edit_use_anchors_ = true
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer" unique_id=49608855]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_h8c8n")
+metadata/_edit_use_anchors_ = true
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer/PanelContainer" unique_id=2067187993]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 8
+columns = 10
+
+[node name="LetterKey" type="Button" parent="VBoxContainer/PanelContainer/GridContainer" unique_id=516135803]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 1
+text = "A"
+script = ExtResource("2_1exuk")
+submit_text = true
+metadata/_custom_type_script = "uid://co673ijg7ufot"
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/GridContainer/LetterKey" unique_id=269000038]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.75
+anchor_right = 1.75
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 8
+text = "A"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="ConfirmPopup" type="PanelContainer" parent="." unique_id=1589859995]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.28
+anchor_top = 0.40208334
+anchor_right = 0.72
+anchor_bottom = 0.59791666
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_vepnw")
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ConfirmPopup" unique_id=1090035086]
+layout_mode = 2
+
+[node name="ConfirmLabel" type="Label" parent="ConfirmPopup/VBoxContainer" unique_id=423249531]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "Is this correct?"
+horizontal_alignment = 1
+
+[node name="NameLabel" type="Label" parent="ConfirmPopup/VBoxContainer" unique_id=480996508]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "PJ Gaming"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ConfirmPopup/VBoxContainer" unique_id=471292424]
+layout_mode = 2
+theme_override_constants/separation = 32
+alignment = 1
+
+[node name="ConfirmBtn" type="Button" parent="ConfirmPopup/VBoxContainer/HBoxContainer" unique_id=2105497842]
+layout_mode = 2
+focus_neighbor_left = NodePath("../DenyBtn")
+focus_neighbor_top = NodePath("../DenyBtn")
+focus_neighbor_right = NodePath("../DenyBtn")
+focus_neighbor_bottom = NodePath("../DenyBtn")
+focus_next = NodePath("../DenyBtn")
+focus_previous = NodePath("../DenyBtn")
+text = "YES"
+script = ExtResource("2_1exuk")
+metadata/_custom_type_script = "uid://co673ijg7ufot"
+
+[node name="DenyBtn" type="Button" parent="ConfirmPopup/VBoxContainer/HBoxContainer" unique_id=1926528003]
+unique_name_in_owner = true
+layout_mode = 2
+focus_neighbor_left = NodePath("../ConfirmBtn")
+focus_neighbor_top = NodePath("../ConfirmBtn")
+focus_neighbor_right = NodePath("../ConfirmBtn")
+focus_neighbor_bottom = NodePath("../ConfirmBtn")
+focus_next = NodePath("../ConfirmBtn")
+focus_previous = NodePath("../ConfirmBtn")
+text = "NO"
+script = ExtResource("2_1exuk")
+metadata/_custom_type_script = "uid://co673ijg7ufot"
+
+[connection signal="pressed_text" from="VBoxContainer/PanelContainer/GridContainer/LetterKey" to="." method="_on_letter_key_pressed_text"]
+[connection signal="pressed" from="ConfirmPopup/VBoxContainer/HBoxContainer/ConfirmBtn" to="." method="_on_confirm_btn_pressed"]
+[connection signal="pressed" from="ConfirmPopup/VBoxContainer/HBoxContainer/DenyBtn" to="." method="_on_deny_btn_pressed"]

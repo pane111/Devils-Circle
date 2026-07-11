@@ -131,7 +131,33 @@ func apply_dialogue_line() -> void:
 	balloon.grab_focus()
 
 	character_label.visible = not dialogue_line.character.is_empty()
-	character_label.text = tr(dialogue_line.character, "dialogue")
+	
+	var c_ref= tr(dialogue_line.character, "dialogue")
+	var hidden=false
+	if c_ref != null:
+		var expression="default"
+		if c_ref.ends_with("?"):
+			c_ref = c_ref.trim_suffix("?")
+			hidden=true
+		if c_ref.contains("_"):
+			var parts = c_ref.split("_",true,1)
+			c_ref=parts[0]
+			expression=parts[1]
+		var ch = CharacterDatabase.get_character(c_ref.to_lower())
+		if ch != null:
+			character_label.text = ch.display_name if ch.ref_name != "player" else GameManager.player_name
+			character_label.self_modulate = ch.display_color
+			%CharacterPortrait.show()
+			%CharacterPortrait.texture=ch.portraits[expression]
+			
+		else:
+			%CharacterPortrait.hide()
+			character_label.text = tr(dialogue_line.character, "dialogue")
+			character_label.self_modulate = Color.WHITE
+		if hidden: character_label.text="???"
+	else:
+		%CharacterPortrait.hide()
+	
 
 	dialogue_label.hide()
 	dialogue_label.dialogue_line = dialogue_line

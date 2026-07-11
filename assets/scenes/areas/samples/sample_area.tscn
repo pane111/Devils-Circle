@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://bkjs4l88f55b3" path="res://assets/scenes/areas/samples/area.gd" id="1_44x20"]
 [ext_resource type="PackedScene" uid="uid://h4f1u21ppkdh" path="res://assets/scenes/templates/npc.tscn" id="2_o68h3"]
 [ext_resource type="AudioStream" uid="uid://jerc7x35kqiu" path="res://assets/audio/music/MyCoolSong.ogg" id="2_s5x8b"]
+[ext_resource type="Script" uid="uid://dakgt3u1yybko" path="res://assets/scenes/templates/areadoor.gd" id="3_4pjbo"]
+[ext_resource type="Texture2D" uid="uid://083yh262atb8" path="res://assets/sprites/misc/red_arrow.png" id="4_iff1q"]
 [ext_resource type="TileSet" uid="uid://dmnbrlb40qicj" path="res://assets/resources/tilesets/grassland.tres" id="4_s5x8b"]
 [ext_resource type="Resource" uid="uid://d1bmt3sef28qi" path="res://dialogue/village.dialogue" id="4_wmmqr"]
 [ext_resource type="PackedScene" uid="uid://bmc2c4t8k7pen" path="res://assets/scenes/templates/door.tscn" id="6_vqtmf"]
@@ -23,6 +25,10 @@ default_door = "default"
 
 [node name="DefaultEntry" type="Node2D" parent="." unique_id=1872358645]
 position = Vector2(152, 312)
+script = ExtResource("3_4pjbo")
+
+[node name="Sprite2D" type="Sprite2D" parent="DefaultEntry" unique_id=702054693]
+texture = ExtResource("4_iff1q")
 
 [node name="NPC" parent="." unique_id=109607271 instance=ExtResource("2_o68h3")]
 y_sort_enabled = true

@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://drfrlemlxfk61"]
+
+[ext_resource type="Script" uid="uid://dakgt3u1yybko" path="res://assets/scenes/templates/areadoor.gd" id="1_b77r7"]
+[ext_resource type="Texture2D" uid="uid://083yh262atb8" path="res://assets/sprites/misc/red_arrow.png" id="1_yckj4"]
+
+[node name="Door" type="Node2D" unique_id=1124873234]
+script = ExtResource("1_b77r7")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1322142124]
+texture = ExtResource("1_yckj4")

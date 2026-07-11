@@ -5,7 +5,7 @@
 [resource]
 script = ExtResource("1_gleq3")
 ref_name = "oscar"
-entity_name = "Knight"
+entity_name = "Oscar"
 entity_desc = "Knight character"
 base_stats = {
 "agi": 0.0,

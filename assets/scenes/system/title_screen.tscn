@@ -10,7 +10,7 @@ bg_color = Color(0, 0, 0, 1)
 
 [node name="TitleScreen" type="Node" unique_id=2143059936]
 script = ExtResource("1_bivv5")
-starter_scene = "uid://hjmmpw48omox"
+starter_scene = "uid://47v0fhsqq1tr"
 title_music = ExtResource("2_d8qri")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1909536281]

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="CharacterContainer" format=3 uid="uid://cyrqpj6bedeia"]
+
+[ext_resource type="Texture2D" uid="uid://tox6v8m2ot4u" path="res://assets/sprites/portraits/mage.png" id="1_qypt6"]
+[ext_resource type="Script" uid="uid://ki7ie1vxrhxy" path="res://addons/character_creator/character_container.gd" id="2_inixk"]
+
+[resource]
+script = ExtResource("2_inixk")
+portraits = Dictionary[String, Texture2D]({
+"default": ExtResource("1_qypt6")
+})
+display_name = "Anne"
+ref_name = "anne"
+display_color = Color(0, 0.86193675, 0.68774104, 1)
+metadata/_custom_type_script = "uid://ki7ie1vxrhxy"

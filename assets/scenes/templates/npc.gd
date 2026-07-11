@@ -8,6 +8,7 @@ extends "res://character.gd"
 var player
 
 func _ready() -> void:
+	
 	if !req_flag.is_empty() && !FlagManager.check_flag(req_flag,req_value):
 		queue_free()
 	
@@ -16,6 +17,8 @@ func _ready() -> void:
 	else:
 		if animate_on_ready:
 			animate(lastdir,false,true)
+	super._ready()
+	
 func remove():
 	queue_free()
 func on_interact():

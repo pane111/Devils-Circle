@@ -4,19 +4,42 @@ extends CharacterBody2D
 #Make a new script that inherits from it!
 
 @export var move_speed = 140.0
+var area_mult=1.0
 @export var anim: AnimatedSprite2D
 @export var moving=false
 @export var can_move=true
 signal jumped
 signal move_completed
 @export var lastdir = Vector2.ZERO
-
+var fake_3d=false
+var scale_speed=1.0
 @export var simplified_animation=false
+var init_ms=1.0
+func _ready() -> void:
+	init_ms = move_speed
+	
+	await get_tree().process_frame
+	print_debug(str(GameManager.cur_scene))
+	set_f3d(GameManager.cur_scene.is_fake_3d,GameManager.cur_scene.scale_speed)
+	area_mult = GameManager.cur_scene.move_mult
 
 func _physics_process(_delta: float) -> void:
+	if fake_3d:
+			var sc = (((global_position.y * scale_speed)/400)+1.0)
+			anim.scale=Vector2.ONE * sc
+			move_speed = init_ms * sc
 	if moving:
+		
 		move_and_slide()
-
+func set_f3d(val,spd):
+	fake_3d=val
+	init_ms = move_speed
+	if !val:
+		anim.scale=Vector2.ONE
+		return
+	move_speed = init_ms * (((global_position.y * scale_speed)/400)+1.0)
+	scale_speed=spd
+	anim.scale=Vector2.ONE * (((global_position.y * scale_speed)/400)+1.0)
 #Move character for a specific amount of time in a direction
 func move_char(dir,duration,speed_mult=1.0,forced=false):
 	if !forced:

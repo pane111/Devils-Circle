@@ -1,0 +1,21 @@
+[gd_resource type="TileSet" format=3 uid="uid://bub433l5518ot"]
+
+[ext_resource type="Texture2D" uid="uid://dxo1co45g1tc5" path="res://assets/sprites/misc/invis_wall.png" id="1_g8db5"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lq0kk"]
+texture = ExtResource("1_g8db5")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, 8, -8, 8)
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, 8, 8, -8, 8)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, -8, 8)
+
+[resource]
+physics_layer_0/collision_layer = 128
+physics_layer_0/collision_mask = 0
+sources/0 = SubResource("TileSetAtlasSource_lq0kk")

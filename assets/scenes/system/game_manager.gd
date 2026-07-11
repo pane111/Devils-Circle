@@ -21,7 +21,8 @@ func _ready() -> void:
 	player.process_mode=Node.PROCESS_MODE_DISABLED
 	await get_tree().process_frame
 	CutsceneManager.register_entity("player",player)
-
+func set_playername(val):
+	player_name=val
 func set_sprint(val):
 	if val:
 		sprint_on.emit()
@@ -65,6 +66,8 @@ func load_new_scene(scene_path,door=null,transition=true,has_player=true):
 				player.global_position = cur_scene.doors[door].global_position
 				fp.global_position = player.global_position + Vector2.UP
 				load_pms()
+				set_pms_fake3d()
+				set_party_area_speed()
 			else:
 				printerr("Door "+door+ " was null!")
 		if transition:
@@ -101,6 +104,16 @@ func load_config():
 		AudioServer.set_bus_volume_linear(1,config.get_value(sec,"music_volume"))
 		AudioServer.set_bus_volume_linear(2,config.get_value(sec,"sfx_volume"))
 	print_debug("Loaded configurations")
+
+func set_pms_fake3d():
+	player.set_f3d(cur_scene.is_fake_3d,cur_scene.scale_speed)
+	for f in followers:
+		followers[f].set_f3d(cur_scene.is_fake_3d,cur_scene.scale_speed)
+
+func set_party_area_speed():
+	player.area_mult = cur_scene.move_mult
+	for f in followers:
+		followers[f].area_mult = cur_scene.move_mult
 
 func add_pm(pname):
 	party_members[pname]=1

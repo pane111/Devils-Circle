@@ -1,0 +1,82 @@
+[gd_scene format=4 uid="uid://47v0fhsqq1tr"]
+
+[ext_resource type="Script" uid="uid://bkjs4l88f55b3" path="res://assets/scenes/areas/samples/area.gd" id="1_mmn1p"]
+[ext_resource type="AudioStream" uid="uid://cn0pq21garxvd" path="res://assets/audio/music/Enlightenment.ogg" id="2_tiwdv"]
+[ext_resource type="Texture2D" uid="uid://cegiokhg1gksj" path="res://assets/sprites/tilesets/stones.png" id="3_tiwdv"]
+[ext_resource type="Script" uid="uid://b8txfh0wo3c7g" path="res://assets/scenes/areas/distortwithcam.gd" id="4_jo6el"]
+[ext_resource type="PackedScene" uid="uid://drfrlemlxfk61" path="res://assets/scenes/templates/areadoor.tscn" id="4_q17of"]
+[ext_resource type="TileSet" uid="uid://bub433l5518ot" path="res://assets/resources/tilesets/invis_walls.tres" id="5_t4m7c"]
+[ext_resource type="PackedScene" uid="uid://bcag4omlcti1b" path="res://assets/scenes/npcs/chaos.tscn" id="6_elvpv"]
+[ext_resource type="Texture2D" uid="uid://d4h4vfka12xlb" path="res://assets/sprites/bgs/fog.png" id="8_2jash"]
+[ext_resource type="Texture2D" uid="uid://c5jhq02370267" path="res://assets/sprites/bgs/heaven_posterized.png" id="8_jo6el"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q17of"]
+texture = ExtResource("3_tiwdv")
+0:0/0 = 0
+0:1/0 = 0
+0:2/0 = 0
+0:3/0 = 0
+1:0/size_in_atlas = Vector2i(2, 2)
+1:0/0 = 0
+1:2/size_in_atlas = Vector2i(2, 2)
+1:2/0 = 0
+0:4/size_in_atlas = Vector2i(2, 2)
+0:4/0 = 0
+2:4/size_in_atlas = Vector2i(2, 2)
+2:4/0 = 0
+0:6/size_in_atlas = Vector2i(2, 2)
+0:6/0 = 0
+2:6/size_in_atlas = Vector2i(2, 2)
+2:6/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_h8c8n"]
+sources/0 = SubResource("TileSetAtlasSource_q17of")
+
+[node name="MysteryZone" type="Node2D" unique_id=645389296 node_paths=PackedStringArray("doors")]
+script = ExtResource("1_mmn1p")
+area_name = "???"
+area_music = ExtResource("2_tiwdv")
+doors = {
+"def": NodePath("Door")
+}
+default_door = "def"
+is_fake_3d = true
+scale_speed = 4.0
+move_mult = 0.3
+
+[node name="Ground" type="TileMapLayer" parent="." unique_id=1579154413 node_paths=PackedStringArray("objects")]
+position = Vector2(0, 64)
+tile_map_data = PackedByteArray("AAAMAAwAAAAAAAYAAAAMAAsAAAACAAYAAAAMAAoAAAAAAAQAAAAMAAkAAAACAAYAAAAMAAgAAAAAAAQAAAAMAAcAAAABAAAAAAAMAAYAAAABAAIAAAAMAAUAAAABAAAAAAAMAAQAAAABAAIAAAAMAAMAAAABAAAAAAAMAAIAAAAAAAIAAAAMAAEAAAAAAAAAAAAMAAAAAAAAAAEAAAAMAP//AAAAAAMAAAAMAP7/AAAAAAEAAAAMAP3/AAAAAAIAAAAMAPz/AAAAAAMAAAAJAAEAAAAAAAIAAAARAAMAAAAAAAAAAAATAP//AAAAAAMAAAAEAPz/AAAAAAEAAAACAAEAAAAAAAIAAAAFAAIAAAABAAIAAAATAAUAAAABAAAAAAAEAAoAAAABAAIAAAARAPv/AAABAAAAAAAUAAsAAAABAAIAAAASAA8AAAAAAAYAAAABAAUAAAAAAAQAAAAAAA4AAAACAAYAAAAdAAgAAAACAAQAAAD6/wgAAAACAAYAAAAYAA4AAAAAAAQAAAALABIAAAACAAYAAAD7/xAAAAACAAQAAAAYABcAAAAAAAQAAAAHABoAAAAAAAQAAAABABUAAAAAAAQAAAAMAPj/AAAAAAAAAAAMAPn/AAAAAAEAAAAMAPr/AAAAAAIAAAAMAPv/AAAAAAMAAAA=")
+tile_set = SubResource("TileSet_h8c8n")
+script = ExtResource("4_jo6el")
+objects = [NodePath("../Chaos")]
+
+[node name="Chaos" parent="." unique_id=109607271 instance=ExtResource("6_elvpv")]
+position = Vector2(200, -72)
+
+[node name="Door" parent="." unique_id=1124873234 instance=ExtResource("4_q17of")]
+position = Vector2(200, 264)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=789100538]
+visible = false
+tile_map_data = PackedByteArray("AAANABEAAAAAAAAAAAAMABEAAAAAAAAAAAALABEAAAAAAAAAAAALAP//AAAAAAAAAAALAAAAAAAAAAAAAAALAAEAAAAAAAAAAAALAAIAAAAAAAAAAAALAAMAAAAAAAAAAAALAAQAAAAAAAAAAAALAAUAAAAAAAAAAAALAAYAAAAAAAAAAAALAAcAAAAAAAAAAAALAAgAAAAAAAAAAAALAAkAAAAAAAAAAAALAAoAAAAAAAAAAAALAAsAAAAAAAAAAAALAAwAAAAAAAAAAAALAA0AAAAAAAAAAAALAA4AAAAAAAAAAAALAA8AAAAAAAAAAAALABAAAAAAAAAAAAAMAP//AAAAAAAAAAANAP//AAAAAAAAAAANAAAAAAAAAAAAAAANAAEAAAAAAAAAAAANAAIAAAAAAAAAAAANAAMAAAAAAAAAAAANAAQAAAAAAAAAAAANAAUAAAAAAAAAAAANAAYAAAAAAAAAAAANAAcAAAAAAAAAAAANAAgAAAAAAAAAAAANAAkAAAAAAAAAAAANAAoAAAAAAAAAAAANAAsAAAAAAAAAAAANAAwAAAAAAAAAAAANAA0AAAAAAAAAAAANAA4AAAAAAAAAAAANAA8AAAAAAAAAAAANABAAAAAAAAAAAAA=")
+tile_set = ExtResource("5_t4m7c")
+
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=439151684]
+z_index = -5
+scroll_scale = Vector2(1.5, 1.5)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D" unique_id=749482080]
+texture = ExtResource("8_jo6el")
+offset = Vector2(200, 300)
+
+[node name="Parallax2D2" type="Parallax2D" parent="." unique_id=1188279703]
+z_index = 10
+scroll_scale = Vector2(0.5, 0.5)
+repeat_size = Vector2(800, 480)
+autoscroll = Vector2(10, 0)
+repeat_times = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D2" unique_id=412688121]
+self_modulate = Color(1, 1, 1, 0.25882354)
+texture = ExtResource("8_2jash")

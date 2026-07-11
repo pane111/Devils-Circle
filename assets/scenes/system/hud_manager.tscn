@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://c021lkjefu0fh" path="res://assets/sprites/ui/back.png" id="6_1koee"]
 [ext_resource type="Texture2D" uid="uid://c1d0bk55cc8k6" path="res://assets/sprites/misc/armor.png" id="6_qtnd7"]
 [ext_resource type="Texture2D" uid="uid://cs8w4eogwa43s" path="res://assets/sprites/misc/acc.png" id="7_l1qgl"]
+[ext_resource type="PackedScene" uid="uid://bi7318aoi1ml" path="res://assets/scenes/system/onscreen_keyboard.tscn" id="13_hf00a"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jo5aa"]
 bg_color = Color(0, 0, 0, 1)
@@ -143,6 +144,7 @@ alignment = 2
 
 [node name="PartyMenu" type="PanelContainer" parent="PopupMenus/PauseMenu/VBoxContainer" unique_id=738280772 node_paths=PackedStringArray("return_to")]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -321,7 +323,9 @@ theme_override_constants/separation = 0
 [node name="WpnBtn" type="Button" parent="PopupMenus/PauseMenu/PartyDetail/VBoxContainer/VBoxContainer2" unique_id=1557891151]
 unique_name_in_owner = true
 layout_mode = 2
+focus_neighbor_left = NodePath("../../HBoxContainer/DetailReturnBtn")
 focus_neighbor_top = NodePath("../../HBoxContainer/SkillsBtn")
+focus_neighbor_right = NodePath("../../HBoxContainer/DetailReturnBtn")
 text = "Gold Sword"
 icon = ExtResource("5_gmjgi")
 script = ExtResource("4_byvy3")
@@ -330,6 +334,8 @@ metadata/_custom_type_script = "uid://co673ijg7ufot"
 [node name="ArmorBtn" type="Button" parent="PopupMenus/PauseMenu/PartyDetail/VBoxContainer/VBoxContainer2" unique_id=755002305]
 unique_name_in_owner = true
 layout_mode = 2
+focus_neighbor_left = NodePath("../../HBoxContainer/DetailReturnBtn")
+focus_neighbor_right = NodePath("../../HBoxContainer/DetailReturnBtn")
 text = "Coat"
 icon = ExtResource("6_qtnd7")
 script = ExtResource("4_byvy3")
@@ -338,6 +344,8 @@ metadata/_custom_type_script = "uid://co673ijg7ufot"
 [node name="AccBtn" type="Button" parent="PopupMenus/PauseMenu/PartyDetail/VBoxContainer/VBoxContainer2" unique_id=2069329732]
 unique_name_in_owner = true
 layout_mode = 2
+focus_neighbor_left = NodePath("../../HBoxContainer/DetailReturnBtn")
+focus_neighbor_right = NodePath("../../HBoxContainer/DetailReturnBtn")
 focus_neighbor_bottom = NodePath("../../HBoxContainer/SkillsBtn")
 text = "Earrings"
 icon = ExtResource("7_l1qgl")
@@ -509,6 +517,10 @@ metadata/_custom_type_script = "uid://co673ijg7ufot"
 metadata/_edit_use_anchors_ = true
 
 [node name="MainHUD" type="CanvasLayer" parent="." unique_id=1779766172]
+
+[node name="OnscreenKeyboard" parent="MainHUD" unique_id=1732676958 instance=ExtResource("13_hf00a")]
+unique_name_in_owner = true
+visible = false
 
 [connection signal="pressed" from="PopupMenus/PauseMenu/VBoxContainer/PartyMenu/VBoxContainer/PMContainer/ClosePartyButton" to="PopupMenus/PauseMenu" method="_on_close_party_button_pressed"]
 [connection signal="pressed" from="PopupMenus/PauseMenu/VBoxContainer/SystemMenu/VBoxContainer/SettingsBtn" to="PopupMenus/PauseMenu" method="_on_settings_btn_pressed"]

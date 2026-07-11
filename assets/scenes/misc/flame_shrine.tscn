@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dkko8ew0sg4l0" path="res://assets/sprites/flameshrine.png" id="1_8syv5"]
 [ext_resource type="Script" uid="uid://bxuoabogby1b5" path="res://assets/scenes/misc/flame_shrine.gd" id="1_a1kra"]
 [ext_resource type="AudioStream" uid="uid://dgnbgpl1xuyrw" path="res://assets/audio/sfx/accept.wav" id="3_xdyjf"]
+[ext_resource type="PackedScene" uid="uid://drfrlemlxfk61" path="res://assets/scenes/templates/areadoor.tscn" id="4_1rrfw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h8c8n"]
 size = Vector2(16, 16)
@@ -61,5 +62,5 @@ offset = Vector2(0, -8)
 stream = ExtResource("3_xdyjf")
 bus = &"SFX"
 
-[node name="SpawnPoint" type="Node2D" parent="." unique_id=1075293916]
+[node name="SpawnPoint" parent="." unique_id=1124873234 instance=ExtResource("4_1rrfw")]
 position = Vector2(0, 16)

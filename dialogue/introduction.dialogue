@@ -1,0 +1,33 @@
+~ start
+Chaos?: ...
+Chaos?: Your name.
+Chaos?: Do you remember it?
+~ naming
+do HudManager.show_keyboard()
+do GameManager.set_playername(HudManager.last_entered_word)
+while GameManager.player_name == "Chaos":
+	Chaos?: No... No, no. That's not your name...
+	do HudManager.show_keyboard()
+	do GameManager.set_playername(HudManager.last_entered_word)
+Chaos?: {{GameManager.player_name}}...?
+if GameManager.player_name.to_lower().contains("piss"):
+	Chaos?: That's... strange. Is this truly what you are called?
+	Chaos?: {{GameManager.player_name}}... No, no, that just can't be right, can it?
+	Chaos?: {{GameManager.player_name}}. I'll give you a choice...
+	Chaos?: If you'd like, I will let you decide a new name for yourself.
+	- Yes
+		=> naming
+	- No
+		Chaos?: ...
+		Chaos?: If it's your choice, I suppose...
+		Chaos?: {{GameManager.player_name}}... Really...?
+		Chaos?: Ugh...
+else:
+	Chaos?: Yes, that's right. I remember it too.
+Player: Where am I? Who are you?
+Chaos?: ...
+Chaos?: You're dreaming...
+Chaos?: You need to wake up.
+do wait(2.0)
+do GameManager.load_new_scene("uid://hjmmpw48omox")
+=> END
