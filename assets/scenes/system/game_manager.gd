@@ -7,12 +7,16 @@ var cur_scene #This is the currently loaded scene. For example, the title screen
 @onready var maincam = $MainCam
 var is_loading_scene=false
 var lscene=""
+var lscene_name="???"
 var party_members: Dictionary[String,int] = {
 	"protag":1
 }
 var player_name="???"
+var malice=0.0
+var active_file=0
 signal sprint_on
 signal sprint_off
+signal saved_game
 @export var followers: Dictionary[String,Node]
 func _ready() -> void:
 	load_config()
@@ -47,6 +51,7 @@ func load_new_scene(scene_path,door=null,transition=true,has_player=true):
 		HudManager.fade_black_out()
 	if has_player:
 		lscene = scene_path
+		lscene_name=cur_scene.area_name
 		player.process_mode = Node.PROCESS_MODE_PAUSABLE
 		player.show()
 		
@@ -150,9 +155,12 @@ func save_data(file_num: int):
 	var saved_data = {
 		"flags":FlagManager.flags,
 		"lastscene":lscene,
+		"lastscene_name": lscene_name,
 		"party_members":party_members,
 		"playername":player_name,
-		"party_level":PartyManager.party_level
+		"party_level":PartyManager.party_level,
+		"party_states":PartyManager.member_states,
+		"malice":malice
 	}
 	var json_file = JSON.stringify(saved_data)
 	if json_file != null:
@@ -162,12 +170,14 @@ func save_data(file_num: int):
 		print_debug("Error with JSON string")
 	
 	save_file.close()
+	
+	saved_game.emit()
 
 func load_data(file_num: int):
 	if not FileAccess.file_exists("user://savegame"+str(file_num)+".sav"):
 		print_debug("Invalid savegame name!")
-		return
-		
+		return false
+	active_file=file_num
 	var save_file = FileAccess.open("user://savegame"+str(file_num)+".sav",FileAccess.READ)
 	var sf_temp = JSON.parse_string(save_file.get_as_text())
 	if sf_temp is Dictionary:
@@ -187,9 +197,13 @@ func load_data(file_num: int):
 			player_name = sf_temp["playername"]
 		else:
 			player_name="LOST"
+		lscene_name = sf_temp["lastscene_name"] if sf_temp.has("lastscene_name") else "???"
+		malice = sf_temp["malice"] if sf_temp.has("malice") else 0.0
 		PartyManager.party_level = roundi(sf_temp["party_level"]) if sf_temp.has("party_level") else 1
+		PartyManager.member_states = sf_temp["party_states"] if sf_temp.has("party_states") else {}
 		PartyManager.fully_heal()
 		load_new_scene(lscene,"shrine")
 	else:
 		print_debug("Save data could not be parsed")
 	save_file.close()
+	return true

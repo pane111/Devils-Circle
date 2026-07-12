@@ -34,10 +34,13 @@ func _physics_process(_delta: float) -> void:
 		move_and_slide()
 func set_f3d(val,spd):
 	if !affected_by_fake_3d: return
+	if fake_3d==false:
+		init_ms = move_speed
 	fake_3d=val
-	init_ms = move_speed
+	
 	if !val:
 		anim.scale=Vector2.ONE
+		move_speed=init_ms
 		return
 	move_speed = init_ms * (((global_position.y * scale_speed)/400)+1.0)
 	scale_speed=spd

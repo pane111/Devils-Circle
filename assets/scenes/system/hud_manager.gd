@@ -2,6 +2,7 @@ extends Node
 
 signal fade_midpoint
 signal fade_ended
+signal save_menu_closed
 @export var fade_from_black_at_launch=false
 @onready var p_menu = %PauseMenu
 signal settings_closed
@@ -63,7 +64,14 @@ func fade_black_out():
 	$Overlays/FadeBlackAnim.play("fade_black_out")
 	await $Overlays/FadeBlackAnim.animation_finished
 	fade_ended.emit()
-
+func save_menu(val):
+	if val:
+		%SaveMenu.show()
+		%SaveList.get_child(GameManager.active_file+1).btn.grab_focus()
+		await save_menu_closed
+	else:
+		%SaveMenu.hide()
+		save_menu_closed.emit()
 func set_settings(val):
 	if val:
 		$PopupMenus/SettingsMenu.show()

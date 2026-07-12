@@ -50,6 +50,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="PlayBtn" type="Button" parent="CanvasLayer/Panel/VBoxContainer" unique_id=43217991]
+unique_name_in_owner = true
 custom_maximum_size = Vector2(128, 12)
 layout_mode = 2
 theme = ExtResource("3_d8qri")
@@ -59,6 +60,7 @@ script = ExtResource("4_33tec")
 metadata/_custom_type_script = "uid://co673ijg7ufot"
 
 [node name="LoadBtn" type="Button" parent="CanvasLayer/Panel/VBoxContainer" unique_id=1986608013]
+unique_name_in_owner = true
 custom_maximum_size = Vector2(128, 12)
 layout_mode = 2
 theme = ExtResource("3_d8qri")
@@ -68,6 +70,7 @@ script = ExtResource("4_33tec")
 metadata/_custom_type_script = "uid://co673ijg7ufot"
 
 [node name="SettingsBtn" type="Button" parent="CanvasLayer/Panel/VBoxContainer" unique_id=1474356890]
+unique_name_in_owner = true
 custom_maximum_size = Vector2(128, -1)
 layout_mode = 2
 text = "Settings"
@@ -76,6 +79,7 @@ script = ExtResource("4_33tec")
 metadata/_custom_type_script = "uid://co673ijg7ufot"
 
 [node name="QuitBtn" type="Button" parent="CanvasLayer/Panel/VBoxContainer" unique_id=1572107439]
+unique_name_in_owner = true
 custom_maximum_size = Vector2(128, -1)
 layout_mode = 2
 text = "Quit"

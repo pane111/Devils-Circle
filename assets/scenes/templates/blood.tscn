@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://b2ui7xn8xtowu"]
+
+[ext_resource type="Texture2D" uid="uid://dd3sms2ycmi1d" path="res://assets/sprites/misc/bloodstain_1.png" id="1_cil57"]
+
+[node name="Hit" type="Sprite2D" unique_id=1800017558]
+self_modulate = Color(1, 1, 0.5294118, 1)
+z_index = -1
+texture = ExtResource("1_cil57")

@@ -27,14 +27,26 @@ func remove():
 	queue_free()
 
 func on_slash():
-	cur_hp-=1
+	
 	anim.self_modulate=Color.RED
-	EffectManager.spawn_text("1",self.global_position,false,50.0,0.5)
+	var critroll = randi_range(0,100)
+	if critroll <= 20:
+		EffectManager.spawn_text("[color=orange]2!",self.global_position,false,50.0,0.5)
+		cur_hp-=2
+	else:
+		EffectManager.spawn_text("1",self.global_position,false,50.0,0.5)
+		cur_hp-=1
+	
+	EffectManager.spawn_local_effect("hit",global_position,self)
+	var pushdir = global_position - GameManager.player.global_position
+	push_char(pushdir.normalized(),0.1,500,true,true)
+	await move_completed
 	if cur_hp<=0:
 		killed.emit()
+		GameManager.malice += randf_range(1.0,3.0)
+		EffectManager.spawn_local_effect("blood",global_position,self)
 		remove()
 	else:
-		await get_tree().create_timer(0.25).timeout
 		anim.self_modulate=Color.WHITE
 
 

@@ -184,7 +184,7 @@ do_input={
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://dialogue/village.dialogue", "res://dialogue/mage.dialogue", "res://dialogue/introduction.dialogue")
+locale/translations_pot_files=PackedStringArray("res://dialogue/village.dialogue", "res://dialogue/mage.dialogue", "res://dialogue/introduction.dialogue", "res://dialogue/save_dialog.dialogue")
 
 [layer_names]
 

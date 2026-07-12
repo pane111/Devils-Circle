@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dkko8ew0sg4l0" path="res://assets/sprites/flameshrine.png" id="1_8syv5"]
 [ext_resource type="Script" uid="uid://bxuoabogby1b5" path="res://assets/scenes/misc/flame_shrine.gd" id="1_a1kra"]
+[ext_resource type="Resource" uid="uid://ddh2uvw4ip5ep" path="res://dialogue/save_dialog.dialogue" id="2_j1ecf"]
 [ext_resource type="AudioStream" uid="uid://dgnbgpl1xuyrw" path="res://assets/audio/sfx/accept.wav" id="3_xdyjf"]
 [ext_resource type="PackedScene" uid="uid://drfrlemlxfk61" path="res://assets/scenes/templates/areadoor.tscn" id="4_1rrfw"]
 
@@ -48,6 +49,7 @@ animations = [{
 y_sort_enabled = true
 collision_layer = 8
 script = ExtResource("1_a1kra")
+dialogue_res = ExtResource("2_j1ecf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=917942158]
 shape = SubResource("RectangleShape2D_h8c8n")

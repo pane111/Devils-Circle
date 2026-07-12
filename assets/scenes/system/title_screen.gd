@@ -12,6 +12,9 @@ func _ready() -> void:
 	$CanvasLayer/Panel/VBoxContainer/PlayBtn.grab_focus()
 
 func _on_play_btn_pressed() -> void:
+	HudManager.save_menu(true)
+	await HudManager.save_menu_closed
+	disable_all_btns()
 	FlagManager.reset_all_flags()
 	GameManager.load_new_scene(starter_scene)
 
@@ -22,10 +25,16 @@ func _on_settings_btn_pressed() -> void:
 	await HudManager.settings_closed
 	$CanvasLayer/Panel/VBoxContainer/SettingsBtn.grab_focus()
 
+func disable_all_btns():
+	for c in $CanvasLayer/Panel/VBoxContainer.get_children():
+		c.disabled=true
 
 func _on_quit_btn_pressed() -> void:
 	get_tree().quit()
 
 
 func _on_load_btn_pressed() -> void:
-	GameManager.load_data(0)
+	HudManager.save_menu(true)
+	await HudManager.save_menu_closed
+	if GameManager.load_data(GameManager.active_file): disable_all_btns()
+	else: %LoadBtn.grab_focus()

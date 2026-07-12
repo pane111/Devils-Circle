@@ -1,0 +1,4 @@
+~ start
+do HudManager.save_menu(true)
+do GameManager.save_data(GameManager.active_file)
+=> END

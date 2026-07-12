@@ -24,6 +24,7 @@ func set_collision(val):
 
 func _ready() -> void:
 	_set_input(true)
+	init_ms=move_speed
 	lastdir = Vector2.DOWN
 	DialogueManager.dialogue_started.connect(func(_info = null): set_collision(false))
 	DialogueManager.dialogue_ended.connect(func(_info = null): set_collision(true))

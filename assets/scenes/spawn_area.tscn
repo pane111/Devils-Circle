@@ -14,10 +14,10 @@ y_sort_enabled = true
 script = ExtResource("1_epnka")
 area_name = "Hidden Grove"
 doors = {
-"def": NodePath("Door"),
+"shrine": NodePath("Door"),
 "village": NodePath("Door2")
 }
-default_door = "def"
+default_door = "shrine"
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1432773727]
 z_index = -5

@@ -29,6 +29,7 @@ Chaos?: ...
 Chaos_sad?: It's not important.
 do wait(2.0)
 do GameManager.load_new_scene("uid://bs82owfnb5uy4")
+do GameManager.save_data(GameManager.active_file)
 => END
 
 ~ alt
@@ -36,6 +37,10 @@ do wait(1.0)
 do CutsceneManager.move_cam_to_position(Vector2(200,-80),2.0)
 Chaos_sad?: Why do you meet me with violence?
 Chaos_sad?: ...
-Chaos?: If it is your wish, then... I'll allow it.
-=> start
+Chaos?: If it is your wish, then... I will allow it.
+Chaos?: But... I hope you will change your mind.
+do GameManager.set_playername("Raphael")
+do wait(2.0)
+do GameManager.load_new_scene("uid://bs82owfnb5uy4")
+do GameManager.save_data(GameManager.active_file)
 => END

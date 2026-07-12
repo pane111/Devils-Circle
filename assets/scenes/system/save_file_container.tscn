@@ -1,0 +1,96 @@
+[gd_scene format=3 uid="uid://der2w1pqc8002"]
+
+[ext_resource type="Script" uid="uid://ba5m3d3b7is0" path="res://assets/scenes/system/save_file_container.gd" id="1_704va"]
+[ext_resource type="Script" uid="uid://co673ijg7ufot" path="res://addons/extra_nodes/sound_button.gd" id="1_fftkg"]
+[ext_resource type="Texture2D" uid="uid://dvjpr6x0ym73v" path="res://assets/sprites/portraits/protag.png" id="2_704va"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_inxiy"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_704va"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 0.7417416, 0.4749958, 1)
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x0jfg"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+corner_detail = 1
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h8c8n"]
+atlas = ExtResource("2_704va")
+
+[node name="SaveFileContainer" type="PanelContainer" unique_id=1975364453]
+theme_override_styles/panel = SubResource("StyleBoxFlat_inxiy")
+script = ExtResource("1_704va")
+
+[node name="Btn" type="Button" parent="." unique_id=2113603773]
+custom_minimum_size = Vector2(150, 36)
+layout_mode = 2
+theme_override_styles/pressed = SubResource("StyleBoxFlat_704va")
+theme_override_styles/hover = SubResource("StyleBoxFlat_x0jfg")
+theme_override_styles/focus = SubResource("StyleBoxFlat_x0jfg")
+script = ExtResource("1_fftkg")
+metadata/_custom_type_script = "uid://co673ijg7ufot"
+
+[node name="Data" type="HBoxContainer" parent="Btn" unique_id=689334215]
+unique_name_in_owner = true
+modulate = Color(0.48452926, 0.48452926, 0.48452926, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.028571429
+anchor_top = 0.055555556
+anchor_right = 0.9714286
+anchor_bottom = 0.9444444
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Portrait" type="TextureRect" parent="Btn/Data" unique_id=1098545543]
+unique_name_in_owner = true
+modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+mouse_filter = 2
+texture = SubResource("AtlasTexture_h8c8n")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Btn/Data" unique_id=644480771]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="PNameLabel" type="Label" parent="Btn/Data/VBoxContainer" unique_id=119861081]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "Player Names"
+
+[node name="PLevelLabel" type="Label" parent="Btn/Data/VBoxContainer" unique_id=1384199621]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "P. Level 100"
+
+[node name="PLocationLabel" type="Label" parent="Btn/Data/VBoxContainer" unique_id=337336273]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "Village"
+
+[connection signal="focus_entered" from="Btn" to="." method="_on_btn_focus_entered"]
+[connection signal="focus_exited" from="Btn" to="." method="_on_btn_focus_exited"]
+[connection signal="pressed" from="Btn" to="." method="_on_btn_pressed"]

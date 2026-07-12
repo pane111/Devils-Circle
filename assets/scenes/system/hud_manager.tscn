@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://c1d0bk55cc8k6" path="res://assets/sprites/misc/armor.png" id="6_qtnd7"]
 [ext_resource type="Texture2D" uid="uid://cs8w4eogwa43s" path="res://assets/sprites/misc/acc.png" id="7_l1qgl"]
 [ext_resource type="PackedScene" uid="uid://bi7318aoi1ml" path="res://assets/scenes/system/onscreen_keyboard.tscn" id="13_hf00a"]
+[ext_resource type="PackedScene" uid="uid://der2w1pqc8002" path="res://assets/scenes/system/save_file_container.tscn" id="13_pthk4"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jo5aa"]
 bg_color = Color(0, 0, 0, 1)
@@ -91,6 +92,21 @@ content_margin_bottom = 16.0
 bg_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aputa"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bv0go"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0, 0, 0, 1)
+draw_center = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0m0mc"]
 content_margin_left = 4.0
 content_margin_top = 4.0
 content_margin_right = 4.0
@@ -515,6 +531,44 @@ text = "Save & Close"
 script = ExtResource("4_byvy3")
 metadata/_custom_type_script = "uid://co673ijg7ufot"
 metadata/_edit_use_anchors_ = true
+
+[node name="SaveMenu" type="PanelContainer" parent="PopupMenus" unique_id=234258646]
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_bv0go")
+metadata/_edit_use_anchors_ = true
+
+[node name="PanelContainer" type="PanelContainer" parent="PopupMenus/SaveMenu" unique_id=1785897449]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_0m0mc")
+
+[node name="SaveList" type="VBoxContainer" parent="PopupMenus/SaveMenu/PanelContainer" unique_id=1859838242]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="PopupMenus/SaveMenu/PanelContainer/SaveList" unique_id=225699566]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "Choose a file..."
+
+[node name="SaveFileContainer" parent="PopupMenus/SaveMenu/PanelContainer/SaveList" unique_id=1975364453 instance=ExtResource("13_pthk4")]
+layout_mode = 2
+
+[node name="SaveFileContainer2" parent="PopupMenus/SaveMenu/PanelContainer/SaveList" unique_id=1620406825 instance=ExtResource("13_pthk4")]
+layout_mode = 2
+save_num = 1
+
+[node name="SaveFileContainer3" parent="PopupMenus/SaveMenu/PanelContainer/SaveList" unique_id=555995214 instance=ExtResource("13_pthk4")]
+layout_mode = 2
+save_num = 2
 
 [node name="MainHUD" type="CanvasLayer" parent="." unique_id=1779766172]
 layer = 10

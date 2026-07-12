@@ -7,8 +7,9 @@ var texteffect = preload("uid://babbltks7fiea")
 #Spawn something in the world
 func spawn_world_effect(eff,pos):
 	var new_eff = effects[eff].instantiate()
-	world_effects.add_child(new_eff)
 	new_eff.global_position = pos
+	world_effects.add_child(new_eff)
+	
 
 #Spawn something on a canvas layer
 func spawn_screen_effect(eff,pos):
@@ -18,8 +19,9 @@ func spawn_screen_effect(eff,pos):
 
 func spawn_local_effect(eff,pos,obj):
 	var new_eff = effects[eff].instantiate()
-	obj.add_sibling(new_eff)
 	new_eff.global_position = pos
+	obj.add_sibling(new_eff)
+	
 
 
 
