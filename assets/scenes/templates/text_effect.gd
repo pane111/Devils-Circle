@@ -18,4 +18,4 @@ func _ready() -> void:
 	queue_free()
 
 func _process(delta: float) -> void:
-	global_position += Vector2.UP * rise_speed * delta
+	$Label.position += Vector2.UP * rise_speed * delta

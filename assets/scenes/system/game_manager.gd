@@ -65,6 +65,9 @@ func load_new_scene(scene_path,door=null,transition=true,has_player=true):
 			if cur_scene.doors[door] != null:
 				player.global_position = cur_scene.doors[door].global_position
 				fp.global_position = player.global_position + Vector2.UP
+				if cur_scene.doors[door].player_dir != Vector2.ZERO:
+					player.lastdir = cur_scene.doors[door].player_dir
+					player.animate(player.lastdir,false,true)
 				load_pms()
 				set_pms_fake3d()
 				set_party_area_speed()
@@ -72,6 +75,7 @@ func load_new_scene(scene_path,door=null,transition=true,has_player=true):
 				printerr("Door "+door+ " was null!")
 		if transition:
 			await HudManager.fade_ended
+			HudManager.show_area_name(cur_scene.area_name)
 		#maincam.position_smoothing_enabled=true
 	else:
 		maincam.reparent(self)

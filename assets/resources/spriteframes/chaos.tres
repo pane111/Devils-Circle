@@ -1,10 +1,11 @@
 [gd_resource type="SpriteFrames" format=3 uid="uid://dpcnpg7qt6txo"]
 
+[ext_resource type="Texture2D" uid="uid://5mllkwwgcrbi" path="res://assets/sprites/chaos_extra.png" id="1_ioiux"]
 [ext_resource type="Texture2D" uid="uid://dlyi61me05l4v" path="res://assets/sprites/chaos.png" id="1_xcbqj"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_k5il8"]
-atlas = ExtResource("1_xcbqj")
-region = Rect2(0, 0, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_dsrnp"]
+atlas = ExtResource("1_ioiux")
+region = Rect2(16, 0, 16, 18)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qilog"]
 atlas = ExtResource("1_xcbqj")
@@ -54,7 +55,7 @@ region = Rect2(0, 48, 16, 16)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_k5il8")
+"texture": SubResource("AtlasTexture_dsrnp")
 }],
 "loop": 1,
 "name": &"idle_down",
@@ -91,7 +92,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_mfr6h")
 }],
-"loop": 1,
+"loop": 2,
 "name": &"move_down",
 "speed": 8.0
 }, {

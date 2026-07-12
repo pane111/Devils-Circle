@@ -7,9 +7,10 @@ var stat_names = {
 	"mag": "Magic",
 	"def":"Defense",
 	"mdf": "MDefense",
-	"agi": "Agility"
+	"agi": "Agility",
+	"evil": "Malice"
 }
-var ordered_keys = ["hp","str","mag","def","mdf","agi"]
+var ordered_keys = ["hp","str","mag","def","mdf","agi","evil"]
 func set_pm(p_name,ptext):
 	pm = PartyManager.active_members[p_name]
 	pm_entity = ResourceManager.get_resource("Entities",p_name) 
@@ -18,7 +19,8 @@ func set_pm(p_name,ptext):
 	var stats = PartyManager.get_finalstats(p_name)
 	var stat_string=""
 	for key in ordered_keys:
-		stat_string += stat_names[key] + ": " + str(roundi(stats[key])) + "\n"
+		if stats.has(key):
+			stat_string += stat_names[key] + ": " + str(roundi(stats[key])) + "\n"
 	%Stats.text = stat_string
 	%WpnBtn.text = ResourceManager.get_resource("Equipment",pm.weapon).item_name
 	%ArmorBtn.text = ResourceManager.get_resource("Equipment",pm.armor).item_name

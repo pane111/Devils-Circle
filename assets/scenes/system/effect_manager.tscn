@@ -1,9 +1,13 @@
 [gd_scene format=3 uid="uid://conpnhpvwrt22"]
 
 [ext_resource type="Script" uid="uid://bppe0vm3wpuwl" path="res://assets/scenes/system/effect_manager.gd" id="1_7xqsk"]
+[ext_resource type="PackedScene" uid="uid://d4htl6gm53i2q" path="res://assets/scenes/templates/hit.tscn" id="2_qo6h3"]
 
 [node name="EffectManager" type="Node" unique_id=727133703]
 script = ExtResource("1_7xqsk")
+effects = Dictionary[String, PackedScene]({
+"hit": ExtResource("2_qo6h3")
+})
 
 [node name="ScreenEffects" type="CanvasLayer" parent="." unique_id=1715534403]
 

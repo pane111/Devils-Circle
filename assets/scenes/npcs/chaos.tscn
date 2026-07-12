@@ -10,13 +10,12 @@
 size = Vector2(8, 8)
 
 [node name="Chaos" type="CharacterBody2D" unique_id=109607271 node_paths=PackedStringArray("anim") groups=["interactable", "slashable"]]
+y_sort_enabled = true
 collision_layer = 8
 collision_mask = 137
 motion_mode = 1
 script = ExtResource("1_hlxjp")
 dialogue_res = ExtResource("2_hlxjp")
-req_flag = "mage_recruited"
-req_value = 0
 anim = NodePath("CSprite")
 can_move = false
 lastdir = Vector2(0, 1)
@@ -24,6 +23,7 @@ lastdir = Vector2(0, 1)
 [node name="CSprite" type="AnimatedSprite2D" parent="." unique_id=2076724140]
 sprite_frames = ExtResource("3_hlxjp")
 animation = &"idle_down"
+frame_progress = 0.77404785
 offset = Vector2(0, -4)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1558998834]

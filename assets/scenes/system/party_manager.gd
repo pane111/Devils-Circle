@@ -63,5 +63,8 @@ func get_finalstats(pname):
 	var armorstats = ResourceManager.get_resource("Equipment",pm.armor).stat_changes
 	var accstats = ResourceManager.get_resource("Equipment",pm.acc).stat_changes
 	for stat in stats:
-		finalstats[stat] = stats[stat] + (levelstats[stat] * (party_level-1)) + weaponstats[stat] + armorstats[stat] + accstats[stat]
+		if levelstats.has(stat):
+			finalstats[stat] = stats[stat] + (levelstats[stat] * (party_level-1)) + weaponstats[stat] + armorstats[stat] + accstats[stat]
+		else:
+			finalstats[stat] = stats[stat]
 	return finalstats

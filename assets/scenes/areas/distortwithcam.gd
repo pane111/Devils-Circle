@@ -11,14 +11,14 @@ func _ready() -> void:
 	cam_start_pos = get_viewport().get_camera_2d().global_position
 	for o in objects:
 		starting_positions[o] = o.global_position
-
+func erase_obj(o):
+	objects.erase(o)
 func _process(delta: float) -> void:
 	var cam_pos = get_viewport().get_camera_2d().global_position
 	var cdif = cam_pos.y - cam_start_pos.y
 	self.scale.y = clampf((cdif/500) * dist_speed,min_scale,max_scale)
 	for o in objects:
 		if o == null:
-			objects.erase(o)
 			return
 		var local_pos = starting_positions[o] - self.global_position
 		local_pos.y *= self.scale.y

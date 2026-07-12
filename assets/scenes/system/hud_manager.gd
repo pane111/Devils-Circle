@@ -51,6 +51,14 @@ func fade_to_black(cont=false):
 	if cont:
 		fade_black_out()
 
+func show_area_name(val):
+	%AreaNameLabel.text=val
+	var tween = get_tree().create_tween()
+	tween.tween_property(%AreaNameLabel,"offset_transform_position",Vector2.ZERO,0.5)
+	await get_tree().create_timer(2.5).timeout
+	var tween2 = get_tree().create_tween()
+	tween2.tween_property(%AreaNameLabel,"offset_transform_position",Vector2(0,-16),0.5)
+
 func fade_black_out():
 	$Overlays/FadeBlackAnim.play("fade_black_out")
 	await $Overlays/FadeBlackAnim.animation_finished

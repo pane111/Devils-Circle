@@ -10,6 +10,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h8c8n"]
 size = Vector2(8, 8)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vepnw"]
+size = Vector2(30, 28)
+
 [node name="Player" type="CharacterBody2D" unique_id=1861052517 node_paths=PackedStringArray("anim")]
 y_sort_enabled = true
 collision_mask = 136
@@ -26,8 +29,10 @@ metadata/_edit_group_ = true
 
 [node name="CSprite" type="AnimatedSprite2D" parent="." unique_id=1330160743]
 sprite_frames = ExtResource("2_dklma")
-animation = &"atk_up"
+animation = &"atk_down"
 autoplay = "idle_down"
+frame = 2
+frame_progress = 1.0
 offset = Vector2(0, -4)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2104374032]
@@ -53,3 +58,11 @@ bus = &"SFX"
 stream = ExtResource("6_vxr81")
 volume_db = -20.0
 bus = &"SFX"
+
+[node name="AttackArea" type="Area2D" parent="." unique_id=1374433732]
+position = Vector2(-9, 14)
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea" unique_id=1988277657]
+shape = SubResource("RectangleShape2D_vepnw")

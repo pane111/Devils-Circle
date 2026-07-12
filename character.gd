@@ -12,6 +12,7 @@ signal jumped
 signal move_completed
 @export var lastdir = Vector2.ZERO
 var fake_3d=false
+@export var affected_by_fake_3d=true
 var scale_speed=1.0
 @export var simplified_animation=false
 var init_ms=1.0
@@ -32,6 +33,7 @@ func _physics_process(_delta: float) -> void:
 		
 		move_and_slide()
 func set_f3d(val,spd):
+	if !affected_by_fake_3d: return
 	fake_3d=val
 	init_ms = move_speed
 	if !val:

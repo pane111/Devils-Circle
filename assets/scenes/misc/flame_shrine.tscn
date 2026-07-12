@@ -64,3 +64,4 @@ bus = &"SFX"
 
 [node name="SpawnPoint" parent="." unique_id=1124873234 instance=ExtResource("4_1rrfw")]
 position = Vector2(0, 16)
+player_dir = Vector2(0, 1)

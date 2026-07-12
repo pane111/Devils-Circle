@@ -2,11 +2,13 @@
 
 [ext_resource type="Script" uid="uid://ki7ie1vxrhxy" path="res://addons/character_creator/character_container.gd" id="1_8mfrx"]
 [ext_resource type="Texture2D" uid="uid://dn6k1es6qkudl" path="res://assets/sprites/portraits/chaos.png" id="1_xlxgm"]
+[ext_resource type="Texture2D" uid="uid://bqtb1v17mlm5x" path="res://assets/sprites/portraits/chaos_sad.png" id="2_8exg8"]
 
 [resource]
 script = ExtResource("1_8mfrx")
 portraits = Dictionary[String, Texture2D]({
-"default": ExtResource("1_xlxgm")
+"default": ExtResource("1_xlxgm"),
+"sad": ExtResource("2_8exg8")
 })
 display_name = "Chaos"
 ref_name = "chaos"

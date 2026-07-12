@@ -2,13 +2,17 @@ extends "res://character.gd"
 @export var dialogue_start = "start"
 @export var dialogue_res: DialogueResource
 @export var animate_on_ready=true
-
+@export var look_at_player=true
 @export var req_flag: String
 @export var req_value = 1
+
 var player
+var max_hp=3.0
+var cur_hp
+signal killed
 
 func _ready() -> void:
-	
+	cur_hp=max_hp
 	if !req_flag.is_empty() && !FlagManager.check_flag(req_flag,req_value):
 		queue_free()
 	
@@ -21,13 +25,27 @@ func _ready() -> void:
 	
 func remove():
 	queue_free()
+
+func on_slash():
+	cur_hp-=1
+	anim.self_modulate=Color.RED
+	EffectManager.spawn_text("1",self.global_position,false,50.0,0.5)
+	if cur_hp<=0:
+		killed.emit()
+		remove()
+	else:
+		await get_tree().create_timer(0.25).timeout
+		anim.self_modulate=Color.WHITE
+
+
 func on_interact():
 	player = GameManager.player
 	var dir=player.global_position-global_position
 	can_move=false
 	velocity = Vector2.ZERO
 	moving=false
-	animate(dir.normalized(),false,true)
+	if look_at_player:
+		animate(dir.normalized(),false,true)
 	if dialogue_res != null:
 		DialogueManager.show_dialogue_balloon(dialogue_res,dialogue_start,[self])
 		await DialogueManager.dialogue_ended

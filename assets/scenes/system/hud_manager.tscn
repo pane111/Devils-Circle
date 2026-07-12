@@ -517,10 +517,29 @@ metadata/_custom_type_script = "uid://co673ijg7ufot"
 metadata/_edit_use_anchors_ = true
 
 [node name="MainHUD" type="CanvasLayer" parent="." unique_id=1779766172]
+layer = 10
 
 [node name="OnscreenKeyboard" parent="MainHUD" unique_id=1732676958 instance=ExtResource("13_hf00a")]
 unique_name_in_owner = true
 visible = false
+
+[node name="AreaNameLabel" type="Label" parent="MainHUD" unique_id=1504119445]
+unique_name_in_owner = true
+anchors_preset = -1
+anchor_left = 0.7675
+anchor_top = 0.0125
+anchor_right = 0.9475
+anchor_bottom = 0.079166666
+offset_left = 19.0
+offset_right = 19.0
+grow_horizontal = 0
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, -16)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 8
+text = "Area Name"
+horizontal_alignment = 2
+metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="PopupMenus/PauseMenu/VBoxContainer/PartyMenu/VBoxContainer/PMContainer/ClosePartyButton" to="PopupMenus/PauseMenu" method="_on_close_party_button_pressed"]
 [connection signal="pressed" from="PopupMenus/PauseMenu/VBoxContainer/SystemMenu/VBoxContainer/SettingsBtn" to="PopupMenus/PauseMenu" method="_on_settings_btn_pressed"]

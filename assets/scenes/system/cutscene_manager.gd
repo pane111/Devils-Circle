@@ -10,7 +10,7 @@ func focus_cam_on_entity(e_name):
 	GameManager.maincam.position = Vector2.ZERO
 
 func move_cam_to_position(pos,dur):
-	GameManager.maincam.reparent(GameManager)
+	#GameManager.maincam.reparent(GameManager)
 	var t = get_tree().create_tween()
 	t.tween_property(GameManager.maincam,"global_position",pos,dur)
 	await t.finished

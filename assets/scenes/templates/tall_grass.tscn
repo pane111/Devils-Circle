@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://brnodnr5i2kib"]
+
+[ext_resource type="Script" uid="uid://bgxvom1ywkt1g" path="res://assets/scenes/templates/tall_grass.gd" id="1_ao63w"]
+[ext_resource type="Texture2D" uid="uid://c1t1s7rtgcbdo" path="res://assets/sprites/tallgrass.png" id="1_labdf"]
+[ext_resource type="Texture2D" uid="uid://dur04cim8thdm" path="res://assets/sprites/leaf.png" id="3_5douk"]
+[ext_resource type="AudioStream" uid="uid://w2buyei70c07" path="res://assets/audio/sfx/Hit46.wav" id="4_kdwbh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h8c8n"]
+size = Vector2(16, 16)
+
+[sub_resource type="Gradient" id="Gradient_h8c8n"]
+offsets = PackedFloat32Array(0, 0.7932692, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[node name="TallGrass" type="StaticBody2D" unique_id=33203811 groups=["slashable"]]
+y_sort_enabled = true
+collision_layer = 136
+collision_mask = 0
+script = ExtResource("1_ao63w")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1053356219]
+shape = SubResource("RectangleShape2D_h8c8n")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1052547566]
+texture = ExtResource("1_labdf")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=515010716]
+emitting = false
+amount = 5
+texture = ExtResource("3_5douk")
+lifetime = 0.6
+one_shot = true
+explosiveness = 1.0
+randomness = 1.0
+direction = Vector2(0, -1)
+spread = 30.0
+gravity = Vector2(0, 290)
+initial_velocity_min = 105.61
+initial_velocity_max = 242.71
+angular_velocity_max = 174.19
+damping_max = 45.968
+scale_amount_max = 1.5
+color_ramp = SubResource("Gradient_h8c8n")
+
+[node name="HitSound" type="AudioStreamPlayer2D" parent="." unique_id=495002888]
+stream = ExtResource("4_kdwbh")
+volume_db = 12.0
+bus = &"SFX"

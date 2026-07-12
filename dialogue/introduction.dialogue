@@ -26,8 +26,16 @@ else:
 	Chaos?: Yes, that's right. I remember it too.
 Player: Where am I? Who are you?
 Chaos?: ...
-Chaos?: You're dreaming...
-Chaos?: You need to wake up.
+Chaos_sad?: It's not important.
 do wait(2.0)
-do GameManager.load_new_scene("uid://hjmmpw48omox")
+do GameManager.load_new_scene("uid://bs82owfnb5uy4")
+=> END
+
+~ alt
+do wait(1.0)
+do CutsceneManager.move_cam_to_position(Vector2(200,-80),2.0)
+Chaos_sad?: Why do you meet me with violence?
+Chaos_sad?: ...
+Chaos?: If it is your wish, then... I'll allow it.
+=> start
 => END

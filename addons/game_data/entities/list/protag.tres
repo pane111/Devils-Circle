@@ -6,6 +6,15 @@
 script = ExtResource("1_sjo8x")
 ref_name = "protag"
 entity_desc = "A traveler with a varied skillset."
+base_stats = Dictionary[String, float]({
+"agi": 1.0,
+"def": 1.0,
+"evil": 0.0,
+"hp": 10.0,
+"mag": 1.0,
+"mdf": 1.0,
+"str": 1.0
+})
 stat_growths = {
 "agi": 2.0,
 "def": 1.3,

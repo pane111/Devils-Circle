@@ -5,7 +5,7 @@ extends Resource
 @export var ref_name: String
 @export var entity_name: String
 @export var entity_desc: String
-@export var base_stats = {
+@export var base_stats: Dictionary[String,float] = {
 	"hp":10.0,
 	"str":1.0,
 	"mag":1.0,

@@ -25,8 +25,9 @@ func spawn_local_effect(eff,pos,obj):
 
 func spawn_text(val,pos,typewriter=false,speed=0.0,duration=3.0):
 	var new_eff = texteffect.instantiate()
-	screen_effects.add_child(new_eff)
+	
 	new_eff.global_position = pos
+	GameManager.cur_scene.add_child(new_eff)
 	new_eff.set_text(val)
 	new_eff.typewriter=typewriter
 	new_eff.rise_speed=speed
@@ -34,8 +35,7 @@ func spawn_text(val,pos,typewriter=false,speed=0.0,duration=3.0):
 
 func spawn_text_on_obj(val,obj,typewriter=false,speed=0.0,duration=3.0):
 	var new_eff = texteffect.instantiate()
-	obj.add_sibling(new_eff)
-	new_eff.global_position = obj.global_position
+	obj.add_child(new_eff)
 	new_eff.set_text(val)
 	new_eff.typewriter=typewriter
 	new_eff.rise_speed=speed

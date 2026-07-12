@@ -78,13 +78,28 @@ func attack():
 	var dir = lastdir if lastdir != null else Vector2.DOWN
 	
 	if abs(dir.x) > abs(dir.y):
-		suffix = "right" if dir.x > 0 else "left"
+		if dir.x > 0:
+			suffix = "right" 
+			$AttackArea.position = Vector2(9.0,-14.0)
+		else: 
+			suffix = "left"
+			$AttackArea.position = Vector2(-15.0,-12.0)
 	else:
-		suffix = "down" if dir.y > 0 else "up"
+		if dir.y > 0:
+			suffix = "down"
+			$AttackArea.position = Vector2(-9.0,14.0)
+		else:
+			suffix = "up"
+			$AttackArea.position = Vector2(9.0,-14.0)
+			
 	var anim_name = prefix+suffix
 	anim.play(anim_name)
 	$Slash.play()
-	#print_debug("Anim name: " + anim_name)
+	await anim.frame_changed
+	for b in $AttackArea.get_overlapping_bodies():
+		if b.is_in_group("slashable"):
+			b.on_slash()
+			await get_tree().process_frame
 	await anim.animation_finished
 	handle_input=true
 	can_move=true

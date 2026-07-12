@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://nbu4nmum743r"]
+
+[ext_resource type="Script" uid="uid://cf5a7wil5n4mv" path="res://assets/scenes/system/loading_zone.gd" id="1_8irap"]
+[ext_resource type="Texture2D" uid="uid://083yh262atb8" path="res://assets/sprites/misc/red_arrow.png" id="1_n8coc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h8c8n"]
+size = Vector2(16, 16)
+
+[node name="LoadingZone" type="Area2D" unique_id=94582490]
+collision_layer = 0
+script = ExtResource("1_8irap")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=788519528]
+shape = SubResource("RectangleShape2D_h8c8n")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=783775456]
+texture = ExtResource("1_n8coc")
+flip_v = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
