@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://jmcy0mya6mc"]
+
+[ext_resource type="Script" uid="uid://0omhhfpct7ad" path="res://addons/game_data/items/item.gd" id="1_t1esv"]
+
+[resource]
+script = ExtResource("1_t1esv")
+ref_name = "stimulant"
+item_name = "Stimulant"
+item_desc = "Restores energy of target character by 50."
+metadata/_custom_type_script = "uid://0omhhfpct7ad"

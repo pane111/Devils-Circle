@@ -1,11 +1,24 @@
 extends Button
 var selected=false
 @export var submit_text=false
+@export var cursor_graphic = "uid://mrd2xnbpuypu"
+var cursor=null
 signal pressed_text(val: String)
 func _ready() -> void:
 	gui_input.connect(_on_input)
 	if submit_text:
 		pressed.connect(on_pressed)
+	var newcursor = load(cursor_graphic).instantiate()
+	add_child(newcursor)
+	cursor = newcursor
+	cursor.hide()
+	mouse_entered.connect(set_cursor.bind(true))
+	mouse_exited.connect(set_cursor.bind(false))
+	focus_entered.connect(set_cursor.bind(true))
+	focus_exited.connect(set_cursor.bind(false))
+	
+func set_cursor(val):
+	cursor.visible=val
 	
 func on_pressed():
 	pressed_text.emit(text)

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Weapon" format=3 uid="uid://bk06f5tgdili6"]
+
+[ext_resource type="Script" uid="uid://dw35i1bjs1rmt" path="res://addons/game_data/equipment/weapon.gd" id="1_drn4j"]
+
+[resource]
+script = ExtResource("1_drn4j")
+stat_changes = {
+"agi": 1.0,
+"def": 0.0,
+"hp": 0.0,
+"mag": 0.0,
+"mdf": 0.0,
+"str": 2.0
+}
+ref_name = "ironsword"
+item_name = "Iron Sword"
+item_desc = "A simple sword for common soldiers."
+metadata/_custom_type_script = "uid://dw35i1bjs1rmt"

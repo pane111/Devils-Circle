@@ -1,0 +1,9 @@
+[gd_resource type="StyleBoxTexture" format=3 uid="uid://c844gvl6v0r2k"]
+
+[ext_resource type="Texture2D" uid="uid://cli1wl85doaa" path="res://assets/sprites/ui/focusbtn.png" id="1_h541w"]
+
+[resource]
+texture = ExtResource("1_h541w")
+texture_margin_left = 16.0
+expand_margin_left = 16.0
+axis_stretch_horizontal = 2

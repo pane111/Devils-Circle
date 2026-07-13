@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://mrd2xnbpuypu"]
+
+[ext_resource type="Texture2D" uid="uid://cli1wl85doaa" path="res://assets/sprites/ui/focusbtn.png" id="1_ib0ls"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ib0ls"]
+atlas = ExtResource("1_ib0ls")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kvr1i"]
+atlas = ExtResource("1_ib0ls")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vvuq3"]
+atlas = ExtResource("1_ib0ls")
+region = Rect2(16, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b681g"]
+atlas = ExtResource("1_ib0ls")
+region = Rect2(24, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2gklt"]
+atlas = ExtResource("1_ib0ls")
+region = Rect2(32, 0, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h8c8n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ib0ls")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kvr1i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vvuq3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b681g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2gklt")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="CursorGraphic" type="Control" unique_id=906930766]
+layout_mode = 3
+anchor_top = 0.48333332
+anchor_right = 0.02
+anchor_bottom = 0.51666665
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=675751891]
+sprite_frames = SubResource("SpriteFrames_h8c8n")
+autoplay = "default"
+frame_progress = 0.511396
+offset = Vector2(-4, 0)

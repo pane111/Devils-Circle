@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://fughep7r61ch" path="res://assets/scenes/system/onscreen_keyboard.gd" id="1_whmgj"]
 [ext_resource type="Script" uid="uid://co673ijg7ufot" path="res://addons/extra_nodes/sound_button.gd" id="2_1exuk"]
+[ext_resource type="Theme" uid="uid://0u0xtbmu23kn" path="res://assets/resources/standard_theme.tres" id="2_cpbnm"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uska6"]
 content_margin_left = 4.0
@@ -45,7 +46,7 @@ grow_horizontal = 2
 grow_vertical = 2
 offset_transform_position = Vector2(-200, -120)
 script = ExtResource("1_whmgj")
-characters = "bcdefghijklmnopqrstuvwxyz -/+"
+characters = "abcdefghijklmnopqrstuvwxyz -/+"
 metadata/_edit_use_anchors_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1146075467]
@@ -88,14 +89,18 @@ theme_override_constants/h_separation = 8
 theme_override_constants/v_separation = 8
 columns = 10
 
-[node name="LetterKey" type="Button" parent="VBoxContainer/PanelContainer/GridContainer" unique_id=516135803]
+[node name="LetterKey" type="Button" parent="VBoxContainer/PanelContainer/GridContainer" unique_id=516135803 groups=["keys"]]
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+focus_neighbor_left = NodePath("../LetterKey10")
+theme = ExtResource("2_cpbnm")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 1
 text = "A"
 script = ExtResource("2_1exuk")
@@ -103,6 +108,881 @@ submit_text = true
 metadata/_custom_type_script = "uid://co673ijg7ufot"
 
 [node name="Label" type="Label" parent="VBoxContainer/PanelContainer/GridContainer/LetterKey" unique_id=269000038]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.75
+anchor_right = 1.75
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 8
+text = "A"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="LetterKey2" type="Button" parent="VBoxContainer/PanelContainer/GridContainer" unique_id=1808713258 groups=["keys"]]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 1
+text = "A"
+script = ExtResource("2_1exuk")
+submit_text = true
+metadata/_custom_type_script = "uid://co673ijg7ufot"
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/GridContainer/LetterKey2" unique_id=252761232]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.75
+anchor_right = 1.75
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 8
+text = "A"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="LetterKey3" type="Button" parent="VBoxContainer/PanelContainer/GridContainer" unique_id=2114930103 groups=["keys"]]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 1
+text = "A"
+script = ExtResource("2_1exuk")
+submit_text = true
+metadata/_custom_type_script = "uid://co673ijg7ufot"
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/GridContainer/LetterKey3" unique_id=1587381274]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.75
+anchor_right = 1.75
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 8
+text = "A"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="LetterKey4" type="Button" parent="VBoxContainer/PanelContainer/GridContainer" unique_id=1431439560 groups=["keys"]]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 1
+text = "A"
+script = ExtResource("2_1exuk")
+submit_text = true
+metadata/_custom_type_script = "uid://co673ijg7ufot"
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/GridContainer/LetterKey4" unique_id=1685800128]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.75
+anchor_right = 1.75
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 8
+text = "A"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="LetterKey5" type="Button" parent="VBoxContainer/PanelContainer/GridContainer" unique_id=370577636 groups=["keys"]]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 1
+text = "A"
+script = ExtResource("2_1exuk")
+submit_text = true
+metadata/_custom_type_script = "uid://co673ijg7ufot"
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/GridContainer/LetterKey5" unique_id=2131292547]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.75
+anchor_right = 1.75
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 8
+text = "A"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="LetterKey6" type="Button" parent="VBoxContainer/PanelContainer/GridContainer" unique_id=158862813 groups=["keys"]]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 1
+text = "A"
+script = ExtResource("2_1exuk")
+submit_text = true
+metadata/_custom_type_script = "uid://co673ijg7ufot"
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/GridContainer/LetterKey6" unique_id=1109564491]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.75
+anchor_right = 1.75
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 8
+text = "A"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="LetterKey7" type="Button" parent="VBoxContainer/PanelContainer/GridContainer" unique_id=1567268966 groups=["keys"]]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 1
+text = "A"
+script = ExtResource("2_1exuk")
+submit_text = true
+metadata/_custom_type_script = "uid://co673ijg7ufot"
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/GridContainer/LetterKey7" unique_id=1994466373]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.75
+anchor_right = 1.75
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 8
+text = "A"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="LetterKey8" type="Button" parent="VBoxContainer/PanelContainer/GridContainer" unique_id=1431344679 groups=["keys"]]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 1
+text = "A"
+script = ExtResource("2_1exuk")
+submit_text = true
+metadata/_custom_type_script = "uid://co673ijg7ufot"
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/GridContainer/LetterKey8" unique_id=1538811531]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.75
+anchor_right = 1.75
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 8
+text = "A"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="LetterKey9" type="Button" parent="VBoxContainer/PanelContainer/GridContainer" unique_id=1412248679 groups=["keys"]]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 1
+text = "A"
+script = ExtResource("2_1exuk")
+submit_text = true
+metadata/_custom_type_script = "uid://co673ijg7ufot"
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/GridContainer/LetterKey9" unique_id=1228445100]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.75
+anchor_right = 1.75
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 8
+text = "A"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="LetterKey10" type="Button" parent="VBoxContainer/PanelContainer/GridContainer" unique_id=46352069 groups=["keys"]]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_neighbor_right = NodePath("../LetterKey")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 1
+text = "A"
+script = ExtResource("2_1exuk")
+submit_text = true
+metadata/_custom_type_script = "uid://co673ijg7ufot"
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/GridContainer/LetterKey10" unique_id=1426705447]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.75
+anchor_right = 1.75
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 8
+text = "A"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="LetterKey11" type="Button" parent="VBoxContainer/PanelContainer/GridContainer" unique_id=1652604808 groups=["keys"]]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_neighbor_left = NodePath("../LetterKey20")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 1
+text = "A"
+script = ExtResource("2_1exuk")
+submit_text = true
+metadata/_custom_type_script = "uid://co673ijg7ufot"
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/GridContainer/LetterKey11" unique_id=1520736783]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.75
+anchor_right = 1.75
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 8
+text = "A"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="LetterKey12" type="Button" parent="VBoxContainer/PanelContainer/GridContainer" unique_id=1601296357 groups=["keys"]]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 1
+text = "A"
+script = ExtResource("2_1exuk")
+submit_text = true
+metadata/_custom_type_script = "uid://co673ijg7ufot"
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/GridContainer/LetterKey12" unique_id=694538446]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.75
+anchor_right = 1.75
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 8
+text = "A"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="LetterKey13" type="Button" parent="VBoxContainer/PanelContainer/GridContainer" unique_id=1564816903 groups=["keys"]]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 1
+text = "A"
+script = ExtResource("2_1exuk")
+submit_text = true
+metadata/_custom_type_script = "uid://co673ijg7ufot"
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/GridContainer/LetterKey13" unique_id=350423945]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.75
+anchor_right = 1.75
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 8
+text = "A"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="LetterKey14" type="Button" parent="VBoxContainer/PanelContainer/GridContainer" unique_id=1147067941 groups=["keys"]]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 1
+text = "A"
+script = ExtResource("2_1exuk")
+submit_text = true
+metadata/_custom_type_script = "uid://co673ijg7ufot"
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/GridContainer/LetterKey14" unique_id=1763800361]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.75
+anchor_right = 1.75
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 8
+text = "A"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="LetterKey15" type="Button" parent="VBoxContainer/PanelContainer/GridContainer" unique_id=545694910 groups=["keys"]]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 1
+text = "A"
+script = ExtResource("2_1exuk")
+submit_text = true
+metadata/_custom_type_script = "uid://co673ijg7ufot"
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/GridContainer/LetterKey15" unique_id=240706987]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.75
+anchor_right = 1.75
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 8
+text = "A"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="LetterKey16" type="Button" parent="VBoxContainer/PanelContainer/GridContainer" unique_id=1301770493 groups=["keys"]]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 1
+text = "A"
+script = ExtResource("2_1exuk")
+submit_text = true
+metadata/_custom_type_script = "uid://co673ijg7ufot"
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/GridContainer/LetterKey16" unique_id=12733806]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.75
+anchor_right = 1.75
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 8
+text = "A"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="LetterKey17" type="Button" parent="VBoxContainer/PanelContainer/GridContainer" unique_id=1071528547 groups=["keys"]]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 1
+text = "A"
+script = ExtResource("2_1exuk")
+submit_text = true
+metadata/_custom_type_script = "uid://co673ijg7ufot"
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/GridContainer/LetterKey17" unique_id=1272260873]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.75
+anchor_right = 1.75
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 8
+text = "A"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="LetterKey18" type="Button" parent="VBoxContainer/PanelContainer/GridContainer" unique_id=1535841019 groups=["keys"]]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 1
+text = "A"
+script = ExtResource("2_1exuk")
+submit_text = true
+metadata/_custom_type_script = "uid://co673ijg7ufot"
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/GridContainer/LetterKey18" unique_id=1734609862]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.75
+anchor_right = 1.75
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 8
+text = "A"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="LetterKey19" type="Button" parent="VBoxContainer/PanelContainer/GridContainer" unique_id=1682736267 groups=["keys"]]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 1
+text = "A"
+script = ExtResource("2_1exuk")
+submit_text = true
+metadata/_custom_type_script = "uid://co673ijg7ufot"
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/GridContainer/LetterKey19" unique_id=791013182]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.75
+anchor_right = 1.75
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 8
+text = "A"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="LetterKey20" type="Button" parent="VBoxContainer/PanelContainer/GridContainer" unique_id=1097907220 groups=["keys"]]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_neighbor_right = NodePath("../LetterKey11")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 1
+text = "A"
+script = ExtResource("2_1exuk")
+submit_text = true
+metadata/_custom_type_script = "uid://co673ijg7ufot"
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/GridContainer/LetterKey20" unique_id=790087638]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.75
+anchor_right = 1.75
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 8
+text = "A"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="LetterKey21" type="Button" parent="VBoxContainer/PanelContainer/GridContainer" unique_id=1734106330 groups=["keys"]]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_neighbor_left = NodePath("../LetterKey30")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 1
+text = "A"
+script = ExtResource("2_1exuk")
+submit_text = true
+metadata/_custom_type_script = "uid://co673ijg7ufot"
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/GridContainer/LetterKey21" unique_id=1798085606]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.75
+anchor_right = 1.75
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 8
+text = "A"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="LetterKey22" type="Button" parent="VBoxContainer/PanelContainer/GridContainer" unique_id=1655342607 groups=["keys"]]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 1
+text = "A"
+script = ExtResource("2_1exuk")
+submit_text = true
+metadata/_custom_type_script = "uid://co673ijg7ufot"
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/GridContainer/LetterKey22" unique_id=905761755]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.75
+anchor_right = 1.75
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 8
+text = "A"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="LetterKey23" type="Button" parent="VBoxContainer/PanelContainer/GridContainer" unique_id=823551820 groups=["keys"]]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 1
+text = "A"
+script = ExtResource("2_1exuk")
+submit_text = true
+metadata/_custom_type_script = "uid://co673ijg7ufot"
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/GridContainer/LetterKey23" unique_id=1119849732]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.75
+anchor_right = 1.75
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 8
+text = "A"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="LetterKey24" type="Button" parent="VBoxContainer/PanelContainer/GridContainer" unique_id=416370869 groups=["keys"]]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 1
+text = "A"
+script = ExtResource("2_1exuk")
+submit_text = true
+metadata/_custom_type_script = "uid://co673ijg7ufot"
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/GridContainer/LetterKey24" unique_id=1871968496]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.75
+anchor_right = 1.75
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 8
+text = "A"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="LetterKey25" type="Button" parent="VBoxContainer/PanelContainer/GridContainer" unique_id=1193298010 groups=["keys"]]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 1
+text = "A"
+script = ExtResource("2_1exuk")
+submit_text = true
+metadata/_custom_type_script = "uid://co673ijg7ufot"
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/GridContainer/LetterKey25" unique_id=874827621]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.75
+anchor_right = 1.75
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 8
+text = "A"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="LetterKey26" type="Button" parent="VBoxContainer/PanelContainer/GridContainer" unique_id=2009358665 groups=["keys"]]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 1
+text = "A"
+script = ExtResource("2_1exuk")
+submit_text = true
+metadata/_custom_type_script = "uid://co673ijg7ufot"
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/GridContainer/LetterKey26" unique_id=2029204518]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.75
+anchor_right = 1.75
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 8
+text = "A"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="LetterKey27" type="Button" parent="VBoxContainer/PanelContainer/GridContainer" unique_id=1205362680 groups=["keys"]]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 1
+text = "A"
+script = ExtResource("2_1exuk")
+submit_text = true
+metadata/_custom_type_script = "uid://co673ijg7ufot"
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/GridContainer/LetterKey27" unique_id=1457226428]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.75
+anchor_right = 1.75
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 8
+text = "A"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="LetterKey28" type="Button" parent="VBoxContainer/PanelContainer/GridContainer" unique_id=408902926 groups=["keys"]]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 1
+text = "A"
+script = ExtResource("2_1exuk")
+submit_text = true
+metadata/_custom_type_script = "uid://co673ijg7ufot"
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/GridContainer/LetterKey28" unique_id=1142447078]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.75
+anchor_right = 1.75
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 8
+text = "A"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="LetterKey29" type="Button" parent="VBoxContainer/PanelContainer/GridContainer" unique_id=1374306245 groups=["keys"]]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 1
+text = "A"
+script = ExtResource("2_1exuk")
+submit_text = true
+metadata/_custom_type_script = "uid://co673ijg7ufot"
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/GridContainer/LetterKey29" unique_id=51388330]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.75
+anchor_right = 1.75
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 8
+text = "A"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="LetterKey30" type="Button" parent="VBoxContainer/PanelContainer/GridContainer" unique_id=1519140016 groups=["keys"]]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_neighbor_right = NodePath("../LetterKey21")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 1
+text = "A"
+script = ExtResource("2_1exuk")
+submit_text = true
+metadata/_custom_type_script = "uid://co673ijg7ufot"
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/GridContainer/LetterKey30" unique_id=1759625332]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -0.75
@@ -176,5 +1056,34 @@ script = ExtResource("2_1exuk")
 metadata/_custom_type_script = "uid://co673ijg7ufot"
 
 [connection signal="pressed_text" from="VBoxContainer/PanelContainer/GridContainer/LetterKey" to="." method="_on_letter_key_pressed_text"]
+[connection signal="pressed_text" from="VBoxContainer/PanelContainer/GridContainer/LetterKey2" to="." method="_on_letter_key_pressed_text"]
+[connection signal="pressed_text" from="VBoxContainer/PanelContainer/GridContainer/LetterKey3" to="." method="_on_letter_key_pressed_text"]
+[connection signal="pressed_text" from="VBoxContainer/PanelContainer/GridContainer/LetterKey4" to="." method="_on_letter_key_pressed_text"]
+[connection signal="pressed_text" from="VBoxContainer/PanelContainer/GridContainer/LetterKey5" to="." method="_on_letter_key_pressed_text"]
+[connection signal="pressed_text" from="VBoxContainer/PanelContainer/GridContainer/LetterKey6" to="." method="_on_letter_key_pressed_text"]
+[connection signal="pressed_text" from="VBoxContainer/PanelContainer/GridContainer/LetterKey7" to="." method="_on_letter_key_pressed_text"]
+[connection signal="pressed_text" from="VBoxContainer/PanelContainer/GridContainer/LetterKey8" to="." method="_on_letter_key_pressed_text"]
+[connection signal="pressed_text" from="VBoxContainer/PanelContainer/GridContainer/LetterKey9" to="." method="_on_letter_key_pressed_text"]
+[connection signal="pressed_text" from="VBoxContainer/PanelContainer/GridContainer/LetterKey10" to="." method="_on_letter_key_pressed_text"]
+[connection signal="pressed_text" from="VBoxContainer/PanelContainer/GridContainer/LetterKey11" to="." method="_on_letter_key_pressed_text"]
+[connection signal="pressed_text" from="VBoxContainer/PanelContainer/GridContainer/LetterKey12" to="." method="_on_letter_key_pressed_text"]
+[connection signal="pressed_text" from="VBoxContainer/PanelContainer/GridContainer/LetterKey13" to="." method="_on_letter_key_pressed_text"]
+[connection signal="pressed_text" from="VBoxContainer/PanelContainer/GridContainer/LetterKey14" to="." method="_on_letter_key_pressed_text"]
+[connection signal="pressed_text" from="VBoxContainer/PanelContainer/GridContainer/LetterKey15" to="." method="_on_letter_key_pressed_text"]
+[connection signal="pressed_text" from="VBoxContainer/PanelContainer/GridContainer/LetterKey16" to="." method="_on_letter_key_pressed_text"]
+[connection signal="pressed_text" from="VBoxContainer/PanelContainer/GridContainer/LetterKey17" to="." method="_on_letter_key_pressed_text"]
+[connection signal="pressed_text" from="VBoxContainer/PanelContainer/GridContainer/LetterKey18" to="." method="_on_letter_key_pressed_text"]
+[connection signal="pressed_text" from="VBoxContainer/PanelContainer/GridContainer/LetterKey19" to="." method="_on_letter_key_pressed_text"]
+[connection signal="pressed_text" from="VBoxContainer/PanelContainer/GridContainer/LetterKey20" to="." method="_on_letter_key_pressed_text"]
+[connection signal="pressed_text" from="VBoxContainer/PanelContainer/GridContainer/LetterKey21" to="." method="_on_letter_key_pressed_text"]
+[connection signal="pressed_text" from="VBoxContainer/PanelContainer/GridContainer/LetterKey22" to="." method="_on_letter_key_pressed_text"]
+[connection signal="pressed_text" from="VBoxContainer/PanelContainer/GridContainer/LetterKey23" to="." method="_on_letter_key_pressed_text"]
+[connection signal="pressed_text" from="VBoxContainer/PanelContainer/GridContainer/LetterKey24" to="." method="_on_letter_key_pressed_text"]
+[connection signal="pressed_text" from="VBoxContainer/PanelContainer/GridContainer/LetterKey25" to="." method="_on_letter_key_pressed_text"]
+[connection signal="pressed_text" from="VBoxContainer/PanelContainer/GridContainer/LetterKey26" to="." method="_on_letter_key_pressed_text"]
+[connection signal="pressed_text" from="VBoxContainer/PanelContainer/GridContainer/LetterKey27" to="." method="_on_letter_key_pressed_text"]
+[connection signal="pressed_text" from="VBoxContainer/PanelContainer/GridContainer/LetterKey28" to="." method="_on_letter_key_pressed_text"]
+[connection signal="pressed_text" from="VBoxContainer/PanelContainer/GridContainer/LetterKey29" to="." method="_on_letter_key_pressed_text"]
+[connection signal="pressed_text" from="VBoxContainer/PanelContainer/GridContainer/LetterKey30" to="." method="_on_letter_key_pressed_text"]
 [connection signal="pressed" from="ConfirmPopup/VBoxContainer/HBoxContainer/ConfirmBtn" to="." method="_on_confirm_btn_pressed"]
 [connection signal="pressed" from="ConfirmPopup/VBoxContainer/HBoxContainer/DenyBtn" to="." method="_on_deny_btn_pressed"]

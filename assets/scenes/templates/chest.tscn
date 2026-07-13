@@ -1,0 +1,163 @@
+[gd_scene format=3 uid="uid://ducj2kabu61x7"]
+
+[ext_resource type="Texture2D" uid="uid://iwvlteepod8a" path="res://assets/sprites/chest.png" id="1_jsgo4"]
+[ext_resource type="Script" uid="uid://b8yha3mgc3ohf" path="res://assets/scenes/templates/chest.gd" id="1_nnak0"]
+[ext_resource type="AudioStream" uid="uid://buqombp5cp4c5" path="res://assets/audio/sfx/item_get.wav" id="3_lykxd"]
+[ext_resource type="AudioStream" uid="uid://cbfix63vyvg5l" path="res://assets/audio/sfx/chest_open.wav" id="4_w3imk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h8c8n"]
+size = Vector2(16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nnak0"]
+atlas = ExtResource("1_jsgo4")
+region = Rect2(0, 0, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lykxd"]
+atlas = ExtResource("1_jsgo4")
+region = Rect2(0, 0, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w3imk"]
+atlas = ExtResource("1_jsgo4")
+region = Rect2(24, 0, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8dosc"]
+atlas = ExtResource("1_jsgo4")
+region = Rect2(48, 0, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sbedy"]
+atlas = ExtResource("1_jsgo4")
+region = Rect2(72, 0, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_46vte"]
+atlas = ExtResource("1_jsgo4")
+region = Rect2(96, 0, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qdwq4"]
+atlas = ExtResource("1_jsgo4")
+region = Rect2(120, 0, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_81co5"]
+atlas = ExtResource("1_jsgo4")
+region = Rect2(144, 0, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yd5q5"]
+atlas = ExtResource("1_jsgo4")
+region = Rect2(168, 0, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ruaxs"]
+atlas = ExtResource("1_jsgo4")
+region = Rect2(192, 0, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fmsrk"]
+atlas = ExtResource("1_jsgo4")
+region = Rect2(216, 0, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ael56"]
+atlas = ExtResource("1_jsgo4")
+region = Rect2(240, 0, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_txyor"]
+atlas = ExtResource("1_jsgo4")
+region = Rect2(264, 0, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_74k6e"]
+atlas = ExtResource("1_jsgo4")
+region = Rect2(288, 0, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jsgo4"]
+atlas = ExtResource("1_jsgo4")
+region = Rect2(288, 0, 24, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h8c8n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nnak0")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lykxd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w3imk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8dosc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sbedy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_46vte")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lykxd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qdwq4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_81co5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yd5q5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ruaxs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fmsrk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ael56")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_txyor")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_74k6e")
+}],
+"loop": 0,
+"name": &"open",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jsgo4")
+}],
+"loop": 0,
+"name": &"opened",
+"speed": 5.0
+}]
+
+[node name="Chest" type="StaticBody2D" unique_id=109405364 groups=["interactable"]]
+y_sort_enabled = true
+collision_layer = 136
+collision_mask = 0
+script = ExtResource("1_nnak0")
+items = Dictionary[String, int]({
+"potion": 1
+})
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=313227405]
+shape = SubResource("RectangleShape2D_h8c8n")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1125996337]
+sprite_frames = SubResource("SpriteFrames_h8c8n")
+animation = &"open"
+autoplay = "default"
+frame = 1
+frame_progress = 0.3471919
+offset = Vector2(0, -8)
+
+[node name="ItemGet" type="AudioStreamPlayer" parent="." unique_id=1063086103]
+stream = ExtResource("3_lykxd")
+bus = &"SFX"
+
+[node name="ChestOpen" type="AudioStreamPlayer2D" parent="." unique_id=1503235336]
+stream = ExtResource("4_w3imk")
+bus = &"SFX"

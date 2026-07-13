@@ -399,7 +399,6 @@ metadata/_custom_type_script = "uid://co673ijg7ufot"
 
 [node name="SettingsMenu" type="Panel" parent="PopupMenus" unique_id=2081625694]
 unique_name_in_owner = true
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -408,26 +407,25 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_aputa")
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="PopupMenus/SettingsMenu" unique_id=1555542486]
-layout_mode = 0
-offset_left = 20.0
-offset_top = 10.0
-offset_right = 82.0
-offset_bottom = 33.0
-text = "Settings"
-
 [node name="Sliders" type="VBoxContainer" parent="PopupMenus/SettingsMenu" unique_id=1520710668]
-custom_maximum_size = Vector2(390, -1)
+custom_maximum_size = Vector2(300, -1)
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
+offset_left = 5.0
 offset_top = -40.0
+offset_right = -5.0
 offset_bottom = 40.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 16
+
+[node name="Label" type="Label" parent="PopupMenus/SettingsMenu/Sliders" unique_id=1555542486]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "Settings"
 
 [node name="Slider" type="MarginContainer" parent="PopupMenus/SettingsMenu/Sliders" unique_id=619990765 node_paths=PackedStringArray("lb", "slider")]
 custom_minimum_size = Vector2(300, 0)
@@ -439,11 +437,13 @@ slider = NodePath("HBoxContainer/MasterSlider")
 [node name="HBoxContainer" type="HBoxContainer" parent="PopupMenus/SettingsMenu/Sliders/Slider" unique_id=352296833]
 custom_minimum_size = Vector2(600, 0)
 layout_mode = 2
+theme_override_constants/separation = 0
 alignment = 1
 
 [node name="MasterLabel" type="Label" parent="PopupMenus/SettingsMenu/Sliders/Slider/HBoxContainer" unique_id=937653555]
-custom_minimum_size = Vector2(200, 0)
+custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
+size_flags_horizontal = 0
 theme_override_font_sizes/font_size = 8
 text = "Master Volume 100%"
 vertical_alignment = 1
@@ -452,9 +452,9 @@ vertical_alignment = 1
 unique_name_in_owner = true
 custom_minimum_size = Vector2(256, 0)
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 0
 size_flags_vertical = 4
-focus_neighbor_top = NodePath("../../../../CloseSettings")
+focus_neighbor_top = NodePath("../../../CloseSettings")
 focus_neighbor_bottom = NodePath("../../../Slider2/HBoxContainer/MusicSlider")
 rounded = true
 
@@ -470,11 +470,13 @@ bus = 1
 [node name="HBoxContainer" type="HBoxContainer" parent="PopupMenus/SettingsMenu/Sliders/Slider2" unique_id=1420552614]
 custom_minimum_size = Vector2(600, 0)
 layout_mode = 2
+theme_override_constants/separation = 0
 alignment = 1
 
 [node name="MusicLabel" type="Label" parent="PopupMenus/SettingsMenu/Sliders/Slider2/HBoxContainer" unique_id=1634660745]
-custom_minimum_size = Vector2(200, 0)
+custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
+size_flags_horizontal = 0
 theme_override_font_sizes/font_size = 8
 text = "Music Volume 100%"
 vertical_alignment = 1
@@ -482,7 +484,7 @@ vertical_alignment = 1
 [node name="MusicSlider" type="HSlider" parent="PopupMenus/SettingsMenu/Sliders/Slider2/HBoxContainer" unique_id=1133075274]
 custom_minimum_size = Vector2(256, 0)
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 0
 size_flags_vertical = 4
 focus_neighbor_top = NodePath("../../../Slider/HBoxContainer/MasterSlider")
 focus_neighbor_bottom = NodePath("../../../Slider3/HBoxContainer/SFXSlider")
@@ -500,33 +502,31 @@ bus = 2
 [node name="HBoxContainer" type="HBoxContainer" parent="PopupMenus/SettingsMenu/Sliders/Slider3" unique_id=1708490481]
 custom_minimum_size = Vector2(600, 0)
 layout_mode = 2
+theme_override_constants/separation = 0
 alignment = 1
 
 [node name="SFXLabel" type="Label" parent="PopupMenus/SettingsMenu/Sliders/Slider3/HBoxContainer" unique_id=1229420943]
-custom_minimum_size = Vector2(200, 0)
+custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
+size_flags_horizontal = 0
 theme_override_font_sizes/font_size = 8
 text = "SFX Volume 100%"
 vertical_alignment = 1
 
 [node name="SFXSlider" type="HSlider" parent="PopupMenus/SettingsMenu/Sliders/Slider3/HBoxContainer" unique_id=230468293]
-custom_minimum_size = Vector2(256, 0)
+custom_minimum_size = Vector2(256, 16)
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 0
 size_flags_vertical = 4
 focus_neighbor_top = NodePath("../../../Slider2/HBoxContainer/MusicSlider")
-focus_neighbor_bottom = NodePath("../../../../CloseSettings")
+focus_neighbor_bottom = NodePath("../../../CloseSettings")
 rounded = true
 
-[node name="CloseSettings" type="Button" parent="PopupMenus/SettingsMenu" unique_id=856043743]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.73
-anchor_top = 0.9125
-anchor_right = 0.99
-anchor_bottom = 0.9791667
-grow_horizontal = 0
-grow_vertical = 0
+[node name="CloseSettings" type="Button" parent="PopupMenus/SettingsMenu/Sliders" unique_id=856043743]
+custom_maximum_size = Vector2(128, -1)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
 text = "Save & Close"
 script = ExtResource("4_byvy3")
 metadata/_custom_type_script = "uid://co673ijg7ufot"
@@ -534,6 +534,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="SaveMenu" type="PanelContainer" parent="PopupMenus" unique_id=234258646]
 unique_name_in_owner = true
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -606,4 +607,4 @@ metadata/_edit_use_anchors_ = true
 [connection signal="value_changed" from="PopupMenus/SettingsMenu/Sliders/Slider/HBoxContainer/MasterSlider" to="PopupMenus/SettingsMenu/Sliders/Slider" method="_on_slider_value_changed"]
 [connection signal="value_changed" from="PopupMenus/SettingsMenu/Sliders/Slider2/HBoxContainer/MusicSlider" to="PopupMenus/SettingsMenu/Sliders/Slider2" method="_on_slider_value_changed"]
 [connection signal="value_changed" from="PopupMenus/SettingsMenu/Sliders/Slider3/HBoxContainer/SFXSlider" to="PopupMenus/SettingsMenu/Sliders/Slider3" method="_on_slider_value_changed"]
-[connection signal="pressed" from="PopupMenus/SettingsMenu/CloseSettings" to="." method="_on_close_settings_pressed"]
+[connection signal="pressed" from="PopupMenus/SettingsMenu/Sliders/CloseSettings" to="." method="_on_close_settings_pressed"]

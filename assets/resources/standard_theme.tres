@@ -1,7 +1,10 @@
 [gd_resource type="Theme" format=3 uid="uid://0u0xtbmu23kn"]
 
 [ext_resource type="FontFile" uid="uid://c3a5dy6atl0jv" path="res://assets/PublicPixel.ttf" id="1_0818h"]
-[ext_resource type="Texture2D" uid="uid://cli1wl85doaa" path="res://assets/sprites/ui/focusbtn.png" id="2_5d3xc"]
+[ext_resource type="StyleBox" uid="uid://by8x0g1da4qhv" path="res://assets/resources/ui/button_normal.tres" id="3_bi7va"]
+[ext_resource type="Texture2D" uid="uid://p16atfv5x450" path="res://assets/sprites/ui/slider_grabber.png" id="3_jgreh"]
+[ext_resource type="Texture2D" uid="uid://vh4r1wryoeea" path="res://assets/sprites/ui/slider.png" id="4_bi7va"]
+[ext_resource type="Texture2D" uid="uid://dgm1gp3yag5ok" path="res://assets/sprites/ui/slider2.png" id="5_ngp6f"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jgreh"]
 content_margin_left = 4.0
@@ -15,31 +18,29 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 corner_detail = 5
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d2l8g"]
-texture = ExtResource("2_5d3xc")
+[sub_resource type="AtlasTexture" id="AtlasTexture_d2l8g"]
+atlas = ExtResource("3_jgreh")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_inxiy"]
+atlas = ExtResource("3_jgreh")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ngp6f"]
+texture = ExtResource("4_bi7va")
 texture_margin_left = 16.0
-expand_margin_left = 16.0
-axis_stretch_horizontal = 2
+texture_margin_top = 4.0
+texture_margin_right = 16.0
+texture_margin_bottom = 4.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 2
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ngp6f"]
-content_margin_left = 4.0
-content_margin_top = 4.0
-content_margin_right = 4.0
-content_margin_bottom = 4.0
-bg_color = Color(0, 0, 0, 1)
-corner_detail = 1
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5d3xc"]
-content_margin_left = 4.0
-content_margin_top = 4.0
-content_margin_right = 4.0
-content_margin_bottom = 4.0
-bg_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
-corner_detail = 5
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_indnp"]
+texture = ExtResource("5_ngp6f")
+texture_margin_left = 16.0
+texture_margin_top = 4.0
+texture_margin_right = 16.0
+texture_margin_bottom = 4.0
 
 [resource]
 Button/colors/font_color = Color(0.650128, 0.6501284, 0.6501279, 1)
@@ -62,7 +63,12 @@ Button/constants/outline_size = 0
 Button/font_sizes/font_size = 8
 Button/fonts/font = ExtResource("1_0818h")
 Button/styles/disabled = SubResource("StyleBoxFlat_jgreh")
-Button/styles/focus = SubResource("StyleBoxTexture_d2l8g")
-Button/styles/hover = SubResource("StyleBoxTexture_d2l8g")
-Button/styles/normal = SubResource("StyleBoxFlat_ngp6f")
-Button/styles/pressed = SubResource("StyleBoxFlat_5d3xc")
+Button/styles/focus = ExtResource("3_bi7va")
+Button/styles/hover = ExtResource("3_bi7va")
+Button/styles/normal = ExtResource("3_bi7va")
+Button/styles/pressed = ExtResource("3_bi7va")
+HSlider/icons/grabber = SubResource("AtlasTexture_d2l8g")
+HSlider/icons/grabber_highlight = SubResource("AtlasTexture_inxiy")
+HSlider/styles/grabber_area = SubResource("StyleBoxTexture_ngp6f")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxTexture_ngp6f")
+HSlider/styles/slider = SubResource("StyleBoxTexture_indnp")

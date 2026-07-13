@@ -1,6 +1,9 @@
 extends Node
 
 @export var flags: Dictionary[String,int]
+
+
+@export var chests: Dictionary[String,int]
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -21,5 +24,6 @@ func set_flag(f,val):
 
 func reset_all_flags():
 	flags.clear()
+	chests.clear()
 	GameManager.player_name="???"
 	PartyManager.reset_all()

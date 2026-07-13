@@ -160,7 +160,8 @@ func save_data(file_num: int):
 		"playername":player_name,
 		"party_level":PartyManager.party_level,
 		"party_states":PartyManager.member_states,
-		"malice":malice
+		"chests":FlagManager.chests,
+		"malice":roundf(malice)
 	}
 	var json_file = JSON.stringify(saved_data)
 	if json_file != null:
@@ -199,6 +200,9 @@ func load_data(file_num: int):
 			player_name="LOST"
 		lscene_name = sf_temp["lastscene_name"] if sf_temp.has("lastscene_name") else "???"
 		malice = sf_temp["malice"] if sf_temp.has("malice") else 0.0
+		var lchests = sf_temp["chests"] if sf_temp.has("chests") else {}
+		for key in lchests:
+			FlagManager.chests[key]=lchests[key]
 		PartyManager.party_level = roundi(sf_temp["party_level"]) if sf_temp.has("party_level") else 1
 		PartyManager.member_states = sf_temp["party_states"] if sf_temp.has("party_states") else {}
 		PartyManager.fully_heal()

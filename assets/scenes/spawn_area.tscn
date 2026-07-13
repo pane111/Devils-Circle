@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://drfrlemlxfk61" path="res://assets/scenes/templates/areadoor.tscn" id="3_lvfgb"]
 [ext_resource type="PackedScene" uid="uid://nbu4nmum743r" path="res://assets/scenes/system/loading_zone.tscn" id="4_mu3xe"]
 [ext_resource type="PackedScene" uid="uid://brnodnr5i2kib" path="res://assets/scenes/templates/tall_grass.tscn" id="5_4hrvx"]
+[ext_resource type="PackedScene" uid="uid://ducj2kabu61x7" path="res://assets/scenes/templates/chest.tscn" id="6_lvfgb"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h8c8n"]
 bg_color = Color(0, 0.19215687, 0.23529412, 0.6431373)
@@ -109,3 +110,20 @@ position = Vector2(152, 264)
 
 [node name="TallGrass17" parent="." unique_id=1347127602 instance=ExtResource("5_4hrvx")]
 position = Vector2(136, 280)
+
+[node name="Chest" parent="." unique_id=109405364 instance=ExtResource("6_lvfgb")]
+position = Vector2(136, -32)
+
+[node name="Chest2" parent="." unique_id=1895939979 instance=ExtResource("6_lvfgb")]
+position = Vector2(488, -160)
+items = Dictionary[String, int]({
+"potion": 2,
+"strongpotion": 1
+})
+
+[node name="Chest3" parent="." unique_id=920911470 instance=ExtResource("6_lvfgb")]
+position = Vector2(288, 224)
+items = Dictionary[String, int]({
+"ironsword": 1
+})
+i_category = "Equipment"

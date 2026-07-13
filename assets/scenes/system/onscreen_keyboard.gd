@@ -7,7 +7,12 @@ var text_string=""
 
 func _ready() -> void:
 	for c in range(0,characters.length()):
-		var lk = letterkey.duplicate()
+		var lk = %GridContainer.get_child(c)
+		if c < 10:
+			lk.focus_neighbor_top=%GridContainer.get_child(c+20).get_path()
+		elif c >= 20:
+			lk.focus_neighbor_bottom=%GridContainer.get_child(c-20).get_path()
+		
 		var ch = characters[c].to_upper()
 		if ch == " ":
 			ch = "Spc"

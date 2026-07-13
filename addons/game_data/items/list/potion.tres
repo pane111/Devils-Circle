@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://jlc7r6lstjwo"]
+
+[ext_resource type="Script" uid="uid://0omhhfpct7ad" path="res://addons/game_data/items/item.gd" id="1_0xnq2"]
+
+[resource]
+script = ExtResource("1_0xnq2")
+ref_name = "potion"
+item_name = "Potion"
+item_desc = "Restores 50 health points."
+metadata/_custom_type_script = "uid://0omhhfpct7ad"
