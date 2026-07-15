@@ -16,7 +16,16 @@ func on_interact():
 		FlagManager.chests[id]=1
 		var istring=""
 		for item in items:
-			istring+="Received "+ str(items[item]) + "x " + ResourceManager.get_resource(i_category,item).item_name+"!\n"
+			var i_res =ResourceManager.get_resource(i_category,item)
+			if i_res.is_key:
+				InventoryManager.add_item(item,items[item],"keys")
+			else:
+				if i_category=="Equipment":
+					InventoryManager.add_item(item,items[item],"equipment")
+				else:
+					InventoryManager.add_item(item,items[item],"items")
+			
+			istring+="Received "+ str(items[item]) + "x " + i_res.item_name+"!\n"
 		var resource = DialogueManager.create_resource_from_text("~ cue\n" + istring)
 		$ChestOpen.play()
 		await anim.animation_finished

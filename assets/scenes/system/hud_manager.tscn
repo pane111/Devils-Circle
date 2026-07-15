@@ -4,11 +4,14 @@
 [ext_resource type="Script" uid="uid://0dwelbdhueoa" path="res://assets/scenes/system/vol_slider.gd" id="2_aputa"]
 [ext_resource type="Script" uid="uid://b7untvdssjt1e" path="res://assets/scenes/system/menu.gd" id="2_c7f67"]
 [ext_resource type="Script" uid="uid://byscb1kups7w2" path="res://assets/scenes/system/party_menu.gd" id="3_qtnd7"]
+[ext_resource type="Texture2D" uid="uid://50jsmuce1xqu" path="res://assets/sprites/misc/item.png" id="3_vyilc"]
+[ext_resource type="Script" uid="uid://burxl45ajblx" path="res://assets/scenes/system/inventory_menu.gd" id="3_wlkxa"]
 [ext_resource type="Script" uid="uid://cva6ijfpr4noh" path="res://assets/scenes/system/pause_menu.gd" id="3_xd8oc"]
 [ext_resource type="Script" uid="uid://co673ijg7ufot" path="res://addons/extra_nodes/sound_button.gd" id="4_byvy3"]
 [ext_resource type="Texture2D" uid="uid://d12q6scbscog3" path="res://assets/sprites/portraits/knight.png" id="4_l1qgl"]
 [ext_resource type="Texture2D" uid="uid://dp7lo1jxdi4rm" path="res://assets/sprites/misc/equipment.png" id="5_gmjgi"]
 [ext_resource type="Script" uid="uid://43l8wmtplowm" path="res://assets/scenes/system/party_detail.gd" id="5_qtnd7"]
+[ext_resource type="Texture2D" uid="uid://dlin4ae5t38qe" path="res://assets/sprites/misc/key.png" id="5_wlkxa"]
 [ext_resource type="Texture2D" uid="uid://c021lkjefu0fh" path="res://assets/sprites/ui/back.png" id="6_1koee"]
 [ext_resource type="Texture2D" uid="uid://c1d0bk55cc8k6" path="res://assets/sprites/misc/armor.png" id="6_qtnd7"]
 [ext_resource type="Texture2D" uid="uid://cs8w4eogwa43s" path="res://assets/sprites/misc/acc.png" id="7_l1qgl"]
@@ -71,6 +74,13 @@ _data = {
 &"fade_black_out": SubResource("Animation_xd8oc"),
 &"fade_to_black": SubResource("Animation_c7f67")
 }
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_58kxs"]
+content_margin_left = 16.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h8c8n"]
 content_margin_left = 48.0
@@ -157,6 +167,79 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 0
 alignment = 2
+
+[node name="InventoryMenu" type="PanelContainer" parent="PopupMenus/PauseMenu/VBoxContainer" unique_id=1026225632 node_paths=PackedStringArray("return_to")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_58kxs")
+script = ExtResource("3_wlkxa")
+return_to = NodePath("../..")
+exit_method = "_on_close_inv"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PopupMenus/PauseMenu/VBoxContainer/InventoryMenu" unique_id=975581616]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PopupMenus/PauseMenu/VBoxContainer/InventoryMenu/VBoxContainer" unique_id=1224451504]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "Inventory"
+
+[node name="InvTabs" type="HBoxContainer" parent="PopupMenus/PauseMenu/VBoxContainer/InventoryMenu/VBoxContainer" unique_id=725711704]
+unique_name_in_owner = true
+layout_mode = 2
+focus_neighbor_top = NodePath(".")
+focus_neighbor_bottom = NodePath(".")
+
+[node name="ItemsBtn" type="Button" parent="PopupMenus/PauseMenu/VBoxContainer/InventoryMenu/VBoxContainer/InvTabs" unique_id=380806533]
+unique_name_in_owner = true
+layout_mode = 2
+focus_neighbor_left = NodePath("../CloseInvBtn")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_bottom = NodePath(".")
+text = "Items"
+icon = ExtResource("3_vyilc")
+script = ExtResource("4_byvy3")
+metadata/_custom_type_script = "uid://co673ijg7ufot"
+
+[node name="EquipmentBtn" type="Button" parent="PopupMenus/PauseMenu/VBoxContainer/InventoryMenu/VBoxContainer/InvTabs" unique_id=590711943]
+unique_name_in_owner = true
+layout_mode = 2
+focus_neighbor_top = NodePath(".")
+focus_neighbor_bottom = NodePath(".")
+text = "Equipment"
+icon = ExtResource("5_gmjgi")
+script = ExtResource("4_byvy3")
+metadata/_custom_type_script = "uid://co673ijg7ufot"
+
+[node name="KeysBtn" type="Button" parent="PopupMenus/PauseMenu/VBoxContainer/InventoryMenu/VBoxContainer/InvTabs" unique_id=301148646]
+unique_name_in_owner = true
+layout_mode = 2
+focus_neighbor_top = NodePath(".")
+focus_neighbor_bottom = NodePath(".")
+text = "Keys"
+icon = ExtResource("5_wlkxa")
+script = ExtResource("4_byvy3")
+metadata/_custom_type_script = "uid://co673ijg7ufot"
+
+[node name="CloseInvBtn" type="Button" parent="PopupMenus/PauseMenu/VBoxContainer/InventoryMenu/VBoxContainer/InvTabs" unique_id=1734616432]
+layout_mode = 2
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath("../ItemsBtn")
+focus_neighbor_bottom = NodePath(".")
+text = "Return"
+icon = ExtResource("6_1koee")
+script = ExtResource("4_byvy3")
+metadata/_custom_type_script = "uid://co673ijg7ufot"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PopupMenus/PauseMenu/VBoxContainer/InventoryMenu/VBoxContainer" unique_id=846209128]
+layout_mode = 2
+size_flags_vertical = 3
+follow_focus = true
+
+[node name="ItemList" type="VBoxContainer" parent="PopupMenus/PauseMenu/VBoxContainer/InventoryMenu/VBoxContainer/ScrollContainer" unique_id=36732157]
+unique_name_in_owner = true
+layout_mode = 2
 
 [node name="PartyMenu" type="PanelContainer" parent="PopupMenus/PauseMenu/VBoxContainer" unique_id=738280772 node_paths=PackedStringArray("return_to")]
 unique_name_in_owner = true
@@ -600,13 +683,19 @@ text = "Area Name"
 horizontal_alignment = 2
 metadata/_edit_use_anchors_ = true
 
+[connection signal="pressed" from="PopupMenus/PauseMenu/VBoxContainer/InventoryMenu/VBoxContainer/InvTabs/ItemsBtn" to="PopupMenus/PauseMenu/VBoxContainer/InventoryMenu" method="_on_items_btn_pressed"]
+[connection signal="pressed" from="PopupMenus/PauseMenu/VBoxContainer/InventoryMenu/VBoxContainer/InvTabs/EquipmentBtn" to="PopupMenus/PauseMenu/VBoxContainer/InventoryMenu" method="_on_equipment_btn_pressed"]
+[connection signal="pressed" from="PopupMenus/PauseMenu/VBoxContainer/InventoryMenu/VBoxContainer/InvTabs/KeysBtn" to="PopupMenus/PauseMenu/VBoxContainer/InventoryMenu" method="_on_keys_btn_pressed"]
+[connection signal="pressed" from="PopupMenus/PauseMenu/VBoxContainer/InventoryMenu/VBoxContainer/InvTabs/CloseInvBtn" to="PopupMenus/PauseMenu/VBoxContainer/InventoryMenu" method="_on_close_inv_btn_pressed"]
 [connection signal="pressed" from="PopupMenus/PauseMenu/VBoxContainer/PartyMenu/VBoxContainer/PMContainer/ClosePartyButton" to="PopupMenus/PauseMenu" method="_on_close_party_button_pressed"]
 [connection signal="pressed" from="PopupMenus/PauseMenu/VBoxContainer/SystemMenu/VBoxContainer/SettingsBtn" to="PopupMenus/PauseMenu" method="_on_settings_btn_pressed"]
 [connection signal="pressed" from="PopupMenus/PauseMenu/VBoxContainer/SystemMenu/VBoxContainer/TitleBtn" to="PopupMenus/PauseMenu" method="_on_title_btn_pressed"]
 [connection signal="pressed" from="PopupMenus/PauseMenu/VBoxContainer/SystemMenu/VBoxContainer/CloseSysBtn" to="PopupMenus/PauseMenu" method="_on_close_sys_btn_pressed"]
+[connection signal="pressed" from="PopupMenus/PauseMenu/VBoxContainer/MenuPanel/HBoxContainer/InvBtn" to="PopupMenus/PauseMenu" method="_on_inv_btn_pressed"]
 [connection signal="pressed" from="PopupMenus/PauseMenu/VBoxContainer/MenuPanel/HBoxContainer/PartyBtn" to="PopupMenus/PauseMenu" method="_on_party_btn_pressed"]
 [connection signal="pressed" from="PopupMenus/PauseMenu/VBoxContainer/MenuPanel/HBoxContainer/SystemBtn" to="PopupMenus/PauseMenu" method="_on_system_btn_pressed"]
 [connection signal="pressed" from="PopupMenus/PauseMenu/VBoxContainer/MenuPanel/HBoxContainer/CloseBtn" to="PopupMenus/PauseMenu" method="_on_close_btn_pressed"]
+[connection signal="pressed" from="PopupMenus/PauseMenu/PartyDetail/VBoxContainer/VBoxContainer2/WpnBtn" to="PopupMenus/PauseMenu/PartyDetail" method="_on_wpn_btn_pressed"]
 [connection signal="pressed" from="PopupMenus/PauseMenu/PartyDetail/VBoxContainer/HBoxContainer/DetailReturnBtn" to="PopupMenus/PauseMenu" method="hide_pd"]
 [connection signal="value_changed" from="PopupMenus/SettingsMenu/Sliders/Slider/HBoxContainer/MasterSlider" to="PopupMenus/SettingsMenu/Sliders/Slider" method="_on_slider_value_changed"]
 [connection signal="value_changed" from="PopupMenus/SettingsMenu/Sliders/Slider2/HBoxContainer/MusicSlider" to="PopupMenus/SettingsMenu/Sliders/Slider2" method="_on_slider_value_changed"]

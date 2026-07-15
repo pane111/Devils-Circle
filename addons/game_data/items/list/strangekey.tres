@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://dow5mht4jwxle"]
+
+[ext_resource type="Script" uid="uid://0omhhfpct7ad" path="res://addons/game_data/items/item.gd" id="1_k7u81"]
+
+[resource]
+script = ExtResource("1_k7u81")
+ref_name = "strangekey"
+item_name = "Strange Key"
+item_desc = "A mysterious key with an unknown purpose..."
+is_key = true
+metadata/_custom_type_script = "uid://0omhhfpct7ad"

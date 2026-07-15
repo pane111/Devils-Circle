@@ -35,3 +35,8 @@ func set_pm(p_name,ptext):
 	%AccBtn.text = ResourceManager.get_resource("Equipment",PartyManager.member_states[p_name]["accessory"]).item_name
 	%DetailPortrait.texture = ptext
 	
+
+
+func _on_wpn_btn_pressed() -> void:
+	var weapons = InventoryManager.get_weapons_of_type(pm.weapon_type)
+	print_debug(str(weapons))

@@ -27,3 +27,4 @@ func reset_all_flags():
 	chests.clear()
 	GameManager.player_name="???"
 	PartyManager.reset_all()
+	InventoryManager.reset_inventory()

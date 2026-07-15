@@ -114,6 +114,28 @@ position = Vector2(136, 280)
 [node name="Chest" parent="." unique_id=109405364 instance=ExtResource("6_lvfgb")]
 position = Vector2(136, -32)
 
+[node name="Chest4" parent="." unique_id=1835071109 instance=ExtResource("6_lvfgb")]
+position = Vector2(112, 24)
+items = Dictionary[String, int]({
+"potion": 5,
+"stimulant": 1,
+"strongpotion": 2
+})
+
+[node name="Chest5" parent="." unique_id=827291990 instance=ExtResource("6_lvfgb")]
+position = Vector2(88, 32)
+items = Dictionary[String, int]({
+"apprenticestaff": 1,
+"woodbow": 1
+})
+i_category = "Equipment"
+
+[node name="Chest6" parent="." unique_id=1129367096 instance=ExtResource("6_lvfgb")]
+position = Vector2(56, 48)
+items = Dictionary[String, int]({
+"strangekey": 1
+})
+
 [node name="Chest2" parent="." unique_id=1895939979 instance=ExtResource("6_lvfgb")]
 position = Vector2(488, -160)
 items = Dictionary[String, int]({

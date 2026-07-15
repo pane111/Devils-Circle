@@ -27,6 +27,7 @@ func close_all_submenus():
 	%SystemMenu.hide()
 	%PartyMenu.hide()
 	%PartyDetail.hide()
+	%InventoryMenu.hide()
 	HudManager.active_menu=self
 
 func _on_system_btn_pressed() -> void:
@@ -54,6 +55,10 @@ func _on_title_btn_pressed() -> void:
 	FlagManager.reset_all_flags()
 	GameManager.load_new_scene("uid://csqyyca6875fq",null,true,false)
 
+func _on_close_inv():
+	%InventoryMenu.hide()
+	HudManager.active_menu=self
+	%InvBtn.grab_focus()
 
 func _on_close_party_button_pressed() -> void:
 	%PartyMenu.hide()
@@ -67,3 +72,9 @@ func _on_party_btn_pressed() -> void:
 	%PartyMenu.show()
 	HudManager.active_menu=%PartyMenu
 	%PartyMenu.pm_cont.get_child(0).grab_focus()
+
+
+func _on_inv_btn_pressed() -> void:
+	%InventoryMenu.show()
+	%InventoryMenu.on_open()
+	HudManager.active_menu=%InventoryMenu
