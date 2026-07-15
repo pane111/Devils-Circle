@@ -7,14 +7,14 @@ script = ExtResource("1_xm5be")
 ref_name = "anne"
 entity_name = "Anne"
 entity_desc = "A self-described master of magic."
-base_stats = {
-"agi": 1.0,
-"def": 1.0,
+base_stats = Dictionary[String, float]({
+"agi": 2.0,
+"def": 1.5,
 "hp": 9.0,
 "mag": 4.0,
-"mdf": 2.0,
+"mdf": 2.5,
 "str": 1.0
-}
+})
 stat_growths = {
 "agi": 1.75,
 "def": 1.2,

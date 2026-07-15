@@ -24,7 +24,6 @@ func _ready() -> void:
 			ch = "Ok"
 		lk.text = ch
 		lk.get_child(0).text = ch
-		%GridContainer.add_child(lk)
 
 func activate():
 	self.show()

@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Weapon" format=3 uid="uid://b8v67lo45nnf6"]
+
+[ext_resource type="Script" uid="uid://dw35i1bjs1rmt" path="res://addons/game_data/equipment/weapon.gd" id="1_qdswb"]
+
+[resource]
+script = ExtResource("1_qdswb")
+type = 2
+stat_changes = {
+"agi": 0.0,
+"def": 0.0,
+"hp": 0.0,
+"mag": 0.0,
+"mdf": 0.0,
+"str": 2.0
+}
+ref_name = "ironspear"
+item_name = "Iron Spear"
+item_desc = "Standard-issue soldier's spear."
+metadata/_custom_type_script = "uid://dw35i1bjs1rmt"

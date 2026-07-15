@@ -6,5 +6,8 @@
 script = ExtResource("2_2hjpr")
 portrait = "uid://qwkhqjjf2fb"
 base_entity = "sybil"
+weapon = "woodbow"
 weapon_type = "Bow"
+armor = "leatherarmor"
+acc = "scarf"
 metadata/_custom_type_script = "uid://cylv3fhlacu77"

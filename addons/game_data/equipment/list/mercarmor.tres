@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Armor" format=3 uid="uid://bqvt82nrdj5yk"]
+
+[ext_resource type="Script" uid="uid://dtx8ljht4q064" path="res://addons/game_data/equipment/armor.gd" id="1_y8yqk"]
+
+[resource]
+script = ExtResource("1_y8yqk")
+stat_changes = {
+"agi": 0,
+"def": 1.5,
+"hp": 0,
+"mag": 0,
+"mdf": 0.5,
+"str": 0
+}
+ref_name = "mercarmor"
+item_name = "Mercenary Armor"
+item_desc = "Sturdy armor worn by traveling warriors."
+metadata/_custom_type_script = "uid://dtx8ljht4q064"

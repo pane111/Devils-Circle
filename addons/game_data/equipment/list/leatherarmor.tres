@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Armor" format=3 uid="uid://bkxqy6hilq67i"]
+
+[ext_resource type="Script" uid="uid://dtx8ljht4q064" path="res://addons/game_data/equipment/armor.gd" id="1_es2wx"]
+
+[resource]
+script = ExtResource("1_es2wx")
+stat_changes = Dictionary[String, float]({
+"agi": 0.5,
+"def": 0.5,
+"hp": 0.0,
+"mag": 0.0,
+"mdf": 0.5,
+"str": 0.0
+})
+ref_name = "leatherarmor"
+item_name = "Leather Armor"
+item_desc = "Lightweight armor made from leather."
+metadata/_custom_type_script = "uid://dtx8ljht4q064"

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Armor" format=3 uid="uid://ccnet84xi0c74"]
+
+[ext_resource type="Script" uid="uid://dtx8ljht4q064" path="res://addons/game_data/equipment/armor.gd" id="1_ibxcv"]
+
+[resource]
+script = ExtResource("1_ibxcv")
+stat_changes = {
+"agi": 0,
+"def": 1,
+"hp": 0,
+"mag": 0,
+"mdf": 1,
+"str": 0
+}
+ref_name = "academyrobe"
+item_name = "Academy Robe"
+item_desc = "Students of the Royal Magic Academy are given this robe."
+metadata/_custom_type_script = "uid://dtx8ljht4q064"

@@ -15,6 +15,7 @@ func _on_play_btn_pressed() -> void:
 	HudManager.save_menu(true)
 	await HudManager.save_menu_closed
 	disable_all_btns()
+	PartyManager.reset_all()
 	FlagManager.reset_all_flags()
 	GameManager.load_new_scene(starter_scene)
 
@@ -36,5 +37,6 @@ func _on_quit_btn_pressed() -> void:
 func _on_load_btn_pressed() -> void:
 	HudManager.save_menu(true)
 	await HudManager.save_menu_closed
+	PartyManager.reset_all()
 	if GameManager.load_data(GameManager.active_file): disable_all_btns()
 	else: %LoadBtn.grab_focus()

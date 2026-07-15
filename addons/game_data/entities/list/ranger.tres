@@ -7,20 +7,20 @@ script = ExtResource("1_7qcrq")
 ref_name = "sybil"
 entity_name = "Sybil"
 entity_desc = "Ranger character"
-base_stats = {
+base_stats = Dictionary[String, float]({
 "agi": 4.0,
 "def": 1.0,
 "hp": 15.0,
 "mag": 2.0,
 "mdf": 1.5,
 "str": 3.0
-}
+})
 stat_growths = {
 "agi": 2.25,
 "def": 1.5,
 "hp": 3.0,
 "mag": 1.5,
 "mdf": 1.75,
-"str": 2.25
+"str": 2.15
 }
 metadata/_custom_type_script = "uid://btmwkwsvwi5d4"

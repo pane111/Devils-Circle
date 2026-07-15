@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Accessory" format=3 uid="uid://5o4yq4f5djko"]
+
+[ext_resource type="Script" uid="uid://dbcehx5y5ichw" path="res://addons/game_data/equipment/accessory.gd" id="1_bgjj0"]
+
+[resource]
+script = ExtResource("1_bgjj0")
+ref_name = "scarf"
+item_name = "Scarf"
+item_desc = "Looks pretty, but has no effect."
+metadata/_custom_type_script = "uid://dbcehx5y5ichw"

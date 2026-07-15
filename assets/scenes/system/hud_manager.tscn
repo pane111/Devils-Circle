@@ -344,6 +344,7 @@ focus_neighbor_top = NodePath("../../HBoxContainer/SkillsBtn")
 focus_neighbor_right = NodePath("../../HBoxContainer/DetailReturnBtn")
 text = "Gold Sword"
 icon = ExtResource("5_gmjgi")
+alignment = 0
 script = ExtResource("4_byvy3")
 metadata/_custom_type_script = "uid://co673ijg7ufot"
 
@@ -354,6 +355,7 @@ focus_neighbor_left = NodePath("../../HBoxContainer/DetailReturnBtn")
 focus_neighbor_right = NodePath("../../HBoxContainer/DetailReturnBtn")
 text = "Coat"
 icon = ExtResource("6_qtnd7")
+alignment = 0
 script = ExtResource("4_byvy3")
 metadata/_custom_type_script = "uid://co673ijg7ufot"
 
@@ -365,6 +367,7 @@ focus_neighbor_right = NodePath("../../HBoxContainer/DetailReturnBtn")
 focus_neighbor_bottom = NodePath("../../HBoxContainer/SkillsBtn")
 text = "Earrings"
 icon = ExtResource("7_l1qgl")
+alignment = 0
 script = ExtResource("4_byvy3")
 metadata/_custom_type_script = "uid://co673ijg7ufot"
 
@@ -399,6 +402,7 @@ metadata/_custom_type_script = "uid://co673ijg7ufot"
 
 [node name="SettingsMenu" type="Panel" parent="PopupMenus" unique_id=2081625694]
 unique_name_in_owner = true
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

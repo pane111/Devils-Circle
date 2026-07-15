@@ -29,7 +29,7 @@ func load_pm():
 	if pm_entity==null:
 		print_debug("ERROR: Party Menu failed to load party member " + pm_name)
 	
-	fstats = PartyManager.get_finalstats(pm_name)
+	fstats = await PartyManager.get_finalstats(pm_name)
 	portrait.texture=load(pm_entity.portrait)
 	var cur_hp = PartyManager.member_states[pm_name]["cur_hp"]
 	var max_hp = fstats["hp"]

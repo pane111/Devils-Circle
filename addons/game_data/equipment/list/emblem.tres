@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Accessory" format=3 uid="uid://co4g0eq7mkq1l"]
+
+[ext_resource type="Script" uid="uid://dbcehx5y5ichw" path="res://addons/game_data/equipment/accessory.gd" id="1_yx6w4"]
+
+[resource]
+script = ExtResource("1_yx6w4")
+ref_name = "emblem"
+item_name = "Academy Emblem"
+item_desc = "An emblem proving one's enrollment at the Royal Magic Academy."
+metadata/_custom_type_script = "uid://dbcehx5y5ichw"

@@ -6,5 +6,8 @@
 script = ExtResource("2_7y68r")
 portrait = "uid://d12q6scbscog3"
 base_entity = "oscar"
+weapon = "ironspear"
 weapon_type = "Spear"
+armor = "mercarmor"
+acc = "armorpolish"
 metadata/_custom_type_script = "uid://cylv3fhlacu77"

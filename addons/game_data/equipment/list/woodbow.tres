@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Weapon" format=3 uid="uid://k31lef4yrymy"]
+
+[ext_resource type="Script" uid="uid://dw35i1bjs1rmt" path="res://addons/game_data/equipment/weapon.gd" id="1_4x2vi"]
+
+[resource]
+script = ExtResource("1_4x2vi")
+type = 3
+stat_changes = {
+"agi": 1.0,
+"def": 0.0,
+"hp": 0.0,
+"mag": 0.0,
+"mdf": 0.0,
+"str": 1.0
+}
+ref_name = "woodbow"
+item_name = "Wooden Bow"
+item_desc = "A standard bow used for hunting."
+metadata/_custom_type_script = "uid://dw35i1bjs1rmt"

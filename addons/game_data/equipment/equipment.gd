@@ -2,7 +2,7 @@
 class_name Equipment
 extends Item
 
-@export var stat_changes = {
+@export var stat_changes: Dictionary[String,float] = {
 	"hp":0.0,
 	"str":0.0,
 	"mag":0.0,

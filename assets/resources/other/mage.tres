@@ -6,8 +6,8 @@
 script = ExtResource("1_v8tfp")
 portrait = "uid://tox6v8m2ot4u"
 base_entity = "anne"
-weapon = "goldsword"
+weapon = "apprenticestaff"
 weapon_type = "Sword"
-armor = "coat"
-acc = "earrings"
+armor = "academyrobe"
+acc = "emblem"
 metadata/_custom_type_script = "uid://cylv3fhlacu77"
