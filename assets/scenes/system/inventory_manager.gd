@@ -1,6 +1,6 @@
 extends Node
 
-@export var inventory: Dictionary[String,Dictionary] = {
+@export var inventory: Dictionary = {
 	"items":{},
 	"equipment":{},
 	"keys":{}
@@ -8,9 +8,13 @@ extends Node
 
 func get_item_amount(category,key):
 	if inventory[category].has(key):
-		return inventory[category][key]
+		return int(inventory[category][key])
 	else:
 		return 0
+func has_item(category,key):
+	if get_item_amount(category,key) != 0:
+		return true
+	else: return false
 func add_item(ref,amt,type):
 	inventory[type][ref]=get_item_amount(type,ref)+amt
 func remove_item(ref,type):

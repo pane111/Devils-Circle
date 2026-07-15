@@ -160,6 +160,7 @@ func save_data(file_num: int):
 		"playername":player_name,
 		"party_level":PartyManager.party_level,
 		"party_states":PartyManager.member_states,
+		"inventory":InventoryManager.inventory,
 		"chests":FlagManager.chests,
 		"malice":roundf(malice)
 	}
@@ -205,6 +206,11 @@ func load_data(file_num: int):
 			FlagManager.chests[key]=lchests[key]
 		PartyManager.party_level = roundi(sf_temp["party_level"]) if sf_temp.has("party_level") else 1
 		PartyManager.member_states = sf_temp["party_states"] if sf_temp.has("party_states") else {}
+		InventoryManager.inventory=sf_temp["inventory"] if sf_temp.has("inventory") else {
+			"items":{},
+			"equipment":{},
+			"keys":{}
+		}
 		PartyManager.fully_heal()
 		load_new_scene(lscene,"shrine")
 	else:

@@ -7,6 +7,10 @@ You agree, don't you?
 I heard there's a secret treasure in this village -
 But I can't find anything -
 Let me know if you do!
+if InventoryManager.has_item("keys","strangekey"):
+	Oh -
+	A key? Is this it?
+	But I do not know where to use it...
 => END
 
 ~ weirdo
