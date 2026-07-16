@@ -12,6 +12,7 @@ var stat_names = {
 }
 var ordered_keys = ["hp","str","mag","def","mdf","agi","evil"]
 func set_pm(p_name,ptext):
+	if !PartyManager.active_members.has(p_name): return
 	pm = PartyManager.active_members[p_name]
 	pm_entity = ResourceManager.get_resource("Entities",p_name) 
 	print_debug("Got entity " + str(pm_entity) + " from name "+ p_name)

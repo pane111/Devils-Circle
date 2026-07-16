@@ -2,5 +2,5 @@
 class_name Weapon
 extends Equipment
 @export var hit_effect: String
-enum weapon_type {SWORD=0,STAFF=1,SPEAR=2,BOW=3}
+enum weapon_type {SWORD=0,STAFF=1,SPEAR=2,BOW=3,CORE=4,SABER=5,BOOK=6}
 @export var type: weapon_type

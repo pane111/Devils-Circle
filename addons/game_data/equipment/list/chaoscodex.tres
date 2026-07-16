@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Weapon" format=3 uid="uid://bs4rksmlsxj0b"]
+
+[ext_resource type="Script" uid="uid://dw35i1bjs1rmt" path="res://addons/game_data/equipment/weapon.gd" id="1_6jy57"]
+
+[resource]
+script = ExtResource("1_6jy57")
+type = 6
+stat_changes = Dictionary[String, float]({
+"agi": 25.0,
+"def": 25.0,
+"hp": 0.0,
+"mag": 150.0,
+"mdf": 25.0,
+"str": 75.0
+})
+ref_name = "chaoscodex"
+item_name = "Chaos Codex"
+item_desc = "A book of forbidden knowledge."
+metadata/_custom_type_script = "uid://dw35i1bjs1rmt"

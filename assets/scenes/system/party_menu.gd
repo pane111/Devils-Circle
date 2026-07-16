@@ -18,6 +18,16 @@ func add_pm(pname: String):
 	pm_cont.get_child(0).focus_neighbor_top = returnbtn.get_path()
 	newpm.set_pm(pname)
 	pms[pname] = newpm
+
+func remove_pm(pname: String):
+	if !pms.has(pname):return
+	pms[pname].queue_free()
+	pms.erase(pname)
+	pm_cont.move_child(returnbtn,pm_cont.get_child_count()-1)
+	returnbtn.focus_neighbor_bottom = pm_cont.get_child(0).get_path()
+	pm_cont.get_child(0).focus_neighbor_top = returnbtn.get_path()
+	
+
 func reset_pms():
 	for pm in pms:
 		pms[pm].queue_free()

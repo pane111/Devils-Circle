@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="Battle_Entity" format=3 uid="uid://bfr7hpx2qtqhx"]
+
+[ext_resource type="Script" uid="uid://btmwkwsvwi5d4" path="res://addons/game_data/entities/entity.gd" id="1_mut6b"]
+
+[resource]
+script = ExtResource("1_mut6b")
+ref_name = "zenith"
+entity_name = "Adam"
+entity_desc = "???"
+base_stats = Dictionary[String, float]({
+"agi": 3.0,
+"def": 5.0,
+"hp": 14.0,
+"mag": 3.0,
+"mdf": 5.0,
+"str": 2.0
+})
+stat_growths = {
+"agi": 2.0,
+"def": 2.0,
+"hp": 4.0,
+"mag": 3.0,
+"mdf": 2.0,
+"str": 2.0
+}
+metadata/_custom_type_script = "uid://btmwkwsvwi5d4"

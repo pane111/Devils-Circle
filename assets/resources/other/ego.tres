@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="PartyMember" format=3 uid="uid://b8f42r5q11p45"]
+
+[ext_resource type="Script" uid="uid://cylv3fhlacu77" path="res://assets/resources/other/party_member.gd" id="1_duqvn"]
+
+[resource]
+script = ExtResource("1_duqvn")
+portrait = "uid://onrtaa0w4215"
+base_entity = "ego"
+weapon = "chaossaber"
+weapon_type = 5
+metadata/_custom_type_script = "uid://cylv3fhlacu77"

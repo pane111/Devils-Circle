@@ -6,6 +6,9 @@
 [ext_resource type="Resource" uid="uid://cuf10ry1fav6a" path="res://assets/resources/other/mage.tres" id="4_qqs61"]
 [ext_resource type="Resource" uid="uid://cahkif4k1o2k5" path="res://assets/resources/other/knight.tres" id="5_p7res"]
 [ext_resource type="Resource" uid="uid://b10rt28vtlh6w" path="res://assets/resources/other/ranger.tres" id="6_t0ajb"]
+[ext_resource type="Resource" uid="uid://b2sem5ohj1ia2" path="res://assets/resources/other/id.tres" id="7_jsrkl"]
+[ext_resource type="Resource" uid="uid://b8f42r5q11p45" path="res://assets/resources/other/ego.tres" id="8_n73rn"]
+[ext_resource type="Resource" uid="uid://cq3lf1gcbm4ml" path="res://assets/resources/other/zenith.tres" id="9_1fawa"]
 
 [node name="PartyManager" type="Node" unique_id=1044435316]
 script = ExtResource("1_3ysn8")
@@ -14,7 +17,10 @@ active_members = Dictionary[String, ExtResource("2_idkmr")]({
 })
 all_members = Dictionary[String, ExtResource("2_idkmr")]({
 "anne": ExtResource("4_qqs61"),
+"ego": ExtResource("8_n73rn"),
+"id": ExtResource("7_jsrkl"),
 "oscar": ExtResource("5_p7res"),
 "protag": ExtResource("3_qqs61"),
-"sybil": ExtResource("6_t0ajb")
+"sybil": ExtResource("6_t0ajb"),
+"zenith": ExtResource("9_1fawa")
 })

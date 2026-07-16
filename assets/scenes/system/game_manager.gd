@@ -127,6 +127,10 @@ func set_party_area_speed():
 func add_pm(pname):
 	party_members[pname]=1
 	load_pms()
+func remove_pm(pname):
+	party_members.erase(pname)
+	PartyManager.remove_pm(pname)
+	load_pms()
 
 func load_pms():
 	hide_followers()
@@ -134,9 +138,10 @@ func load_pms():
 	
 	for p in party_members:
 		if party_members.has(p):
-			followers[p].set_active(true)
-			followers[p].reparent(player.get_parent())
-			followers[p].reset_pos()
+			if followers.has(p):
+				followers[p].set_active(true)
+				followers[p].reparent(player.get_parent())
+				followers[p].reset_pos()
 			PartyManager.add_pm(p)
 		else:
 			if p == "protag":

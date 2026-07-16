@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="PartyMember" format=3 uid="uid://cq3lf1gcbm4ml"]
+
+[ext_resource type="Script" uid="uid://cylv3fhlacu77" path="res://assets/resources/other/party_member.gd" id="1_ya62v"]
+
+[resource]
+script = ExtResource("1_ya62v")
+portrait = "uid://bnf4mucq1fo1"
+base_entity = "zenith"
+weapon = "chaoscodex"
+weapon_type = 6
+metadata/_custom_type_script = "uid://cylv3fhlacu77"

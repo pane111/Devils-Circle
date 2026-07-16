@@ -18,10 +18,18 @@ func reset_all():
 	add_pm("protag")
 	party_level=1
 
+func is_in_party(pname: String):
+	if active_members.has(pname): return true 
+	else: return false
+
 func level_up():
 	if party_level < 100:
 		party_level+=1
 		fully_heal()
+
+func remove_pm(pname: String):
+	HudManager.remove_pm(pname)
+	active_members.erase(pname)
 
 func add_pm(pname: String):
 	active_members[pname] = all_members.get(pname)

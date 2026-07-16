@@ -40,7 +40,8 @@ func confirm_keyboard_entry(word):
 
 func add_pm(pname):
 	%PartyMenu.add_pm(pname)
-	
+func remove_pm(pname):
+	%PartyMenu.remove_pm(pname)
 func close_all_popups():
 	for c in $PopupMenus.get_children():
 		c.hide()

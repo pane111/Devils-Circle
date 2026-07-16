@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Weapon" format=3 uid="uid://crva2daqtxv75"]
+
+[ext_resource type="Script" uid="uid://dw35i1bjs1rmt" path="res://addons/game_data/equipment/weapon.gd" id="1_4a2gq"]
+
+[resource]
+script = ExtResource("1_4a2gq")
+type = 5
+stat_changes = Dictionary[String, float]({
+"agi": 90.0,
+"def": 0.0,
+"hp": 0.0,
+"mag": 120.0,
+"mdf": 0.0,
+"str": 80.0
+})
+ref_name = "chaossaber"
+item_name = "Chaos Saber"
+item_desc = "A glowing saber that enhances magic."
+metadata/_custom_type_script = "uid://dw35i1bjs1rmt"
